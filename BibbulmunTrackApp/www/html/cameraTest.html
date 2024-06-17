@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <!--
+        Customize this policy to fit your own app's needs. For more guidance, please refer to the docs:
+            https://cordova.apache.org/docs/en/latest/
+        Some notes:
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self' data: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+    <meta name="color-scheme" content="light dark">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/index.js"></script>
+    <title>Bibbulmun Track Maintenance App</title>
+
+    <style>
+        .header-content {
+            display: flex;
+            align-items: center;
+        }
+        .header-content img {
+            margin-right: 20px;
+        }
+    </style>
+    <!-- Include Cordova scripts -->
+    <script type="text/javascript" src="cordova.js"></script>
+    <!-- Include your custom script -->
+    <script type="text/javascript" src="l.js/index.js"></script>
+
+</head>
+
+<body>
+<header class="header-content">
+    <img src="../img/walkTheBibTrack.jpg" alt="Walk the Bibbulmun Track" />
+    <h1>Welcome to the Bibbulmun Track Maintenance App</h1>
+</header>
+
+<nav class="navbar">
+    <ul>
+        <li><a href="https://www.bibbulmuntrack.org.au/the-track/" target="_blank">Walk The Bibbulmun Track</a></li>
+        <li><a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/" target="_blank">Volunteer With Us</a></li>
+        <li><a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/training-recognition/" target="_blank">Training and Recognition</a></li>
+        <li><a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/volunteering-faqs/" target="_blank">Volunteering FAQs</a></li>
+    </ul>
+</nav>
+
+    <main>
+        <section>
+
+            <h1>Page 1</h1>
+            <button onclick="takePicture()">Take Picture</button>
+            <br>
+            <img id="myImage" src="#" style="width: 100%; max-width: 300px; height: auto;">
+        
+
+
+
+            <h2>Login / Registration</h2><br><br>
+
+            <p1 style="color: green;">( 1 ) This for preparation of Volunteer Registration</p1>
+
+            <h2>VOLUNTEER PROFILE</h2>
+            <label for="volCat">Volunteer Support Categories:</label>
+            <select id="volCat" name="VolunteerCategories">
+                <option value=" ">VOLUNTEER SUPPORT CATEGORIES</option>
+                <option value="maintenanceSectional">Maintenance Sectional</option>
+                <option value="maintenanceSupport">Maintenance Supports</option>
+                <option value="officeGeneral">Office General</option>
+                <option value="officeMaintenanceAdmin">Office Maintenance Admin</option>
+                <option value="officeMarketing">Office Marketing</option>
+                <option value="trackGuiding">Track Guiding</option>
+                <option value="promotionCommunityEvents">Promotion Community Events</option>
+                <option value="promotionCalendarDistribution">Promotion Calendar Distribution</option>
+            </select><br><br>
+
+            <p1 style="color: green;">======</p1>
+            <p1 style="color: green;">( 2 ) below here this for calculation of "Volunteers Hours" and to be kept in database
+            </p1>
+            <p1 style="color: green;">this area here, temporary manual click on the date time picker, hope Check In DTS
+                Check Out DTS can be
+                captured automatically into the database when the users hp reach Entrance/Exit point of the track park ,
+                or scan a QR code</p1>
+            
+                <h3>Attendance Date Time Stamp logging</h3>
+            <label for="chkInDTS">Check In Date Time Stamp</label>
+            <input placeholder="Check In Date Time" type="datetime-local" id="chkInDTS" name="chkInDTS"><br>
+            <label for="chkOutDTS">Check Out Date Time Stamp</label>
+            <input placeholder="Check Out Date Time" type="datetime-local" id="chkOutDTS" name="chkOutDTS"><br>
+            <label for="volHours">Today's Volunteered Hours</label>
+            <textarea placeholder="Today's volunteered hours" id="volHours" name="volHours" rows="1" cols="30"></textarea>
+            <label for="tVolHours">Accumulated Volunteered Hours</label>
+            <textarea placeholder="Accumulated volunteered hours" id="tVolHours" name="totalVolunteeredHours" rows="1" cols="30"></textarea>
+
+            <!-- need a field here to store calculated ChkOutDTS minus ChkInDTS i.e. to count how many VolHours-->
+            <p style="color: green;">======</p>
+
+            <br> <br>
+            <h2>TRACK MAINTENANCE REPORT</h2>
+
+            <h2>Report an Issue</h2>
+            <form>
+                <label for="dateTimePicker">Date Time picker</label>
+                <input type="datetime-local" id="dateTimePicker" name="dateTimePicker"><br>
+                <!--here a field to capture / save from date time picker since it's off line -->
+
+                <a href="csv/20240512 TrackInspectionReport.xls" target="_blank">Local Storage
+                    TrackInspectionReportCSV</a><br>
+                <a href="https://drive.google.com/file/d/1_A9QZYeNTqZ8oR3fxjIhX0Jy7TluTLUk/view?usp=sharing"
+                    target="_blank">trackReportPNG</a><br>
+                <a href="https://docs.google.com/spreadsheets/d/1s2p3TSCYY5Vh6vhblPEi25_9b6n10qWl/edit?usp=sharing&ouid=102690957484764986431&rtpof=true&sd=true"
+                    target="_blank">TrackInspectionReportXLS</a>
+
+                    <label for="issueType">Issue Type:</label>
+                    <select id="issueType" name="issueType" onchange="showIssueOptions()">
+                        <option value=" ">ISSUE TYPE</option>
+                        <option value="trackCondition">Track Condition</option>
+                        <option value="trackMarking">Track Marking</option>
+                        <option value="inappropriateUse">Inappropriate Use</option>
+                        <option value="otherIssues">Other issues</option>
+                    </select>
+                  
+<br> <p1 style="color: green;">===== ( 3 ) the following trackCondition, Track Marking, Inappropriate Use, Other
+                    Issues, only appear one based on "issueType" selected ====== START </p1>
+                <!-- if issueType = "trackCondition" -->
+            
+            <div id="trackConditionOptions" style="display:none;">
+                 <label for="trackCondition">Track Condition:</label>
+                <select id="trackCondition" name="trackCondition">
+                    <option value=" ">TRACK CONDITION</option>
+                    <option value="erosion">Erosion</option>
+                    <option value="regrowth">Regrowth</option>
+                    <option value="weeds">Weeds</option>
+                    <option value="sandBarsCond">Sand Bars Condition</option>
+                    <option value="damageWaterBars">Damage to Water Bars</option>
+                    <option value="damageHardwareStructure">Damage to Hardware Structure</option>
+                    <option value="inundation">Inundation</option>
+                    <option value="litter">Litter</option>
+                    <option value="fallenTree">Fallen Tree</option>
+                    <option value="damagedShelter">Damaged Shelter</option>
+                    <option value="brokenBridge">Broken Bridge</option>
+                </select>
+            </div>
+
+                <!-- if issueType = "trackMarking" -->
+<div id="trackMarkingOptions" style="display:none;">  
+                <label for="trackMarking">Track Marking:</label>
+                <select id="trackMarking" name="trackMarking">
+                    <option value=" ">TRACK MARKING</option>
+                    <option value="missingWaugals">Missing Waugals</option>
+                    <option value="fadedWaugals">Faded Waugals</option>
+                    <option value="damagedWaugals">Damaged Waugals</option>
+                    <option value="missingSignage">Missing signage</option>
+                    <option value="damagedSignage">DamagedSignage</option>
+                </select>
+</div>
+
+                <!-- if issueType = "inappropriateUse" -->
+<div id="inappropriateUseOptions" style="display:none;">
+                <label for="inappropriateUse">Inappropriate Use:</label>
+                <select id="inappropriateUse" name="inappropriateUse">
+                    <option value=" ">INAPPROPRIATE USE</option>
+                    <option value="mountainBikes">Mountain bikes</option>
+                    <option value="trailBbikes">Trail bikes</option>
+                    <option value="horses">Horses</option>
+                    <option value="vehicles">Vehicles</option>
+                </select>
+            </div>
+
+
+            <!-- if issueType = "otherIssues" -->
+            <div id="otherIssuesOptions" style="display:none;">
+                <label for="otherIssues">Other Issues:</label>
+                <textarea placeholder="Describe the issue here" id="otherIssues" name="otherIssues"
+                    rows="4" cols="30"></textarea>
+            </div>
+
+            <p1 style="color: green;">===== the following trackCondition, Track Marking, Inappropriate Use, Other
+                    Issues, only appear one based on "issueType" selected ====== END ( 3 ) </p1>
+    
+                <label for="problem">Problem</label>
+                <select id="problem" name="problem">
+                    <option value=" ">PROBLEM</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+
+                <label for="severity">severity</label>
+                    <select id="severity" name="severity">
+                        <option value=" ">SEVERITY</option>
+                        <option value="serious">serious</option>
+                        <option value="moderate">moderate</option>
+                        <option value="minimal">minimal</option>
+                    </select>
+
+                    <label for="frequency">frequency</label>
+                  <select id="frequency" name="frequency">
+                        <option value=" ">FREQUENCY</option>
+                        <option value="often">often</option>
+                        <option value="moderate">moderate</option>
+                        <option value="minimal">minimal</option>
+                    </select>
+
+                    <label for="emailDEC">emailDEC </label>
+                   <select id="emailDEC" name="emailDEC">
+                        <option value=" ">EMAILDEC</option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                    <!-- if emailDEC = yes ,  the button at the bottom will generate and send email when online -->
+
+                    <!-- "issueDescription" -->
+                    <br>
+                    <label for="issueDescription">Description:</label>
+                    <textarea id="issueDescription" name="issueDescription" rows="4" cols="30"></textarea><br>
+
+
+                    <label for="getGPS">Get GPS</label>
+                    <button type="button" id="getGPS">Get GPS</button><br>
+
+
+
+<br> <p1 style="color: green;"> ===h ( 4 ) GPS able to capture GPS automatically with no internet connection ===</p1> <br>
+<section>
+    <button id="getGPS" onclick="getGPS()">Get GPS</button>
+    <label for="latitude">Latitude:</label>
+    <input type="text" id="latitude" readonly>
+    <label for="longitude">Longitude:</label>
+    <input type="text" id="longitude" readonly>
+    <div id="map"></div>
+    <textarea placeholder="remark / describe specific location" id="descLocation" name="descLocation" rows="2" cols="30"></textarea><br>
+</section>
+
+            <section>
+<br> <p1 style="color: green;">=== ( 5 ) Camera Data here picture will be stored at local storage and last column of the CSV file ===</p1> <br>
+
+<label for="photo">Take Photo</label>
+<button type="button" id="takePhoto">Take Photo</button><br>
+
+
+                    <label for="Camera">Camera</label>
+                    <button id="takePhoto">Take Photo</button>
+                    <img id="image" style="display:none;" src="#" alt="Image will appear here">
+                    <br>
+                </section>
+
+<br> <p1 style="color: green;"> ===h ( 6 ) In case reported by general public ===</p1> <br>
+
+                <label for="reporterName">Name:</label>
+                <textarea placeholder="Enter your name here" id="reporterName" name="reporterName" rows="1"
+                    cols="50"></textarea>
+
+                <label for="reporterContact">Contact:</label>
+                <textarea placeholder="Enter your contact details here" id="reporterContact" name="reporterContact"
+                    rows="1" cols="50"></textarea>
+
+                    <input type="submit" value="Submit Report">
+
+                    <button type="save">Save One Line record to local Storage Report csv, and update database. </button> <br>
+                    <!-- here need coding, after "save", programming send collected info to correct field in the CSV (one day) TrackInspectionReport, and/or add to database -->
+
+              <br>      <p1 style="color: green;">=== ( 7 ) generate datetime-local ahead filename:TrackInspectionReport.csv file (one submission one csv file.) ===</p1><br>
+
+                    <button type="contactAuthority">ONLINE Email DEC for authority assistance </button> <br>
+                    <!--refer to line 173, if emailDEC = 'yes' ,  DEC attention required, -->
+
+                    <button type="submit">ONLINE Submit Report - Data Sync with internet </button>
+                    <br><br><br><br><br><br>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Bibbulmun Track Maintenance App</p>
+    </footer>
+
+    <!--Javascript for Issue Type Selection-->
+    <script>
+        // Function to show specific options based on the selected issue type
+        function showIssueOptions() {
+            const issueType = document.getElementById("issueType").value;
+            document.getElementById("trackConditionOptions").style.display = issueType === "trackCondition" ? "block" : "none";
+            document.getElementById("trackMarkingOptions").style.display = issueType === "trackMarking" ? "block" : "none";
+            document.getElementById("inappropriateUseOptions").style.display = issueType === "inappropriateUse" ? "block" : "none";
+            document.getElementById("otherIssuesOptions").style.display = issueType === "otherIssues" ? "block" : "none";
+        }
+
+        // Function to get the location of the user
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition, showError);
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
+
+        // Function to show the position of the user
+        function showPosition(position) {
+            alert("Latitude: " + position.coords.latitude + "\nLongitude: " + position.coords.longitude);
+        }
+
+        // Function to handle geolocation errors
+        function showError(error) {
+            switch (error.code) {
+                case error.PERMISSION_DENIED:
+                    alert("User denied the request for Geolocation.");
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    alert("Location information is unavailable.");
+                    break;
+                case error.TIMEOUT:
+                    alert("The request to get user location timed out.");
+                    break;
+                case error.UNKNOWN_ERROR:
+                    alert("An unknown error occurred.");
+                    break;
+            }
+        }
+
+        // Function to simulate taking a picture
+        function takePicture() {
+            alert("Picture taken (simulation).");
+        }
+            
+            function showError(error) {
+                switch(error.code) {
+                    case error.PERMISSION_DENIED:
+                        alert("User denied the request for Geolocation.");
+                        break;
+                    case error.POSITION_UNAVAILABLE:
+                        alert("Location information is unavailable.");
+                        break;
+                    case error.TIMEOUT:
+                        alert("The request to get user location timed out.");
+                        break;
+                    case error.UNKNOWN_ERROR:
+                        alert("An unknown error occurred.");
+                        break;
+                }
+            }
+            </script>
+            
+          <!--JavaScript for Camera Data -->
+
+          <script>
+            document.addEventListener('deviceready', onDeviceReady, false);
+            
+            function onDeviceReady() {
+                document.getElementById('takePhoto').addEventListener('click', takePhoto);
+            }
+            
+            function takePhoto() {
+                navigator.camera.getPicture(onPhotoDataSuccess, onFail, {
+                    quality: 50,
+                    destinationType: Camera.DestinationType.FILE_URI
+                });
+            }
+            
+            function onPhotoDataSuccess(imageURI) {
+                const image = document.getElementById('image');
+                image.style.display = 'block';
+                image.src = imageURI;
+            }
+            
+            function onFail(message) {
+                alert('Failed because: ' + message);
+            }
+            </script>
+            
+</body>
+
+</html>
