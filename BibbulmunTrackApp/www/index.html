@@ -35,10 +35,8 @@
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
     <meta name="color-scheme" content="light dark">
-    <link rel="stylesheet" href="../css/index.css">
-  <!--  <link rel="stylesheet" href="../css/navigator.css">    -->
-    <script src="../js/index.js"></script>
-    <script src="../js/cameraTest.js"></script>
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/index.js"></script>
     <title>Bibbulmun Track Maintenance App</title>
 
     <style>
@@ -46,7 +44,6 @@
             display: flex;
             align-items: center;
         }
-
         .header-content img {
             margin-right: 20px;
         }
@@ -55,108 +52,396 @@
 </head>
 
 <body>
-    <header class="header-content">
-        <img src="../img/walkTheBibTrack.jpg" alt="Walk the Bibbulmun Track" />
-        <h1>Welcome to the Bibbulmun Track Maintenance App</h1>
-    </header>
+<header class="header-content">
+    <img src="img/walkTheBibTrack.jpg" alt="Walk the Bibbulmun Track" />
+    <h1>Welcome to the Bibbulmun Track Maintenance App</h1>
+</header>
 
-    <nav class="navbar">
-        <ul>
-            <li><a href="https://www.bibbulmuntrack.org.au/the-track/" target="_blank">Walk The Bibbulmun Track</a></li>
-            <li><a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/" target="_blank">Volunteer
-                    With Us</a></li>
-            <li><a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/training-recognition/"
-                    target="_blank">Training and Recognition</a></li>
-            <li><a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/volunteering-faqs/"
-                    target="_blank">Volunteering FAQs</a></li>
-            <li><a href="https://docs.google.com/document/d/1ijmDKX9Eb4ph3X2y8SCljUWEqL9flKbr/edit?usp=sharing&ouid=102690957484764986431&rtpof=true&sd=true"
-                    target="_blank">Project Paper</a></li>
-            
-                <li><a href="https://docs.google.com/spreadsheets/d/1s2p3TSCYY5Vh6vhblPEi25_9b6n10qWl/edit?usp=sharing&ouid=102690957484764986431&rtpof=true&sd=true"
-                        target="_blank">TrackInspectionReportXLS</a></li>
-                <li><a href="https://drive.google.com/file/d/1NezoBfJuzdqkjP_9EmAmTb5IP1VBhF2I/view?usp=sharing"
-                        target="_blank">VolunteeringPDF</a></li>
-                <li><a href="https://drive.google.com/file/d/1yaRAgKrB8Kt_-z2ZKa9jPq5cuSN8uU3o/view?usp=sharing"
-                        target="_blank">CampsiteReportPNG</a></li>
-                <li><a href="https://docs.google.com/document/d/1ua7MqJL4XS2BaUwiyPjofkEDkKqgDN38/edit?usp=sharing&ouid=102690957484764986431&rtpof=true&sd=true"
-                        target="_blank">CampsiteReportWORDS</a></li>
-            
-        </ul>
-    </nav>
-
-
-
+<nav class="navbar">
+    <ul>
+        <li><a href="https://www.bibbulmuntrack.org.au/the-track/" target="_blank">Walk The Bibbulmun Track</a></li>
+        <li><a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/" target="_blank">Volunteer With Us</a></li>
+        <li><a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/training-recognition/" target="_blank">Training and Recognition</a></li>
+        <li><a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/volunteering-faqs/" target="_blank">Volunteering FAQs</a></li>
+    </ul>
+</nav>
 
     <main>
         <section>
-
-            <h2>Registration</h2>
-            <label for="loginUserName">Login Username</label>
+            <label for="loginUserName">Login User Name</label>
             <input placeholder="Login User Name" type="text" id="loginUserName" name="loginUserName">
-
-            <label for="loginPassword">Login Password</label>
+            <label for="loginPassword">Login Pass word</label>
             <input placeholder="Login Password" type="unicode" id="loginPassword" name="loginPassword"><br>
-            <p1 style="color: green;"> 8 UpperLowerCase AlphaNumeric WildcardCharacters</p1><br>
+            <button type="login">Login</button> 
+            <a href="html/registration.html"> <button type="Register">Register</button></a><br><br>
 
-            <label for="repeatPassword">Repeat password</label>
-            <input placeholder="Repeat Passord" type="unicode" id="repeatPassord" name="repeatPassord"><br>
-            <p1 style="color: green;"> 8 UpperLowerCase AlphaNumeric WildcardCharacters</p1><br>
 
-            <label for="fName">First Name</label>
-            <input placeholder="First Name" type="text" id="fName" name="fName">
+            <h2>TRACK MAINTENANCE REPORT</h2>
 
-            <label for="lname">Last Name</label>
-            <input placeholder="Last Name (SurName)" type="text" id="lname" name="lname"><br>
-
-            <label for="eMail">Email Address</label>
-            <input placeholder="Email Address" type="text" id="eMail" name="eMail">
-
-            <label for="hPhone">Hand Phone Number</label>
-            <input placeholder="Hand Phone Number" type="text" id="hPhone" name="hPhone">
-
-            <label for="rLocality">Residential Location</label>
-            <select>
-                <option value=" ">RESIDENTIAL LOCALITY</option>
-                <option value="suburb">Surburd</option>
-                <option value="Town">Town</option>
-            </select>
-
-            <label for="fAddress">Type Full Address</label>
-            <input placeholder="Full Address" type="text" id="fAddress" name="fAddress"><br>
-
-            <p1 style="color: green;">( 1 ) This for preparation of Volunteer Registration</p1>
-
-            <h2>VOLUNTEER PROFILE</h2>
-            <label for="volCat">Volunteer Roles Support Categories:</label>
-            <select id="volCat" name="VolunteerCategories">
-                <option value=" ">VOLUNTEER ROLE</option>
-                <option value="maintenanceSectional">Maintenance Sectional</option>
-                <option value="maintenanceSupport">Maintenance Supports</option>
-                <option value="officeGeneral">Office General</option>
-                <option value="officeMaintenanceAdmin">Office Maintenance Admin</option>
-                <option value="officeMarketing">Office Marketing and Communications</option>
-                <option value="trackGuiding">Track Guiding</option>
-                <option value="researchDataEntry">Research Data Entry</option>
-                <option value="promotionCommunityEvents">Promotion Community Events</option>
-                <option value="promotionCalendarDistribution">Promotion Calendar Distribution</option>
-            </select>
-
-          
-            <label for="background">Background - tell use more about yourself</label>
-               <textarea id="issueDescription" name="issueDescription" rows="4" cols="21"></textarea><br>
-
+            <h2>Report an Issue</h2>
+            <form>
+                <label for="dateTimePicker">Inspection Date</label>
+                <input type="datetime-local" id="dateTimePicker" name="dateTimePicker"><br>
+                <!--here a field to capture / save from date time picker since it's off line -->
                 
+                <label for="campsite">Bibbulmun Track Campsites</label>
+                <select id="campsite" name="campsite">
+                    <option value=" ">BIBBULMUN TRACK CAMPSITES</option>
+                    <option value="albany">Albany</option>
+                    <option value="balingup">Balingup</option>
+                    <option value="beavis">Beavis</option>
+                    <option value="beedelup">Beedelup</option>
+                    <option value="boardingHouse">Boarding House</option>
+                    <option value="boatHarbour">Boat Harbour</option>
+                    <option value="brookton">Brookton</option>
+                    <option value="chadoora">Chadoora</option>
+                    <option value="collie">Collie</option>
+                    <option value="denmark">Denmark</option>
+                    <option value="dogPool">Dog Pool</option>
+                    <option value="dookanelly">Dookanelly</option>
+                    <option value="drv">DRV</option>
+                    <option value="dwellingup">Dwellingup</option>
+                    <option value="frankland">Frankland</option>
+                    <option value="beedelup">Beedelup</option>
+                    <option value="gardner">Gardner</option>
+                    <option value="giants">Giants</option>
+                    <option value="gregoryBrook">Gregory Brook</option>
+                    <option value="grimwade">Grimwade</option>
+                    <option value="gringerCreek">Gringer Creek</option>
+                    <option value="harrisDam">Harris Dam</option>
+                    <option value="helena">Helena</option>
+                    <option value="hewettsHill">Hewett's Hill</option>
+                    <option value="longPoint">Long Point</option>
+                    <option value="maringup">Maringup</option>
+                    <option value="monadnocks">Monadnocks</option>
+                    <option value="mtChance">Mt Chance</option>
+                    <option value="mtCooke">Mt Cooke</option>
+                    <option value="mtWells">Mt Wells</option>
+                    <option value="murray">Murray</option>
+                    <option value="muttonBird">Mutton Bird</option>
+                    <option value="nerang">Nerang</option>
+                    <option value="noggerup">Noggerup</option>
+                    <option value="northcliffe">Northcliffe</option>
+                    <option value="peacefulBay">Peaceful Bay</option>
+                    <option value="pemberton">Pemberton</option>
+                    <option value="possumSprings">Possum Springs</option>
+                    <option value="rameHead">Rame Head</option>
+                    <option value="sandPatch">Sand Patch</option>
+                    <option value="schafer">Schafer</option>
+                    <option value="swampOak">Swamp Oak</option>
+                    <option value="tomRoad">Tom Road</option>
+                    <option value="torbay">Torbay</option>
+                    <option value="walpole">Walpole</option>
+                    <option value="warren">Warren</option>
+                    <option value="westCapeHowe">West Cape Howe</option>
+                    <option value="whiteHorseHills">White Horse Hills</option>
+                    <option value="williamBay">William Bay</option>
+                    <option value="woolbales">Woolbales</option>
+                    <option value="yabberup">Yabberup</option>
+                    <option value="yourdamung">Yourdamung</option>
+                </select>
+                <!--Bibbulmun Track Campsites -->
+                
+                <label for="decDist">DEC District</label>
+                <select id="decDist" name="decDist">
+                    <option value=" ">DEC DISTRICT</option>
+                    <option value="albany">Albany</option>
+                    <option value="blackwood">Blackwood</option>
+                    <option value="donnelly (Manjimup)">Donnelly (Manjimup)</option>
+                    <option value="donnelly (Pemberton)">Donnelly (Pemberton)</option>
+                    <option value="frankland">Frankland</option>
+                    <option value="perth Hills (Dwellingup)">Perth Hills (Dwellingup)</option>
+                    <option value="perth Hills (Mundaring)">Perth Hills (Mundaring)</option>
+                    <option value="wellington">Wellington</option>
+                </select>
+                <!--decDist -->
 
-            <!--add items here-->
+                    <label for="issueType">Issue Type:</label>
+                    <select id="issueType" name="issueType" onchange="showIssueOptions()">
+                        <option value=" ">ISSUE TYPE</option>
+                        <option value="trackCondition">Track Condition</option>
+                        <option value="trackMarking">Track Marking</option>
+                        <option value="inappropriateUse">Inappropriate Use</option>
+                        <option value="otherIssues">Other issues</option>
+                    </select>
+                  
+<br> <p1 style="color: green;">===== ( 3 ) the following trackCondition, Track Marking, Inappropriate Use, Other
+                    Issues, only appear one based on "issueType" selected ====== START </p1>
+                <!-- if issueType = "trackCondition" -->
+            
+            <div id="trackConditionOptions" style="display:none;">
+                 <label for="trackCondition">Track Condition:</label>
+                <select id="trackCondition" name="trackCondition">
+                    <option value=" ">TRACK CONDITION</option>
+                    <option value="erosion">Dune Erosion</option>
+                    <option value="regrowth">Regrowth</option>
+                    <option value="weeds">Weeds</option>
+                    <option value="sandBarsCond">Sand Bars Condition</option>
+                    <option value="damageWaterBars">Damage to Water Bars</option>
+                    <option value="damageHardwareStructure">Damage to Hardware Structure</option>
+                    <option value="inundation">Inundation</option>
+                    <option value="litter">Litter</option>
+                    <option value="fallenTree">Fallen Tree</option>
+                    <option value="damagedShelter">Damaged Shelter</option>
+                    <option value="brokenBridge">Broken Bridge</option>
+                </select>
+            </div>
 
+                <!-- if issueType = "trackMarking" -->
+<div id="trackMarkingOptions" style="display:none;">  
+                <label for="trackMarking">Track Marking:</label>
+                <select id="trackMarking" name="trackMarking">
+                    <option value=" ">TRACK MARKING</option>
+                    <option value="missingWaugals">Missing Waugals</option>
+                    <option value="fadedWaugals">Faded Waugals</option>
+                    <option value="damagedWaugals">Damaged Waugals</option>
+                    <option value="missingSignage">Missing signage</option>
+                    <option value="damagedSignage">DamagedSignage</option>
+                </select>
+</div>
+
+                <!-- if issueType = "inappropriateUse" -->
+<div id="inappropriateUseOptions" style="display:none;">
+                <label for="inappropriateUse">Inappropriate Use:</label>
+                <select id="inappropriateUse" name="inappropriateUse">
+                    <option value=" ">INAPPROPRIATE USE</option>
+                    <option value="mountainBikes">Mountain bikes</option>
+                    <option value="trailBbikes">Trail bikes</option>
+                    <option value="horses">Horses</option>
+                    <option value="vehicles">Vehicles</option>
+                </select>
+            </div>
+
+
+            <!-- if issueType = "otherIssues" -->
+            <div id="otherIssuesOptions" style="display:none;">
+                <label for="otherIssues">Other Issues:</label>
+                <textarea placeholder="Describe the issue here" id="otherIssues" name="otherIssues"
+                    rows="4" cols="30"></textarea>
+            </div>
+
+            <p1 style="color: green;">===== the following trackCondition, Track Marking, Inappropriate Use, Other
+                    Issues, only appear one based on "issueType" selected ====== END ( 3 ) </p1>
+    
+                <label for="problem">Problem</label>
+                <select id="problem" name="problem">
+                    <option value=" ">PROBLEM</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+
+                <label for="severity">severity</label>
+                    <select id="severity" name="severity">
+                        <option value=" ">SEVERITY</option>
+                        <option value="serious">serious</option>
+                        <option value="moderate">moderate</option>
+                        <option value="minimal">minimal</option>
+                    </select>
+
+                    <label for="frequency">frequency</label>
+                  <select id="frequency" name="frequency">
+                        <option value=" ">FREQUENCY</option>
+                        <option value="often">often</option>
+                        <option value="moderate">moderate</option>
+                        <option value="minimal">minimal</option>
+                    </select>
+
+                    <label for="emailDEC">emailDEC </label>
+                   <select id="emailDEC" name="emailDEC">
+                        <option value=" ">EMAILDEC</option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                    <!-- if emailDEC = yes ,  the button at the bottom will generate and send email when online -->
+
+                    <!-- "issueDescription" -->
+                    <br>
+                    <label for="issueDescription">Description:</label>
+                    <textarea id="issueDescription" name="issueDescription" rows="4" cols="21"></textarea><br>
+
+<br> <p1 style="color: green;"> ===h ( 4 ) GPS able to capture GPS automatically with no internet connection ===</p1> <br>
+<section>
+    <button id="getGPS" onclick="getGPS()">Get GPS</button>
+    <label for="latitude">Latitude:</label>
+    <input type="text" id="latitude" readonly>
+    <label for="longitude">Longitude:</label>
+    <input type="text" id="longitude" readonly>
+    <div id="map"></div>
+    <textarea placeholder="remark / describe specific location" id="descLocation" name="descLocation" rows="2" cols="21"></textarea><br>
+</section>
+
+            <section>
+<br> <p1 style="color: green;">=== ( 5 ) Camera Data here picture will be stored at local storage and last column of the CSV file ===</p1> <br>
+
+                    <label for="Camera">Camera</label>
+                    <button id="takePhoto">Take Photo</button>
+                    <img id="image" style="display:none;" src="#" alt="Image will appear here">
+                    <p id="picture"></p> <!-- picture here -->
+                    <br>
+                </section>
+
+<br> <p1 style="color: green;"> ===h ( 6 ) In case reported by general public ===</p1> <br>
+
+                <label for="reporterName">Name:</label>
+                <textarea placeholder="Enter your name here" id="reporterName" name="reporterName" rows="1"
+                    cols="20"></textarea>
+
+                <label for="reporterContact">Contact:</label>
+                <textarea placeholder="Enter your contact details here" id="reporterContact" name="reporterContact"
+                    rows="1" cols="20"></textarea><br><br>
+
+                    <input type="submit" value="Submit Report"><br><br>
+
+                    <button type="save">Save local Storage</button> <br>
+                    <!-- here need coding, after "save", programming send collected info to correct field in the CSV (one day) TrackInspectionReport, and/or add to database -->
+
+              <br>      <p1 style="color: green;">=== ( 7 ) generate datetime-local ahead filename:TrackInspectionReport.csv file (one submission one csv file.) ===</p1><br>
+
+                    <button type="contactAuthority">ONLINE Email DEC</button> <br><br>
+                    <!--refer to line 173, if emailDEC = 'yes' ,  DEC attention required, -->
+
+                    <button type="submit">ONLINE Submit Report (Data Sync)</button>
+                    <br><br><br><br><br><br>
+            </form>
+        </section>
+<div>
+    <p1 style="color: green;">======</p1>
+    <p1 style="color: green;">( 2 ) below here this for calculation of "Volunteers Hours" and to be kept in database
+    </p1>
+    <p1 style="color: green;">this area here, temporary manual click on the date time picker, hope Check In DTS
+        Check Out DTS can be
+        captured automatically into the database when the users hp reach Entrance/Exit point of the track park ,
+        or scan a QR code</p1>
+    
+        <h3>Attendance Date Time Stamp logging</h3>
+    <label for="chkInDTS">Check In Date Time Stamp</label>
+    <input placeholder="Check In Date Time" type="datetime-local" id="chkInDTS" name="chkInDTS"><br>
+    <label for="chkOutDTS">Check Out Date Time Stamp</label>
+    <input placeholder="Check Out Date Time" type="datetime-local" id="chkOutDTS" name="chkOutDTS"><br>
+    <label for="volHours">Today's Volunteered Hours</label>
+    <textarea placeholder="Today's volunteered hours" id="volHours" name="volHours" rows="1" cols="21"></textarea>
+    <label for="tVolHours">Accumulated Volunteered Hours</label>
+    <textarea placeholder="Accumulated volunteered hours" id="tVolHours" name="totalVolunteeredHours" rows="1" cols="21"></textarea>
+
+    <!-- need a field here to store calculated ChkOutDTS minus ChkInDTS i.e. to count how many VolHours-->
+    <p style="color: green;">======</p>
+
+    <br> <br>
+
+</div>
+
+
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Bibbulmun Track Maintenance App</p>
+    </footer>
+
+    <!--Javascript for Issue Type Selection-->
+
+
+<script>
+
+    <!--testing Camera Take Photo -->
+document.getElementById("myBtn").addEventListener("click", displayDate);
+
+function displayDate() {
+  document.getElementById("picture").innerHTML = Date();
+}
+
+
+        // Function to show specific options based on the selected issue type
+        function showIssueOptions() {
+            const issueType = document.getElementById("issueType").value;
+            document.getElementById("trackConditionOptions").style.display = issueType === "trackCondition" ? "block" : "none";
+            document.getElementById("trackMarkingOptions").style.display = issueType === "trackMarking" ? "block" : "none";
+            document.getElementById("inappropriateUseOptions").style.display = issueType === "inappropriateUse" ? "block" : "none";
+            document.getElementById("otherIssuesOptions").style.display = issueType === "otherIssues" ? "block" : "none";
+        }
+
+        // Function to get the location of the user
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition, showError);
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
+
+        // Function to show the position of the user
+        function showPosition(position) {
+            alert("Latitude: " + position.coords.latitude + "\nLongitude: " + position.coords.longitude);
+        }
+
+        // Function to handle geolocation errors
+        function showError(error) {
+            switch (error.code) {
+                case error.PERMISSION_DENIED:
+                    alert("User denied the request for Geolocation.");
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    alert("Location information is unavailable.");
+                    break;
+                case error.TIMEOUT:
+                    alert("The request to get user location timed out.");
+                    break;
+                case error.UNKNOWN_ERROR:
+                    alert("An unknown error occurred.");
+                    break;
+            }
+        }
+
+        // Function to simulate taking a picture
+        function takePicture() {
+            alert("Picture taken (simulation).");
+        }
 
             
-            <!--add items here-->
+            function showError(error) {
+                switch(error.code) {
+                    case error.PERMISSION_DENIED:
+                        alert("User denied the request for Geolocation.");
+                        break;
+                    case error.POSITION_UNAVAILABLE:
+                        alert("Location information is unavailable.");
+                        break;
+                    case error.TIMEOUT:
+                        alert("The request to get user location timed out.");
+                        break;
+                    case error.UNKNOWN_ERROR:
+                        alert("An unknown error occurred.");
+                        break;
+                }
+            }
+            </script>
+            
+          <!--JavaScript for Camera Data -->
 
-
-            <button type="register">Registration</button>
-            <br><br>
-
+          <script>
+            document.addEventListener('deviceready', onDeviceReady, false);
+            
+            function onDeviceReady() {
+                document.getElementById('takePhoto').addEventListener('click', takePhoto);
+            }
+            
+            function takePhoto() {
+                navigator.camera.getPicture(onPhotoDataSuccess, onFail, {
+                    quality: 50,
+                    destinationType: Camera.DestinationType.FILE_URI
+                });
+            }
+            
+            function onPhotoDataSuccess(imageURI) {
+                const image = document.getElementById('image');
+                image.style.display = 'block';
+                image.src = imageURI;
+            }
+            
+            function onFail(message) {
+                alert('Failed because: ' + message);
+            }
+            </script>
+            
 </body>
 
 </html>
