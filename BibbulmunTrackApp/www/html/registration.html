@@ -36,6 +36,7 @@
     <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
     <meta name="color-scheme" content="light dark">
     <link rel="stylesheet" href="../css/index.css">
+  <!--  <link rel="stylesheet" href="../css/navigator.css">    -->
     <script src="../js/index.js"></script>
     <script src="../js/cameraTest.js"></script>
     <title>Bibbulmun Track Maintenance App</title>
@@ -45,6 +46,7 @@
             display: flex;
             align-items: center;
         }
+
         .header-content img {
             margin-right: 20px;
         }
@@ -57,61 +59,104 @@
         <img src="../img/walkTheBibTrack.jpg" alt="Walk the Bibbulmun Track" />
         <h1>Welcome to the Bibbulmun Track Maintenance App</h1>
     </header>
-    
+
     <nav class="navbar">
         <ul>
             <li><a href="https://www.bibbulmuntrack.org.au/the-track/" target="_blank">Walk The Bibbulmun Track</a></li>
-            <li><a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/" target="_blank">Volunteer With Us</a></li>
-            <li><a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/training-recognition/" target="_blank">Training and Recognition</a></li>
-            <li><a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/volunteering-faqs/" target="_blank">Volunteering FAQs</a></li>
+            <li><a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/" target="_blank">Volunteer
+                    With Us</a></li>
+            <li><a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/training-recognition/"
+                    target="_blank">Training and Recognition</a></li>
+            <li><a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/volunteering-faqs/"
+                    target="_blank">Volunteering FAQs</a></li>
+            <li><a href="https://docs.google.com/document/d/1ijmDKX9Eb4ph3X2y8SCljUWEqL9flKbr/edit?usp=sharing&ouid=102690957484764986431&rtpof=true&sd=true"
+                    target="_blank">Project Paper</a></li>
+            
+                <li><a href="https://docs.google.com/spreadsheets/d/1s2p3TSCYY5Vh6vhblPEi25_9b6n10qWl/edit?usp=sharing&ouid=102690957484764986431&rtpof=true&sd=true"
+                        target="_blank">TrackInspectionReportXLS</a></li>
+                <li><a href="https://drive.google.com/file/d/1NezoBfJuzdqkjP_9EmAmTb5IP1VBhF2I/view?usp=sharing"
+                        target="_blank">VolunteeringPDF</a></li>
+                <li><a href="https://drive.google.com/file/d/1yaRAgKrB8Kt_-z2ZKa9jPq5cuSN8uU3o/view?usp=sharing"
+                        target="_blank">CampsiteReportPNG</a></li>
+                <li><a href="https://docs.google.com/document/d/1ua7MqJL4XS2BaUwiyPjofkEDkKqgDN38/edit?usp=sharing&ouid=102690957484764986431&rtpof=true&sd=true"
+                        target="_blank">CampsiteReportWORDS</a></li>
+            
         </ul>
     </nav>
-    
-        <main>
-            <section>                
-            
-                   <h2>Login</h2>
-                   <label for="loginUserName">Login User Name</label>
-                   <input placeholder="loginUserName" type="text" id="loginUserName" name="loginUserName">
-                   <label for="loginPassword">Login Pass word</label>
-                   <input placeholder="loginPassword" type="unicode" id="loginPassword" name="loginPassword"><br>
-                   <button type="login">Login</button>
-                   <br><br>
 
 
 
-                   <h2>Registration</h2>
-                   <label for="fName">First Name</label>
-                   <input placeholder="loginUserName" type="text" id="loginUserName" name="loginUserName">
-                   <label for="lname">Last Name</label>
-                   <input placeholder="loginPassword" type="unicode" id="loginPassword" name="loginPassword"><br>
-                  
-                   
+
+    <main>
+        <section>
+
+            <h2>Registration</h2>
+            <label for="loginUserName">Login Username</label>
+            <input placeholder="Login User Name" type="text" id="loginUserName" name="loginUserName">
+
+            <label for="loginPassword">Login Password</label>
+            <input placeholder="Login Password" type="unicode" id="loginPassword" name="loginPassword"><br>
+            <p1 style="color: green;"> 8 UpperLowerCase AlphaNumeric WildcardCharacters</p1><br>
+
+            <label for="repeatPassword">Repeat password</label>
+            <input placeholder="Repeat Passord" type="unicode" id="repeatPassord" name="repeatPassord"><br>
+            <p1 style="color: green;"> 8 UpperLowerCase AlphaNumeric WildcardCharacters</p1><br>
+
+            <label for="fName">First Name</label>
+            <input placeholder="First Name" type="text" id="fName" name="fName">
+
+            <label for="lname">Last Name</label>
+            <input placeholder="Last Name (SurName)" type="text" id="lname" name="lname"><br>
+
+            <label for="eMail">Email Address</label>
+            <input placeholder="Email Address" type="text" id="eMail" name="eMail">
+
+            <label for="hPhone">Hand Phone Number</label>
+            <input placeholder="Hand Phone Number" type="text" id="hPhone" name="hPhone">
+
+            <label for="rLocality">Residential Location</label>
+            <select>
+                <option value=" ">RESIDENTIAL LOCALITY</option>
+                <option value="suburb">Surburd</option>
+                <option value="Town">Town</option>
+            </select>
+
+            <label for="fAddress">Type Full Address</label>
+            <input placeholder="Full Address" type="text" id="fAddress" name="fAddress"><br>
+
             <p1 style="color: green;">( 1 ) This for preparation of Volunteer Registration</p1>
 
             <h2>VOLUNTEER PROFILE</h2>
-            <label for="volCat">Volunteer Support Categories:</label>
+            <label for="volCat">Volunteer Roles Support Categories:</label>
             <select id="volCat" name="VolunteerCategories">
-                <option value=" ">VOLUNTEER SUPPORT CATEGORIES</option>
+                <option value=" ">VOLUNTEER ROLE</option>
                 <option value="maintenanceSectional">Maintenance Sectional</option>
                 <option value="maintenanceSupport">Maintenance Supports</option>
                 <option value="officeGeneral">Office General</option>
                 <option value="officeMaintenanceAdmin">Office Maintenance Admin</option>
-                <option value="officeMarketing">Office Marketing</option>
+                <option value="officeMarketing">Office Marketing and Communications</option>
                 <option value="trackGuiding">Track Guiding</option>
+                <option value="researchDataEntry">Research Data Entry</option>
                 <option value="promotionCommunityEvents">Promotion Community Events</option>
                 <option value="promotionCalendarDistribution">Promotion Calendar Distribution</option>
-            </select><br><br>
+            </select>
 
-<!--add items here-->
+          
+            <label for="background">Background - tell use more about yourself</label>
+               <textarea id="issueDescription" name="issueDescription" rows="4" cols="21"></textarea><br>
 
-      <!--add items here-->
+                
 
-            <label for="repeatPassword">Repeat password</label>
-            <input placeholder="Repeat Passord 8 Characters" type="unicode" id="repeatPassord" name="repeatPassord"><br>
+            <!--add items here-->
+
+
             
-                   <button type="register">Registration</button>
-                   <br><br>
-    
+            <!--add items here-->
+
+
+            <button type="register">Registration</button>
+            <br><br>
+
 </body>
+
 </html>
