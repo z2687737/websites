@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-* {
+ * {
     -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
 }
 
@@ -42,8 +42,8 @@ p {
 
 .navbar {
     background-color: maroon;
-    height: 70px; /* Adjust this value as needed */
-    line-height: 70px; /* Align text vertically */
+    height: 30px; /* Adjust this value as needed */
+    line-height: 30px; /* Align text vertically */
 }
 
 nav ul {
@@ -155,15 +155,15 @@ input[type="datetime-local"] {
 }
 
 button {
-    background-color: maroon;
+    background-color: #d86817;
     color: #ffffff;
-    border: none;
+    border: 10px;
     padding: 10px;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #d86817;
+    background-color: maroon;
 }
 
 footer {
@@ -238,6 +238,3 @@ footer {
         background-image:linear-gradient(to bottom, #585858 0%, #1B1B1B 51%);
     }
 }
-
-
-
