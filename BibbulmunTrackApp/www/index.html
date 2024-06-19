@@ -73,17 +73,17 @@
             <label for="loginPassword">Login Pass word</label>
             <input placeholder="Login Password" type="unicode" id="loginPassword" name="loginPassword"><br>
             <button type="login">Login</button> 
-            <a href="html/registration.html"> <button type="Register">Register</button></a><br><br>
-
+            <a href="html/registration.html" target="_blank"> <button type="Register">Register</button></a><br><br>
 
             <h2>TRACK MAINTENANCE REPORT</h2>
 
-            <h2>Report an Issue</h2>
             <form>
                 <label for="dateTimePicker">Inspection Date</label>
                 <input type="datetime-local" id="dateTimePicker" name="dateTimePicker"><br>
                 <!--here a field to capture / save from date time picker since it's off line -->
-                
+
+                <h2>Campsite Report</h2>
+
                 <label for="campsite">Bibbulmun Track Campsites</label>
                 <select id="campsite" name="campsite">
                     <option value=" ">BIBBULMUN TRACK CAMPSITES</option>
@@ -155,6 +155,8 @@
                     <option value="wellington">Wellington</option>
                 </select>
                 <!--decDist -->
+
+                <h2>Report an Issue</h2>
 
                     <label for="issueType">Issue Type:</label>
                     <select id="issueType" name="issueType" onchange="showIssueOptions()">
@@ -277,10 +279,11 @@
                     <button id="takePhoto">Take Photo</button>
                     <img id="image" style="display:none;" src="#" alt="Image will appear here">
                     <p id="picture"></p> <!-- picture here -->
-                    <br>
+                    
                 </section>
 
 <br> <p1 style="color: green;"> ===h ( 6 ) In case reported by general public ===</p1> <br>
+<h2>Reported BY</h2>
 
                 <label for="reporterName">Name:</label>
                 <textarea placeholder="Enter your name here" id="reporterName" name="reporterName" rows="1"
@@ -305,31 +308,34 @@
             </form>
         </section>
 <div>
-    <p1 style="color: green;">======</p1>
-    <p1 style="color: green;">( 2 ) below here this for calculation of "Volunteers Hours" and to be kept in database
-    </p1>
-    <p1 style="color: green;">this area here, temporary manual click on the date time picker, hope Check In DTS
-        Check Out DTS can be
-        captured automatically into the database when the users hp reach Entrance/Exit point of the track park ,
-        or scan a QR code</p1>
-    
+<br>    <p1 style="color: green;">==== ( 8 ) START reference to ICT286 Pulau Tekong revise engineering solution ====</p1><Br>
+    <br><p1 style="color: green;">( 8.1 ) below here this for calculation of "Volunteers Hours" and to be kept in database, as well as shown up in the field on the BibbulmunTrackApp
+    </p1><br>
+    <br><p1 style="color: green;">( 8.2 ) this area here, temporary manual click on the date time picker,  best Check In DTS Check Out DTS can be captured automatically into the database when the users hp reach Entrance/Exit point of the track park ,
+        or scan a QR Code</p1><br>
+
+<br><p1 style="color: green;">==== ( 8.3 ) after each scan of QR code, register into database correct field, shown up on BibbulmunTrackApp  === (QR scan is easier to play with) ====</p1><Br>
+    <br><p1 style="color: green;">==== ( 8.4 ) Check out date time - check in date time = Today's Volunteered Hours <br> get Today's Volunteered Hours </p1><Br>
+        <br><p1 style="color: green;">==== ( 8.4 code -----------> )  chkOutDTS - chkInDTS = volHours <br> ==== register this in data base,  show this on the field ===== </p1><Br>
+        <br><p1 style="color: green;">==== ( 8.5 ) aVolHours = aVolHours + Today's Volunteered Hours<br>  </p1><Br>
+        <br><p1 style="color: green;">==== ( 8.5 code -----------> )  aVolHours = aVolHours + volHours <br> ==== register this in data base,  show this on the field ===== </p1><Br><Br>
+
         <h3>Attendance Date Time Stamp logging</h3>
-    <label for="chkInDTS">Check In Date Time Stamp</label>
+    <label for="chkInDTS">Scan QR Code or Check In Date Time Stamp</label>
     <input placeholder="Check In Date Time" type="datetime-local" id="chkInDTS" name="chkInDTS"><br>
-    <label for="chkOutDTS">Check Out Date Time Stamp</label>
+    <label for="chkOutDTS">Scan QR Code or Check Out Date Time Stamp</label>
     <input placeholder="Check Out Date Time" type="datetime-local" id="chkOutDTS" name="chkOutDTS"><br>
     <label for="volHours">Today's Volunteered Hours</label>
-    <textarea placeholder="Today's volunteered hours" id="volHours" name="volHours" rows="1" cols="21"></textarea>
-    <label for="tVolHours">Accumulated Volunteered Hours</label>
-    <textarea placeholder="Accumulated volunteered hours" id="tVolHours" name="totalVolunteeredHours" rows="1" cols="21"></textarea>
+    <textarea placeholder="READ Today's volunteered hours" id="volHours" name="volHours" rows="1" cols="21"></textarea>
+    <label for="aVolHours">Accumulated Volunteered Hours</label>
+    <textarea placeholder="READ Accumulated Volunteered Hours" id="aVolHours" name="accumulatedVolunteeredHours" rows="1" cols="21"></textarea>
 
     <!-- need a field here to store calculated ChkOutDTS minus ChkInDTS i.e. to count how many VolHours-->
-    <p style="color: green;">======</p>
+    <p style="color: green;">====== ( 8 ) END </p><br>
 
     <br> <br>
 
 </div>
-
 
     </main>
 
@@ -339,7 +345,6 @@
 
     <!--Javascript for Issue Type Selection-->
 
-
 <script>
 
     <!--testing Camera Take Photo -->
@@ -348,7 +353,6 @@ document.getElementById("myBtn").addEventListener("click", displayDate);
 function displayDate() {
   document.getElementById("picture").innerHTML = Date();
 }
-
 
         // Function to show specific options based on the selected issue type
         function showIssueOptions() {
@@ -396,7 +400,6 @@ function displayDate() {
             alert("Picture taken (simulation).");
         }
 
-            
             function showError(error) {
                 switch(error.code) {
                     case error.PERMISSION_DENIED:
