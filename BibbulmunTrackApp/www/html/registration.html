@@ -96,11 +96,11 @@
 
             <label for="loginPassword">Login Password</label>
             <input placeholder="Login Password" type="unicode" id="loginPassword" name="loginPassword"><br>
-            <p1 style="color: green;"> 8 UpperLowerCase AlphaNumeric WildcardCharacters</p1><br>
+            <p1 style="color: orange;"> 8 UpperLowerCase AlphaNumeric WildcardCharacters</p1><br>
 
             <label for="repeatPassword">Repeat password</label>
             <input placeholder="Repeat Passord" type="unicode" id="repeatPassord" name="repeatPassord"><br>
-            <p1 style="color: green;"> 8 UpperLowerCase AlphaNumeric WildcardCharacters</p1><br>
+            <p1 style="color: orange;"> 8 UpperLowerCase AlphaNumeric WildcardCharacters</p1><br>
 
             <label for="fName">First Name</label>
             <input placeholder="First Name" type="text" id="fName" name="fName">
@@ -121,10 +121,10 @@
                 <option value="Town">Town</option>
             </select>
 
-            <label for="fAddress">Type Full Address</label>
-            <input placeholder="Full Address" type="text" id="fAddress" name="fAddress"><br>
+            <label for="fAddress">Full Address</label>
+            <input placeholder="Type Full Address" type="text" id="fAddress" name="fAddress"><br>
 
-            <p1 style="color: green;">( 1 ) This for preparation of Volunteer Registration</p1>
+            <p1 style="color: green;">( 1 ) This for preparation of Volunteer Profile</p1>
 
             <h2>VOLUNTEER PROFILE</h2>
             <label for="volCat">Volunteer Roles Support Categories:</label>
@@ -141,20 +141,31 @@
                 <option value="promotionCalendarDistribution">Promotion Calendar Distribution</option>
             </select>
 
-          
+            <p1 style="color: green;">( 2 ) here maybe check box is more suitable? </p1>
+            <label for="tCert">Training Certificates possesed or Experiences</label>
+            <select id="tCert" name="trainingCert">
+                <option value=" ">CERTIFICATES</option>
+                <option value="tFirstAids">st John First Aids</option>
+                <option value="tC">Training in IT programming Database</option>
+                <option value="tMarketing">Training in Sales and Marketing Promotion Communication</option>
+                <option value="tOfficeAdministration">Office Administration</option>
+                <option value="officeMarketing">Office Marketing and Communications</option>
+                <option value="tGuiding">Track Guiding</option>
+                
+            </select>  
             <label for="background">Background - tell use more about yourself</label>
-               <textarea id="issueDescription" name="issueDescription" rows="4" cols="21"></textarea><br>
+               <textarea id="background" name="background" rows="4" cols="21"></textarea><br>
 
                 
 
-            <!--add items here-->
+               <p1 style="color: green;">( 3 ) add more items here </p1>
 
 
             
-            <!--add items here-->
+               <p1 style="color: green;">( 4 ) add more items here </p1>
 
-
-            <button type="register">Registration</button>
+            <p1 style="color: green;">( 5 ) CLICK Register, the above information input goes to database </p1>
+            <button type="register">Register</button>
             <br><br>
 
 </body>
