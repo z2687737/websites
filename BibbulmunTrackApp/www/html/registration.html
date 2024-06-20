@@ -95,6 +95,10 @@
         <section>
 
             <h2>Registration</h2>
+
+<div class="form-container">
+    <form action="/submit-perth-address" method="post">
+        
             <label for="loginUserName">Login Username</label>
             <input placeholder="Login User Name" type="text" id="loginUserName" name="loginUserName">
 
@@ -126,10 +130,7 @@
             </select>
             
 <br><p1 style="color: green;">( 1 ) This for FORM Perth Address </p1><br>
-            
-<div class="form-container">
-    <form action="/submit-perth-address" method="post">
-        
+
         <div class="form-group">
             <label for="street-number">Street Number</label>
             <input type="text" id="street-number" name="street-number" required>
@@ -184,11 +185,8 @@
             <input type="text" id="zipcode" name="zipcode" required>
         </div>
         
-        <div class="form-group">
-            <button type="submit">Submit</button>
-        </div>
-    </form>
-</div>
+
+
 <br><p1 style="color: green;">( 2 ) This for preparation of Volunteer Profile</p1>
 
             <h2>VOLUNTEER PROFILE</h2>
@@ -226,9 +224,15 @@
                <br><p1 style="color: green;">( 4 ) add more items here </p1><br>
 
             <br><p1 style="color: green;">( 5 ) CLICK Register, the above information input goes to database </p1><br>
-            <button type="register">Register</button>
-            <br><br><br>
+          
+         
 
+       <div class="form-group">
+            <button type="submit">Register</button>
+        </div>
+           <br><br><br>
+    </form>
+</div>
 </body>
 <footer>
     <p>&copy; 2024 Bibbulmun Track Maintenance App</p>
