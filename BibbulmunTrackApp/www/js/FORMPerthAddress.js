@@ -1,4 +1,4 @@
-<script>
+
     const streets = {
         "Subiaco": ["Hay Street", "Rokeby Road"],
         "Fremantle": ["South Terrace", "High Street"],
@@ -23,4 +23,4 @@
             });
         }
     }
-</script>
+
