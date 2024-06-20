@@ -7,8 +7,13 @@
     };
 
     function updateStreets() {
+
         const suburbSelect = document.getElementById('suburb');
+console.log("The function is being called when you select a suburb.")
+        
         const streetSelect = document.getElementById('street');
+console.log("The streets object is correctly defined and accessible.")
+        
         const selectedSuburb = suburbSelect.value;
 
         // Clear current street options
@@ -20,6 +25,8 @@
                 option.value = street;
                 option.textContent = street;
                 streetSelect.appendChild(option);
+console.log("The streetSelect dropdown is correctly identified and updated with options based on the selected suburb.")
+                
             });
         }
     }
