@@ -125,34 +125,17 @@
                 <option value="suburb">Surburd</option>
                 <option value="Town">Town</option>
             </select>
-
-            <label for="fAddress">Full Address</label>
-            <input placeholder="Type Full Address" type="text" id="fAddress" name="fAddress"><br>
             
-  <p1 style="color: green;">( 1 ) This for FORM Perth Address </p1>
+<p1 style="color: green;">( 1 ) This for FORM Perth Address </p1>
+            
 <div class="form-container">
     <form action="/submit-perth-address" method="post">
-
-        <div class="form-group">
-            <label for="fName">First Name</label>
-            <input type="text" id="fName" name="firstName" required>
-        </div>
-        
-        <div class="form-group">
-            <label for="lName">Last Name (Surname)</label>
-            <input type="text" id="lName" name="lastName" required>
-        </div>
         
         <div class="form-group">
             <label for="street-number">Street Number</label>
             <input type="text" id="street-number" name="street-number" required>
         </div>
-        
-        <div class="form-group">
-            <label for="street-name">Street Name</label>
-            <input type="text" id="street-name" name="street-name" required>
-        </div>
-        
+                
         <div class="form-group">
             <label for="suburb">Suburb</label>
             <select id="suburb" name="suburb" required onchange="updateStreets()">
