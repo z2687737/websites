@@ -14,7 +14,8 @@ console.log("The function is being called when you select a suburb.")
 console.log("The streets object is correctly defined and accessible.")
         
         const selectedSuburb = suburbSelect.value;
-
+console.log("Selected suburb:", selectedSuburb); // Check if suburb value is correct
+        
         // Clear current street options
         streetSelect.innerHTML = '<option value="">Select a street</option>';
 
