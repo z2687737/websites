@@ -36,15 +36,16 @@
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
     <meta name="color-scheme" content="light dark">
+    
     <link rel="stylesheet" href="../css/index.css">
-
-<!-- FORM Perth Address -->
     <link rel="stylesheet" href="../css/FormPerthAddress.css">
-    <script src="../js/FormPerthAddress.js"></script>
+<!-- <link rel="stylesheet" href="../css/navigator.css">    -->
 
-<!--  <link rel="stylesheet" href="../css/navigator.css">    -->
-    <script src="../js/index.js"></script>
-    <script src="../js/cameraTest.js"></script>
+<script src="../js/index.js" defer></script>
+    <script src="../js/FormPerthAddress.js" defer></script>
+    <script src="../js/cameraTest.js" defer></script>
+    <!-- defer here ensure javascript is launched after DOM -->
+    
     <title>Bibbulmun Track Maintenance App</title>
 
     <style>
@@ -188,9 +189,7 @@
         </div>
     </form>
 </div>
-
-            
-            <p1 style="color: green;">( 2 ) This for preparation of Volunteer Profile</p1>
+<br><p1 style="color: green;">( 2 ) This for preparation of Volunteer Profile</p1>
 
             <h2>VOLUNTEER PROFILE</h2>
             <label for="volCat">Volunteer Roles Support Categories:</label>
