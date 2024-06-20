@@ -44,7 +44,7 @@
 <script src="../js/index.js" defer></script>
     <script src="../js/FormPerthAddress.js" defer></script>
     <script src="../js/cameraTest.js" defer></script>
-    <!-- defer here ensure javascript is launched after DOM -->
+<!-- defer here ensure the javascript are executed after HTML is parsed -->
     
     <title>Bibbulmun Track Maintenance App</title>
 
@@ -99,11 +99,11 @@
             <input placeholder="Login User Name" type="text" id="loginUserName" name="loginUserName">
 
             <label for="loginPassword">Login Password</label>
-            <input placeholder="Login Password" type="unicode" id="loginPassword" name="loginPassword"><br>
+            <input placeholder="Login Password" type="password" id="loginPassword" name="loginPassword"><br>
             <p1 style="color: orange;"> 8 UpperLowerCase AlphaNumeric WildcardCharacters</p1><br>
 
             <label for="repeatPassword">Repeat password</label>
-            <input placeholder="Repeat Passord" type="unicode" id="repeatPassord" name="repeatPassord"><br>
+            <input placeholder="Repeat Password" type="password" id="repeatPassord" name="repeatPassord"><br>
             <p1 style="color: orange;"> 8 UpperLowerCase AlphaNumeric WildcardCharacters</p1><br>
 
             <label for="fName">First Name</label>
@@ -137,7 +137,7 @@
                 
         <div class="form-group">
             <label for="suburb">Suburb</label>
-            <select id="suburb" name="suburb" required onchange="updateStreets()">
+            <select id="suburb" name="suburb" required>
                 <option value="">Select a suburb</option>
                 <option value="Subiaco">Subiaco</option>
                 <option value="Fremantle">Fremantle</option>
