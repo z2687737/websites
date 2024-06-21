@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/index.css">
+    <title>Test Form Suburb</title>
+</head>
+<body>
+    <form>
+        <label for="suburb">Suburb</label>
+        <select id="suburb" name="suburb" required onchange="updateStreets()">
+            <option value="">Select a suburb</option>
+            <option value="Subiaco">Subiaco</option>
+            <option value="Fremantle">Fremantle</option>
+            <option value="Cottesloe">Cottesloe</option>
+            <!-- Add more suburbs as needed -->
+        </select>
+
+        <label for="street">Street</label>
+        <select id="street" name="street" required>
+            <option value="">Select a street</option>
+            <!-- Streets will be populated based on the selected suburb -->
+        </select>
+    </form>
+
+    <script src="../js/formPerthAddress.js"></script>
+</body>
+</html>
