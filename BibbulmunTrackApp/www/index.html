@@ -28,35 +28,36 @@
             * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
-        -->
+
+
     <meta http-equiv="Content-Security-Policy"
         content="default-src 'self' data: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+-->
+
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
     <meta name="color-scheme" content="light dark">
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/table.css">
-    
-    <script src="js/index.js"></script>
-    <title>Bibbulmun Track Maintenance App</title>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/table.css">
 
-    <style>
-        .header-content {
-            display: flex;
-            align-items: center;
-        }
-        .header-content img {
-            margin-right: 20px;
-        }
-    </style>
+    <!--for clickGPS -->
+<link rel="stylesheet" type="text/css" href="css/leaflet.css">   
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+<!-- for PWA metadata indexedDB installation on device-->
+<link rel="manifest" href="/manifest.json">
+
+    <title>Bibbulmun Track Maintenance App</title>
 
 </head>
 
 <body>
+    
 <header class="header-content">
     <img src="img/walkTheBibTrack.jpg" alt="Walk the Bibbulmun Track" />
     <h1>Welcome to the Bibbulmun Track Maintenance App</h1>
+    <img src="img/BTFTrackAppQRCode.jpg" alt="BTFTrackAppQRCode" />
 </header>
 
 <nav class="navbar">
@@ -65,26 +66,55 @@
         <li><a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/" target="_blank">Volunteer With Us</a></li>
         <li><a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/training-recognition/" target="_blank">Training and Recognition</a></li>
         <li><a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/volunteering-faqs/" target="_blank">Volunteering FAQs</a></li>
+        <li><a href="html/clickGPS.html" target="_blank">Get GPS map</a></li>
     </ul>
 </nav>
 
     <main>
+        
         <section>
+            <!-- User login and Registration -->
+            <h2>User Login</h2>
             <label for="loginUserName">Login User Name</label>
             <input placeholder="Login User Name" type="text" id="loginUserName" name="loginUserName">
             <label for="loginPassword">Login Pass word</label>
             <input placeholder="Login Password" type="unicode" id="loginPassword" name="loginPassword"><br>
-            <button type="login">Login</button> 
+            <button type="submit">Login</button>  
             <a href="html/registration.html" target="_blank"> <button type="Register">Register</button></a><br><br>
+        </section>
 
-            <h2>TRACK MAINTENANCE REPORT</h2>
+        <h2>TRACK MAINTENANCE REPORT</h2>
 
+        <section>
+
+<br><p1 style="color: green;">===== ( 1 ) putting the maintenance report form on the landing page ====== </p1>
+<br><p1 style="color: green;">===== ( 1 ) to enable public trackers make a quick/emergency report whenever necessary without login as a "registered volunteer"  ====== </p1>
+<br><p1 style="color: green;">===== ( 1 ) this improve reporting efficiency from the public especially where there is a natural disaster happening. ====== </p1><br><br>
+       
             <form>
                 <label for="dateTimePicker">Inspection Date</label>
                 <input type="datetime-local" id="dateTimePicker" name="dateTimePicker"><br>
                 <!--here a field to capture / save from date time picker since it's off line -->
 
                 <h2>Campsite Report</h2>
+
+<br> <p1 style="color: green;">===== ( 2 ) 52 campsites can also be: selecting a "DEC District" dynamically updates the category of "campsites group belonged to this DEC District" arranged alphebetically ======  </p1><br>
+<br> <p1 style="color: green;">===== ( 2 ) meaning, when you click DEC DISTRICT Frankland, ======  </p1><br>
+<br> <p1 style="color: green;">===== ( 2 ) only corresponding campsites belonged to this DEC District Frankland comes out for next selection ======  </p1><br>
+        
+                <label for="decDist">DEC District</label>
+                <select id="decDist" name="decDist">
+                    <option value=" ">DEC DISTRICT</option>
+                    <option value="albany">Albany</option>
+                    <option value="blackwood">Blackwood</option>
+                    <option value="donnelly (Manjimup)">Donnelly (Manjimup)</option>
+                    <option value="donnelly (Pemberton)">Donnelly (Pemberton)</option>
+                    <option value="frankland">Frankland</option>
+                    <option value="perth Hills (Dwellingup)">Perth Hills (Dwellingup)</option>
+                    <option value="perth Hills (Mundaring)">Perth Hills (Mundaring)</option>
+                    <option value="wellington">Wellington</option>
+                </select>
+<!--decDist -->                  
 
                 <label for="campsite">Bibbulmun Track Campsites</label>
                 <select id="campsite" name="campsite">
@@ -143,20 +173,6 @@
                     <option value="yourdamung">Yourdamung</option>
                 </select>
                 <!--Bibbulmun Track Campsites -->
-                
-                <label for="decDist">DEC District</label>
-                <select id="decDist" name="decDist">
-                    <option value=" ">DEC DISTRICT</option>
-                    <option value="albany">Albany</option>
-                    <option value="blackwood">Blackwood</option>
-                    <option value="donnelly (Manjimup)">Donnelly (Manjimup)</option>
-                    <option value="donnelly (Pemberton)">Donnelly (Pemberton)</option>
-                    <option value="frankland">Frankland</option>
-                    <option value="perth Hills (Dwellingup)">Perth Hills (Dwellingup)</option>
-                    <option value="perth Hills (Mundaring)">Perth Hills (Mundaring)</option>
-                    <option value="wellington">Wellington</option>
-                </select>
-                <!--decDist -->
 
                 <h2>Report an Issue</h2>
 
@@ -260,29 +276,51 @@
 
                     <!-- "issueDescription" -->
                     <br>
-                    <label for="issueDescription">Description:</label>
-                    <textarea id="issueDescription" name="issueDescription" rows="4" cols="21"></textarea><br>
+                    <label for="issueDescription">Issue Description:</label>
+                    <textarea placeholder="Descript issue in details" id="issueDescription" name="issueDescription" rows="4" cols="21"></textarea><br>
+              
 
 <br> <p1 style="color: green;"> ===h ( 4 ) GPS able to capture GPS automatically with no internet connection ===</p1> <br>
-<section>
-    <button id="getGPS" onclick="getGPS()">Get GPS</button>
+<!-- ( 4 )
+    <button id="getGPS" type="button">Get GPS</button><br>
     <label for="latitude">Latitude:</label>
     <input type="text" id="latitude" readonly>
     <label for="longitude">Longitude:</label>
-    <input type="text" id="longitude" readonly>
-    <div id="map"></div>
-    <textarea placeholder="remark / describe specific location" id="descLocation" name="descLocation" rows="2" cols="21"></textarea><br>
-</section>
-
-            <section>
-<br> <p1 style="color: green;">=== ( 5 ) Camera Data here picture will be stored at local storage and last column of the CSV file ===</p1> <br>
-
-                    <label for="Camera">Camera</label>
-                    <button id="takePhoto">Take Photo</button>
-                    <img id="image" style="display:none;" src="#" alt="Image will appear here">
-                    <p id="picture"></p> <!-- picture here -->
-                    
+    <input type="text" id="longitude" readonly><br>
+    <label for="descLocation">Describe Location</label>
+    <textarea placeholder="Describe location specifically" id="descLocation" name="descLocation" rows="4" cols="21"></textarea>
+    <div id="map" style="height: 20px; width: 100%;"></div>
+                -->
+    <section>
+         <div class="table-container">
+        <table>
+            <tr>
+              <td class="gps-cell">
+                <!-- Place your Get GPS functionality here -->
+                <section>
+                  <button id="getGPS" type="button">Get offline GPS</button>
+        
+                  <label for="latitude">Latitude:</label>
+                  <input type="text" id="latitude" readonly>
+        
+                  <label for="longitude">Longitude:</label>
+                  <input type="text" id="longitude" readonly>
+        
+                  <div id="map" style="height: 300px; width: 100%;"></div><br><br>
+                        
                 </section>
+              </td>
+            </tr>
+          </table>
+        </div>
+    </section>
+
+<br> <p1 style="color: green;">=== ( 5 ) Camera Data here picture will be stored at local storage and last column of the CSV file ===</p1> <br>
+    <label for="takePictureButton">Take Picture</label>
+    <button id="takePictureButton" type="button" >Take Picture</button>
+    <img id="image" style="display:none;" src="#" alt="Image will appear here">
+    <p id="picture"></p> <!-- picture here -->
+
     <section>
         <div class="table-container">
        <table>
@@ -300,6 +338,8 @@
          </table>
        </div>
    </section>
+
+
 <br> <p1 style="color: green;"> ===h ( 6 ) In case reported by general public ===</p1> <br>
 <h2>Reported BY</h2>
 
@@ -325,6 +365,7 @@
                     <br><br><br><br><br><br>
             </form>
         </section>
+
 <div>
 <br>    <p1 style="color: green;">==== ( 8 ) START reference to ICT286 Pulau Tekong revise engineering solution ====</p1><Br>
     <br><p1 style="color: green;">( 8.1 ) below here this for calculation of "Volunteers Hours" and to be kept in database, as well as shown up in the field on the BibbulmunTrackApp
@@ -335,7 +376,7 @@
 <br><p1 style="color: green;">==== ( 8.3 ) after each scan of QR code, register into database correct field, shown up on BibbulmunTrackApp  === (QR scan is easier to play with) ====</p1><Br>
     <br><p1 style="color: green;">==== ( 8.4 ) Check out date time - check in date time = Today's Volunteered Hours <br> get Today's Volunteered Hours </p1><Br>
         <br><p1 style="color: green;">==== ( 8.4 code -----------> )  chkOutDTS - chkInDTS = volHours <br> ==== register this in data base,  show this on the field ===== </p1><Br>
-        <br><p1 style="color: green;">==== ( 8.5 ) aVolHours = aVolHours + Today's Volunteered Hours<br>  </p1><Br>
+        <br><p1 style="color: green;">==== ( 8.5 ) aVolHours = aVolHours + Today's Volunteered Hours<br>  </p1>
         <br><p1 style="color: green;">==== ( 8.5 code -----------> )  aVolHours = aVolHours + volHours <br> ==== register this in data base,  show this on the field ===== </p1><Br><Br>
 
         <h3>Attendance Date Time Stamp logging</h3>
@@ -362,107 +403,17 @@
     </footer>
 
     <!--Javascript for Issue Type Selection-->
+ <!--  <script src="js/index.js"></script>  -->
+ <script src="js/issueTypeOptions.js" defer></script>
 
-<script>
+ <!-- ( 4 ) for clickGPS (line 268)-->
+<script src="js/clickGPS.js" defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDzI4CfMoJ6ZgrjxEX1zaZDlKMu6pBEZHQ" defer></script>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+ 
+<!-- ( 5 ) External JavaScript for takePicture (line 298)-->
+<script src="./js/clickCamera.js"></script>
 
-    <!--testing Camera Take Photo -->
-document.getElementById("myBtn").addEventListener("click", displayDate);
-
-function displayDate() {
-  document.getElementById("picture").innerHTML = Date();
-}
-
-        // Function to show specific options based on the selected issue type
-        function showIssueOptions() {
-            const issueType = document.getElementById("issueType").value;
-            document.getElementById("trackConditionOptions").style.display = issueType === "trackCondition" ? "block" : "none";
-            document.getElementById("trackMarkingOptions").style.display = issueType === "trackMarking" ? "block" : "none";
-            document.getElementById("inappropriateUseOptions").style.display = issueType === "inappropriateUse" ? "block" : "none";
-            document.getElementById("otherIssuesOptions").style.display = issueType === "otherIssues" ? "block" : "none";
-        }
-
-        // Function to get the location of the user
-        function getLocation() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(showPosition, showError);
-            } else {
-                alert("Geolocation is not supported by this browser.");
-            }
-        }
-
-        // Function to show the position of the user
-        function showPosition(position) {
-            alert("Latitude: " + position.coords.latitude + "\nLongitude: " + position.coords.longitude);
-        }
-
-        // Function to handle geolocation errors
-        function showError(error) {
-            switch (error.code) {
-                case error.PERMISSION_DENIED:
-                    alert("User denied the request for Geolocation.");
-                    break;
-                case error.POSITION_UNAVAILABLE:
-                    alert("Location information is unavailable.");
-                    break;
-                case error.TIMEOUT:
-                    alert("The request to get user location timed out.");
-                    break;
-                case error.UNKNOWN_ERROR:
-                    alert("An unknown error occurred.");
-                    break;
-            }
-        }
-
-        // Function to simulate taking a picture
-        function takePicture() {
-            alert("Picture taken (simulation).");
-        }
-
-            function showError(error) {
-                switch(error.code) {
-                    case error.PERMISSION_DENIED:
-                        alert("User denied the request for Geolocation.");
-                        break;
-                    case error.POSITION_UNAVAILABLE:
-                        alert("Location information is unavailable.");
-                        break;
-                    case error.TIMEOUT:
-                        alert("The request to get user location timed out.");
-                        break;
-                    case error.UNKNOWN_ERROR:
-                        alert("An unknown error occurred.");
-                        break;
-                }
-            }
-            </script>
-            
-          <!--JavaScript for Camera Data -->
-
-          <script>
-            document.addEventListener('deviceready', onDeviceReady, false);
-            
-            function onDeviceReady() {
-                document.getElementById('takePhoto').addEventListener('click', takePhoto);
-            }
-            
-            function takePhoto() {
-                navigator.camera.getPicture(onPhotoDataSuccess, onFail, {
-                    quality: 50,
-                    destinationType: Camera.DestinationType.FILE_URI
-                });
-            }
-            
-            function onPhotoDataSuccess(imageURI) {
-                const image = document.getElementById('image');
-                image.style.display = 'block';
-                image.src = imageURI;
-            }
-            
-            function onFail(message) {
-                alert('Failed because: ' + message);
-            }
-            </script>
-            
 </body>
 
 </html>
