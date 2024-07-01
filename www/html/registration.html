@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+
+
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <!--
+        Customize this policy to fit your own app's needs. For more guidance, please refer to the docs:
+            https://cordova.apache.org/docs/en/latest/
+        Some notes:
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self' data: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+    <meta name="color-scheme" content="light dark">
+    
+    <link rel="stylesheet" type="text/css" href="../css/index.css">
+    <link rel="stylesheet" type="text/css" href="../css/navigator.css">
+    <link rel="stylesheet" type="text/css" href="../css/form.css">
+    <link rel="stylesheet" type="text/css" href="../css/header.css">
+    <link rel="stylesheet" type="text/css" href="../css/table.css">
+
+    <title>Registration</title>
+
+    <style>
+        .header-content {
+            display: flex;
+            align-items: center;
+        }
+
+        .header-content img {
+            margin-right: 20px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="headerPlaceholder"></div>    
+    
+    <main>
+        <section>
+
+            <form id="registration" method="POST" action="/register">
+
+            <h2>Registration</h2>
+            <label for="loginUserName">Login Username</label>
+            <input placeholder="Login User Name" type="text" id="loginUserName" name="loginUserName" required>
+
+            <label for="loginPassword">Login Password 
+                <span class="tooltip">                   
+                    .{8,} ensures the password is at least 8 characters long.<br>
+                    (?=.*[A-Z]) ensures there is at least one uppercase letter.<br>
+                    (?=.*[a-z]) ensures there is at least one lowercase letter.<br>
+                    (?=.*\d) ensures there is at least one digit.<br>
+                </span>
+            </label>
+            
+            <input placeholder="Login Password" type="password" id="loginPassword" name="loginPassword" required><br>
+            <p1 style="color: orange;"> 8 UpperLowerCase AlphaNumeric WildcardCharacters</p1><br>
+
+            <label for="repeatPassword">Repeat password</label>
+            <input placeholder="Repeat Password" type="password" id="repeatPassord" name="repeatPassord" required><br>
+            <p1 style="color: orange;"> 8 UpperLowerCase AlphaNumeric WildcardCharacters</p1><br>
+
+            <label for="fName">First Name</label>
+            <input placeholder="First Name" type="text" id="fName" name="fName" required>
+
+            <label for="lname">Last Name</label>
+            <input placeholder="Last Name (SurName)" type="text" id="lname" name="lname" required><br>
+
+            <label for="eMail">Email Address</label>
+            <input placeholder="Email Address" type="text" id="eMail" name="eMail" required>
+
+            <label for="hPhone">Hand Phone Number</label>
+            <input placeholder="Hand Phone Number" type="text" id="hPhone" name="hPhone">
+
+            <label for="role">Role</label>
+            <select id="role" name="role">
+                <option value=" ">ROLE</option>
+                <option value="volunteer">Volunteer</option>
+                <option value="admin">System Administrator (Admin Asdf!234)</option>
+            </select>
+            
+            <label for="rLocality">Residential Location</label>
+            <select id="rLocality" name="rLocality">
+                <option value=" ">RESIDENTIAL LOCALITY</option>
+                <option value="suburb">Suburb</option>
+                <option value="town">Town</option>
+            </select>
+
+            <label for="fAddress">Full Address</label>
+            <input placeholder="Type Full Address" type="text" id="fAddress" name="fAddress"><br>
+            
+            <label for="street-number">Street Number</label>
+            <input type="text" id="street-number" name="street-number" required>
+
+                <label for="suburb">Suburb</label>
+                <select id="suburb" name="suburb" required>
+                    <option value="">Select a suburb</option>
+                    <option value="Subiaco">Subiaco</option>
+                    <option value="Fremantle">Fremantle</option>
+                    <option value="Cottesloe">Cottesloe</option>
+                    <!-- Add more suburbs as needed -->
+                </select>
+        
+                <label for="street">Street</label>
+                <select id="street" name="street" required>
+                    <option value="">Select a street</option>
+                    <!-- Streets will be populated based on the selected suburb -->
+                </select>
+           
+                <label for="address1">Address Line 1</label>
+                <input type="text" id="address1" name="address1" required>
+
+                <label for="address2">Address Line 2</label>
+            <input type="text" id="address2" name="address2">
+
+            <label for="city">City</label>
+            <input type="text" id="city" name="city" value="Perth" readonly>
+
+            <label for="state">State</label>
+            <input type="text" id="state" name="state" value="Western Australia" readonly>
+
+            <label for="zipcode">Zip/Postal Code</label>
+            <input type="text" id="zipcode" name="zipcode" required>
+            
+            <h2 id="volProfile">VOLUNTEER PROFILE</h2>
+            <label for="volCat">Volunteer Roles Support Categories:</label>
+            <select id="volCat" name="VolunteerCategories">
+                <option value=" ">VOLUNTEER ROLE</option>
+                <option value="maintenanceSectional">Maintenance Sectional</option>
+                <option value="maintenanceSupport">Maintenance Supports</option>
+                <option value="officeGeneral">Office General</option>
+                <option value="officeMaintenanceAdmin">Office Maintenance Admin</option>
+                <option value="officeMarketing">Office Marketing and Communications</option>
+                <option value="trackGuiding">Track Guiding</option>
+                <option value="researchDataEntry">Research Data Entry</option>
+                <option value="promotionCommunityEvents">Promotion Community Events</option>
+                <option value="promotionCalendarDistribution">Promotion Calendar Distribution</option>
+            </select>
+
+            <br><br>
+            <label for="tCert">Training Certificates possesed or Experiences</label>
+            <select id="tCert" name="trainingCert">
+                <option value=" ">CERTIFICATES</option>
+                <option value="tFirstAids">st John First Aids</option>
+                <option value="tIT">IT programming Database</option>
+                <option value="tMarketing">Sales Marketing Promotion</option>
+                <option value="tOfficeAdministration">Office Administration</option>
+                <option value="officeMarketing">Office Marketing</option>
+                <option value="officeMarketing">Office Communications</option>
+                <option value="tGuiding">Track Guiding</option>
+            </select>
+
+            <label for="background">Background - tell use more about yourself</label>
+               <textarea id="background" name="background" rows="4" cols="21"></textarea><br> 
+            
+            <button type="submit">Register</button>
+            <br><br><br><br><br><br>
+        </form>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2024 Bibbulmun Track Maintenance App</p>
+</footer>
+
+  <!--  <link rel="stylesheet" href="../css/navigator.css">    -->
+  <script src="..js/login.js"></script>
+  <script src="../js/headerBannerNavigator.js"></script>
+    <script src="../js/formPerthAddress.js"></script>
+    <script src="../js/registration.js"></script> <!-- Link to your registration.js script -->
+
+    
+</body>
+</html>
+

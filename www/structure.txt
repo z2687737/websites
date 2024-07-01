@@ -1,0 +1,100 @@
+<!-- creating a web mobile app
+Using (A) cross platform development with Cordova, MySQL SQLite,
+(1) login / registration volunteersProfile - volunteers Profile Information
+(2) scan / update attendance - Volunteers Attendance Logging
+(3) Track Maintenance Report - Issue Report
+(4) Capture GPS and 
+(5) Camera video features 
+(6) function on smartphone offline, 
+(7) save the data(report) on the local data storage, 
+(8) data synchronise to the database when online. 
+(9) Issue Referrals (Refer issue to the appropriate DEC authorities automatically)
+
+(B) focus on using node.js,  do without php -->
+
+<!--
+BibbulmunTrackApp > node_modules
+BibbulmunTrackApp > registration-backend
+BibbulmunTrackApp > www > index.html
+
+MySQL-backend/
+├── package.json  (not created yet)
+├── server.js
+│
+photo-video-backend/
+├── package.json (not created yet)
+├── server.js
+│
+│
+www/
+├── index.html
+├── manifest.json
+│
+├──css/
+│   └── form.css
+│   └── header.css
+│   └── index.css
+│   └── leaflet.css
+│   └── navigator.css
+│   └── table.css
+│
+│── csv/
+│   └── 20240512 TrackInspectionReport.csv
+│
+├── html/
+│   └── attendance.html
+│   └── clickGPS.html
+│   └── contactUs.html
+│   └── headerBannerNavigator.html
+│   └── loginLanding.html
+│   └── registration.html
+│
+├── img/
+│   └── clickCamera/
+│        ├── (currently no file yet)
+│   └── icons/
+│        ├── (currently no file yet)
+│   └── BTFHomePage.jpg
+│   └── BTFTrackAppQRCode.jpg
+│   └── logo.png
+│   └── walkTheBibTrack.jpg
+│
+├── js/
+│   └── app.js
+│   └── attendance.js
+│   └── campsiteOptions.js
+│   └── clickCamera.js
+│   └── clickGPS.js
+│   └── clickVideo.js
+│   └── contactUs.js
+│   └── headerBannerNavigator.js
+│   └── index.js
+│   └── indexedDB.js  (not in use now)
+│   └── issueTypeOptions.js
+│   └── login.js
+│   └── loginLanding.js
+│   └── registration.js
+│   └── service-worker.js
+│   └── indexedDB.js
+│
+└── uploads/
+
+//DATABASES
+
+MySQL Workbench > Local MySQL > Schema
+├── bibbulmun_track_app
+│   └── Tables
+│        ├── attendance
+│        ├── contactus
+│        ├── registration
+│        ├── reports
+│        ├── users
+└──
+
+-->
+
+
+
+//currently not in use
+MongoDB-backend/
+├── server.js
