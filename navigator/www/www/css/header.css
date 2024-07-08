@@ -1,0 +1,63 @@
+/*css/header.css*/
+
+header {
+    /*  position: fixed;*/ /*here fixed header, but navigator went behind on top*/
+      align-items: center;
+      background-color: #eba308; /* Adjust to match Bibbulmun Track website */
+      color: white;
+      padding: 20px;
+      text-align: center;
+     z-index: 1000; /* Ensures the header is on top of other elements */  
+      display: flex;
+  }
+  
+  header img {
+      max-width: 100%;
+      height: auto;
+  }
+  
+  .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 20px; /* Adjust padding as needed */
+     /* background-color: #orange;  Example background color */
+  }
+  
+  .header-content img {
+      margin-right: 20px;
+  }
+  
+  .user-header {
+    margin-left: auto;
+    padding-right: 20px;
+}
+
+  .logo img,
+  .qrcode img {
+      max-height: 100px; /* Example max height for images */
+  }
+  
+  .text {
+      flex-grow: 1; /* Grow to fill available space */
+      margin: 0 20px; /* Example margin */
+  }
+  
+  .login {
+      /* Customize login/registration box styles */
+  }
+  
+  .qrcode {
+      /* Customize QR code styles */
+      padding: 20px;
+  }
+  
+footer {
+    background-color: #eba308;
+    color: black;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
