@@ -11,7 +11,7 @@ function showCampsiteOptions() {
     document.getElementById("perthHillsDwellingupCampsites").style.display = decDist === "perthHillsDwellingup" ? "block" : "none";
     document.getElementById("perthHillsMundaringCampsites").style.display = decDist === "perthHillsMundaring" ? "block" : "none";
     document.getElementById("wellingtonCampsites").style.display = decDist === "wellington" ? "block" : "none";
-    document.getElementById("campsites").style.display = decDist === "campsite" ? "block" : "none";
+    document.getElementById("campsites").style.display = decDist === "campsites" ? "block" : "none";
 }
 
 

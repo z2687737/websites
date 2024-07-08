@@ -1,4 +1,4 @@
-//www/js/login.js
+//   btf/www/js/login.js
 
 document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('login');
@@ -14,19 +14,21 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
           }
 
-        // Temporary credentials for testing
-        const testUserName = 'Admin';
-        const testPassword = 'Asdf!234';
-
         if (loginUserName === testUserName && loginPassword === testPassword) {
             const userData = {
                 userName: loginUserName,
+                IDregistration: 1 // Assuming ID 1 for Admin. Adjust accordingly.
+                aVolHours: 0 // Placeholder for testing
                 // Add other user data if needed
             };
 
+// Temporary credentials for testing
+        const testUserName = 'Admin';
+        const testPassword = 'Asdf!234';
+
             // Store user data in localStorage for later use
             localStorage.setItem('userData', JSON.stringify(userData));
-
+            console.log('Stored userData:', userData); // Debug statement
             // Display alert for successful login (optional)
             alert('Login successful, click OK to go Login Landing page.');
 
@@ -56,14 +58,18 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(result => {
                 // Assuming result.user contains user information including name
                 const userName = result.user.name; // Adjust according to your server response structure
+                const IDregistration = result.user.IDregistration;
+                const aVolHours = result.user.aVolHours; // Adjust according to your server response structure
                 
                 // Store user data in localStorage for later use
                 const userData = {
                     userName: userName,
+                    IDregistration: IDregistration
+                    aVolHours: aVolHours // Add the accumulated volunteer hours here
                     // Add other user data if needed
                 };
                 localStorage.setItem('userData', JSON.stringify(userData));
-                
+                console.log('Stored userData:', userData); // Debug statement
                 
                 // Display alert for successful login (optional)
                 alert('Login successful, click OK to go login landing page');
@@ -78,3 +84,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
+function fetchAccumulatedHoursForUser(IDregistration) {
+    fetch(`/api/getAccumulatedHours/${IDregistration}`)
+    .then(response => response.json())
+    .then(data => {
+        console.log('Accumulated hours fetched:', data.aVolHoursMAXID);
+        // Update UI with fetched `aVolHours`
+        document.getElementById('aVolHours').textContent = data.aVolHoursMAXID;
+    })
+    .catch(error => {
+        console.error('Error fetching accumulated hours:', error);
+    });
+}

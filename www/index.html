@@ -1,41 +1,11 @@
+<!-- websites/btf/www/index.html -->
+
 <!DOCTYPE html>
-<!-- www/index.html -->
 
-<!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
 <html>
 
 <head>
     <meta charset="utf-8">
-    <!--
-        Customize this policy to fit your own app's needs. For more guidance, please refer to the docs:
-            https://cordova.apache.org/docs/en/latest/
-        Some notes:
-            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
-            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-                * Enable inline JS: add 'unsafe-inline' to default-src
-
-
-    <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self' data: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
--->
-
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
@@ -54,7 +24,7 @@
     <!-- for PWA metadata indexedDB installation on device-->
     <link rel="manifest" href="/manifest.json">
 
-    <title>Bibbulmun Track Maintenance App</title>
+    <title>BTF Bibbulmun Track Maintenance App</title>
 
 </head>
 
@@ -72,7 +42,9 @@
         <div class="qrcode">
             <img src="img/BTFTrackAppQRCode.jpg" alt="BTFTrackAppQRCode" />
         </div>
-<form id="login"
+
+<!-- Login and Registration box -->
+<form id="login">
         <div class="login">
             <!-- User login and Registration -->
             <h2 id="userLogin" style="color: black; font-weight: bold;">Volunteer Login</h2>
@@ -131,15 +103,42 @@
             </li>
 
             <li><a href="./html/contactUs.html" target="_blank">Contact Us</a></li>
-            <li><a href="./html/attendance.html" target="_blank">Scan Attendance</a></li>
+            <li><a href="./html/attendance.html" target="_blank">Attendance</a></li>
+            <li><a href="./html/register.html" target="_blank">register</a></li>
         
         </ul>
     </nav>
 
     <main>
-        <form>
+
+
+    <!-- for testing purposes: Fetch messages from server 
+    <form id="saveForm"> 
+        <h2>( 3 )  API endpoint to handle /save form submission</h2>
+        <label for="save">Save</label>
+        <input name="save" placeholder="type save something" type="text" id="save">
+        <button type="submit">Submit</button>
+      </form>
+      -->
+ <!-- caseReport -->
+ <form id="caseReport" onsubmit="saveFormData(event)">
             <br>
              <h2 id="trackMaintenanceReport">TRACK MAINTENANCE REPORT</h2>
+             <br>
+
+
+             <h2>Reported BY</h2>
+
+             <label for="reporterName">Name:</label>
+             <textarea placeholder="Enter your name here" id="reporterName" name="reporterName" rows="1"
+                 cols="20"></textarea>
+ 
+             <label for="reporterContact">Contact:</label>
+             <textarea placeholder="Enter your contact here" id="reporterContact" name="reporterContact" rows="1"
+                 cols="20"></textarea><br><br>
+ 
+ 
+                 <h2>Inspection Date</h2>
             <label for="dateTimePicker">Inspection Date</label>
             <input type="datetime-local" id="dateTimePicker" name="dateTimePicker"><br>
             <!--here a field to capture / save from date time picker since it's off line -->
@@ -160,12 +159,13 @@
                 <option value="campsites">All Campsites</option>
             </select>
             <!--decDist -->
-<!--Campsites-->
+
+            <!-- Dynamic Campsite Options -->
 
 <!-- if decDist = "albany" -->
             <div id="albanyCampsites" style="display:none;">
-                <label for="albany">Albany</label>
-                <select id="albany" name="albany">
+                <label for="campsite">Albany</label>
+                <select id="campsite" name="campsite">
                     <option value=" ">ALBANY CAMPSITES</option>
                     <option value="muttonBird">Mutton Bird</option>
                     <option value="sandPatch">Sand Patch</option>
@@ -175,8 +175,8 @@
 
 <!-- if decDist = "blackwood" -->
             <div id="blackwoodyCampsites" style="display:none;">
-                <label for="blackwood">Blackwoods</label>
-                <select id="blackwood" name="blackwood">
+                <label for="campsite">Blackwoods</label>
+                <select id="campsite" name="campsite">
                     <option value=" ">BLACKWOOD CAMPSITES</option>
                     <option value="possumSprings">Possum Springs</option>
                     <option value="yourdamung">Yourdamung</option>
@@ -195,8 +195,8 @@
 
 <!-- if decDist = "donnelly (Manjimup)" -->
             <div id="dManjimupCampsites" style="display:none;">
-                <label for="dManjimup">Donnelly Manjimup</label>
-                <select id="dManjimup" name="dManjimup">
+                <label for="campsite">Donnelly Manjimup</label>
+                <select id="campsite" name="campsite">
                     <option value=" ">DONNELLY MANJIMUP CAMPSITES</option>
                     <option value="boardingHouse">Boarding House</option>
                     <option value="beavis">Beavis</option>
@@ -212,8 +212,8 @@
 
 <!-- if decDist = "donnelly (Pemberton)" -->
             <div id="dPembertonCampsites" style="display:none;">
-                <label for="dPemberton">Donnelly Pemberton</label>
-                <select id="dPemberton" name="dPemberton">
+                <label for="campsite">Donnelly Pemberton</label>
+                <select id="campsite" name="campsite">
                     <option value=" ">DONNELLY PEMBERTON CAMPSITES</option>
                     <option value="dogPool">Dog Pool</option>
                     <option value="mtChance">Mt Chance</option>
@@ -223,8 +223,8 @@
 
 <!-- if decDist = "frankland" -->
             <div id="franklandCampsites" style="display:none;">
-                <label for="frankland">Frankland</label>
-                <select id="frankland" name="frankland">
+                <label for="campsite">Frankland</label>
+                <select id="campsite" name="campsite">
                     <option value=" ">FRANKLAND CAMPSITES</option>
                     <option value="longPoint">Long Point</option>
                     <option value="walpole">Walpole</option>
@@ -243,8 +243,8 @@
 
 <!-- if decDist = "perth Hills (Dwellingup)" -->
             <div id="perthHillsDwellingupCampsites" style="display:none;">
-                <label for="perthHillsDwellingup">PerthHills Dwellingup</label>
-                <select id="perthHillsDwellingup" name="perthHillsDwellingup">
+                <label for="campsite">PerthHills Dwellingup</label>
+                <select id="campsite" name="campsite">
                     <option value=" ">PERTH HILLS DWELLINGUP CAMPSITES</option>
                     <option value="brookton">Brookton</option>
                     <option value="monadnocks">Monadnocks</option>
@@ -255,8 +255,8 @@
 
 <!-- if decDist = "perth Hills (Mundaring)" -->
             <div id="perthHillsMundaringCampsites" style="display:none;">
-                <label for="perthHillsMundaring">Perth Hills Mundaring</label>
-                <select id="perthHillsMundaring" name="perthHillsMundaring">
+                <label for="campsite">Perth Hills Mundaring</label>
+                <select id="campsite" name="campsite">
                     <option value=" ">PERTH HILLS MUNDARING CAMPSITES</option>
                     <option value="hewettsHill">Hewett's Hill</option>
                     <option value="helena">Helena</option>
@@ -266,8 +266,8 @@
 
 <!-- if decDist = "wellington" -->
             <div id="wellingtonCampsites" style="display:none;">
-                <label for="wellington">Wellington</label>
-                <select id="wellington" name="wellington">
+                <label for="campsite">Wellington</label>
+                <select id="campsite" name="campsite">
                     <option value=" ">Wellington CAMPSITES</option>
                     <option value="gringerCreek">Gringer Creek</option>
                     <option value="whiteHorseHills">White Horse Hills</option>
@@ -302,7 +302,6 @@
                 <option value="drv">DRV</option>
                 <option value="dwellingup">Dwellingup</option>
                 <option value="frankland">Frankland</option>
-                <option value="beedelup">Beedelup</option>
                 <option value="gardner">Gardner</option>
                 <option value="giants">Giants</option>
                 <option value="gregoryBrook">Gregory Brook</option>
@@ -342,8 +341,9 @@
                 <option value="yourdamung">Yourdamung</option>
             </select>
         </div>
-            <!--Bibbulmun Track Campsites -->
 
+            <!--Bibbulmun Track Campsites -->
+            <!-- Problem Description -->
             <h2 id="issueReport">Report an Issue</h2>
 
             <label for="issueType">Issue Type:</label>
@@ -361,7 +361,7 @@
 
             <div id="trackConditionOptions" style="display:none;">
                 <label for="trackCondition">Track Condition:</label>
-                <select id="trackCondition" name="trackCondition">
+                <select id="issuetypeoptions" name="trackCondition">
                     <option value=" ">TRACK CONDITION</option>
                     <option value="erosion">Dune Erosion</option>
                     <option value="regrowth">Regrowth</option>
@@ -380,7 +380,7 @@
             <!-- if issueType = "trackMarking" -->
             <div id="trackMarkingOptions" style="display:none;">
                 <label for="trackMarking">Track Marking:</label>
-                <select id="trackMarking" name="trackMarking">
+                <select id="issuetypeoptions" name="trackMarking">
                     <option value=" ">TRACK MARKING</option>
                     <option value="missingWaugals">Missing Waugals</option>
                     <option value="fadedWaugals">Faded Waugals</option>
@@ -393,7 +393,7 @@
             <!-- if issueType = "inappropriateUse" -->
             <div id="inappropriateUseOptions" style="display:none;">
                 <label for="inappropriateUse">Inappropriate Use:</label>
-                <select id="inappropriateUse" name="inappropriateUse">
+                <select id="issuetypeoptions" name="inappropriateUse">
                     <option value=" ">INAPPROPRIATE USE</option>
                     <option value="mountainBikes">Mountain bikes</option>
                     <option value="trailBbikes">Trail bikes</option>
@@ -406,7 +406,7 @@
             <!-- if issueType = "otherIssues" -->
             <div id="otherIssuesOptions" style="display:none;">
                 <label for="otherIssues">Other Issues:</label>
-                <textarea placeholder="Describe the issue here" id="otherIssues" name="otherIssues" rows="4"
+                <textarea placeholder="Describe the issue here" id="issuetypeoptions" name="otherIssues" rows="4"
                     cols="30"></textarea>
             </div>
 
@@ -446,11 +446,6 @@
             <label for="issueDescription">Issue Description:</label>
             <textarea placeholder="Descript issue in details" id="issueDescription" name="issueDescription" rows="4"
                 cols="30"></textarea><br>
-
-
-            <br>
-            <p1 style="color: green;"> ===h ( 4 ) GPS able to capture GPS automatically with no internet connection ===
-            </p1> <br>
    
             <div class="table-container">
                 <table>
@@ -512,31 +507,19 @@
             </div>
             <br>
 
-            <h2>Reported BY</h2>
+<!--The 2 buttons -->
 
-            <label for="reporterName">Name:</label>
-            <textarea placeholder="Enter your name here" id="reporterName" name="reporterName" rows="1"
-                cols="20"></textarea>
+<div id="saveReport" class="center-buttons">
+    <button type="button">OFFLINE Save Report to device</button>
+</div>
+<br><br>
 
-            <label for="reporterContact">Contact:</label>
-            <textarea placeholder="Enter your contact here" id="reporterContact" name="reporterContact" rows="1"
-                cols="20"></textarea><br><br>
+<div id="syncData" class="center-buttons">
+    <button type="submit">ONLINE Data Sync to Database Email DEC</button>
+    <br>
+</div>
+<br><br>
 
-            <input type="submit" value="Submit Report"><br><br>
-
-            <button type="saveReport">Save Report to local Storage</button> <br><br>
-            <!-- here need coding, after "saveReport", programming send collected info to correct field in the CSV (one day) TrackInspectionReport, and/or add to database -->
-
-            <button id="syncData">Sync Data</button>
-            
-
-            <br>
-          <br><br>
-
-            <button type="contactAuthority">ONLINE Email DEC</button> <br><br>
-            <!--refer to line 173, if emailDEC = 'yes' ,  DEC attention required, -->
-
-            <button type="submit">ONLINE Submit Report (Data Sync)</button>
             <br><br><br><br><br><br>
         </form>
 
@@ -546,7 +529,11 @@
         <p>&copy; 2024 Bibbulmun Track Maintenance App</p>
     </footer>
 
+    <script src="js/save.js" defer></script>
+    
     <script src="js/login.js"></script>
+    
+    <script src="js/attendance.js"></script>
     
     <!--Javascript for Issue Type Selection-->
     <!--  <script src="js/index.js"></script>  -->
@@ -563,8 +550,8 @@
     <script src="js/clickVideo.js"></script>
 
     <!-- backend connection-->
-    <script src="cordova.js"></script>
-    <script src="js/app.js"></script>
+<!--    <script src="cordova.js"></script>  -->
+    <script src="./js/app.js"></script>
 <!--  <script src="js/indexedDB.js"></script>   -->
 
 </body>

@@ -1,3 +1,5 @@
+// btf/www/js/app.js
+
 document.addEventListener('deviceready', function() {
     let currentLat, currentLong, currentImageData;
 

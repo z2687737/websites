@@ -14,18 +14,8 @@ Using (A) cross platform development with Cordova, MySQL SQLite,
 
 <!--
 BibbulmunTrackApp > node_modules
-BibbulmunTrackApp > registration-backend
 BibbulmunTrackApp > www > index.html
 
-MySQL-backend/
-├── package.json  (not created yet)
-├── server.js
-│
-photo-video-backend/
-├── package.json (not created yet)
-├── server.js
-│
-│
 www/
 ├── index.html
 ├── manifest.json
@@ -92,9 +82,3 @@ MySQL Workbench > Local MySQL > Schema
 └──
 
 -->
-
-
-
-//currently not in use
-MongoDB-backend/
-├── server.js

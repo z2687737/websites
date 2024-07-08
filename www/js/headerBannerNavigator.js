@@ -1,19 +1,33 @@
-// www/js/headerBannerNavigator.js
-
-/* on .html, add after <body>   <div id="headerPlaceholder"></div>    */
-/* on .html, add before </body> <script src="../js/headerBannerNavigator.js"></script>  */
+console.log( "  load websites/btfwww/js/headerBannerNavigator.js " ); 
 
 document.addEventListener('DOMContentLoaded', function() {
     fetch('headerBannerNavigator.html')
         .then(response => response.text())
         .then(data => {
-            document.getElementById('headerPlaceholder').innerHTML = data;
-            
-            //after Volunteer Login - Update the user name after loading the header
-            const userData = JSON.parse(localStorage.getItem('userData'));
-            if (userData && userData.userName) {
-                const userHeader = document.getElementById('userHeader');
-                userHeader.innerHTML = `<p>Hello, ${userData.userName}!</p>`;
+            const headerPlaceholder = document.getElementById('headerPlaceholder');
+            if (headerPlaceholder) {
+                headerPlaceholder.innerHTML = data;
+                
+                // Additional operations after setting innerHTML
+                const userData = JSON.parse(localStorage.getItem('userData'));
+                if (userData && userData.userName) {
+                    const userHeader = document.getElementById('userHeader');
+                    if (userHeader) {
+                        userHeader.innerHTML = `<p>Hello, ${userData.userName}!</p>`;
+                    }
+                }
+            } else {
+                console.error('Element with ID "headerPlaceholder" not found.');
             }
+        })
+        .catch(error => {
+            console.error('Error fetching header content:', error);
         });
 });
+
+
+
+
+
+/* on .html, add after <body>   <div id="headerPlaceholder"></div>    
+ on .html, add before </body> <script src="../js/headerBannerNavigator.js"></script>  */
