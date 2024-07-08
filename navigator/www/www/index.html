@@ -32,7 +32,7 @@
 
     <header class="header-content">
         <div class="logo">
-            <img src="img/walkTheBibTrack.jpg" alt="Walk the Bibbulmun Track" />
+            <img src="img/walkTheBibTrack.jpg" id="bibTrackImage" alt="Walk the Bibbulmun Track" />
         </div>
 
         <div class="text">
@@ -40,7 +40,7 @@
         </div>
 
         <div class="qrcode">
-            <img src="img/BTFTrackAppQRCode.jpeg" alt="BTFTrackAppQRCode" />
+            <img src="img/QRCodeBTF01Orange.jpeg" id="qrCodeImage" alt="Mobile App" />
         </div>
 
 <!-- Login and Registration box -->
@@ -48,10 +48,16 @@
         <div class="login">
             <!-- User login and Registration -->
             <h2 id="userLogin" style="color: black; font-weight: bold;">Volunteer Login</h2>
-            <label for="loginUserName">Login User Name</label>
-            <input placeholder="Login User Name" type="text" id="loginUserName" name="loginUserName"><br>
-            <label for="loginPassword">Login Password</label>
-            <input placeholder="Login Password" type="password" id="loginPassword" name="loginPassword"><br>
+            <div class="login-container">
+            <div class="login-item">
+                <label for="loginUserName">Login User Name</label>
+                <input placeholder="Login User Name" type="text" id="loginUserName" name="loginUserName">
+            </div>
+           < div class="login-item">
+                <label for="loginPassword">Login Password</label>
+                <input placeholder="Login Password" type="password" id="loginPassword" name="loginPassword">
+            </div>
+        </div>
             <button type="submit">Login</button>
             <a href="html/registration.html" target="_blank"> <button type="button">Register</button></a><br><br>
         </div>
@@ -104,7 +110,7 @@
 
             <li><a href="./html/contactUs.html" target="_blank">Contact Us</a></li>
             <li><a href="./html/attendance.html" target="_blank">Attendance</a></li>
-            <li><a href="./html/register.html" target="_blank">register</a></li>
+
         
         </ul>
     </nav>
