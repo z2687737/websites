@@ -175,3 +175,10 @@ p {
 .checkbox-container input[type="checkbox"] {
     margin-right: 10px; /* Space between the checkbox and the label */
 }
+
+
+/* Ensure the images are displayed as block elements and have proper sizing */
+#qrCodeImage, #bibTrackImage {
+    display: block;
+    margin: 0 auto; /* Center the images */
+}

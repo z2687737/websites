@@ -2,9 +2,9 @@
 form {
     max-width: 300px;
     margin: 0 auto;
-    margin-top: 20px;
+    margin-top: 10px;
     background-color: #fff;
-    padding: 20px;
+    padding: 10px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -29,7 +29,7 @@ textarea {
     margin-bottom: 10px;
     box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
     font-size: 1em; /* Ensure consistent font size */
-    height: 36px; /* auto; Ensure auto height */
+    height: 10px; /* auto; Ensure auto height */
     line-height: 1.2; /* Ensure consistent line height */
 }
 
