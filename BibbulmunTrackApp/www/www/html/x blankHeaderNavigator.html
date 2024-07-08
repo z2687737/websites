@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!--testing on headerBannerNavigator.css successful
+This involve 3 files.
+
+index.html - html page without no header and navigator
+header.html - html only header and navigator, which is to be appeared on ever page with:
+
+<-body>    <div id="headerPlaceholder"></div>   </body->    i.e.,  this is the place to show "header banner navigator"
+and
+<-script src="../js/headerBannerNavigator.js"></script->
+
+header.js   - javascript shown in headerBannerNavigator.js
+
+-->
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <!--
+        Customize this policy to fit your own app's needs. For more guidance, please refer to the docs:
+            https://cordova.apache.org/docs/en/latest/
+        Some notes:
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self' data: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+    <meta name="color-scheme" content="light dark">
+
+    <link rel="stylesheet" type="text/css" href="../css/index.css">
+    <link rel="stylesheet" type="text/css" href="../css/navigator.css">
+    <link rel="stylesheet" type="text/css" href="../css/form.css">
+    <link rel="stylesheet" type="text/css" href="../css/header.css">
+    <link rel="stylesheet" type="text/css" href="../css/table.css">
+
+    <title>Bibbulmun Track Maintenance App</title>
+    
+</head>
+
+<body>
+    <div id="headerPlaceholder"></div>
+  <main>
+
+    <section>
+
+    </section>
+
+</main>
+
+<footer>
+<p>&copy; 2024 Bibbulmun Track Maintenance App</p>
+</footer>
+
+<script src="../js/index.js"></script>
+<script src="..js/login.js"></script>
+<script src="../js/cameraTest.js"></script>   
+<script src="../js/headerBannerNavigator.js"></script>
+
+</body>
+</html>
