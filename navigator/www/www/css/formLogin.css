@@ -1,0 +1,77 @@
+/*websites/btf/www/css/formLogin.css*/
+
+form {
+    max-width: 180px; /* width of the whole form*/
+    margin: auto;
+    margin-top: 8px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+
+}
+
+
+.login-form {
+    max-width: 170; /* width of the login-form*/
+    margin: auto;
+    margin-top: 10px;
+    background-color: #fff;
+    padding: 2px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles for the login form only */
+.login-form input[type="text"],
+.login-form input[type="email"],
+.login-form input[type="password"],
+.login-form input[type="date"],
+.login-form input[type="submit"],
+.login-form textarea,
+.login-form select {
+    width: 150px; 
+    /* Set width specific to the login form */
+    padding: 8px; /* Set padding specific to the login form */
+    margin: 4px 0; /* Set margin specific to the login form */
+    box-sizing: border-box;
+    /* Add any other styles specific to the login form */
+    font-size: 1.2em; /* Ensure consistent font size */
+}
+
+/* Additional specific styles for the login form container if needed */
+.login-form {
+    max-width: 300px; /* Example: set a max-width for the login form */
+    margin: auto; /* Center the login form */
+    /* Add any other styles specific to the login form container */
+}
+
+/* Flashing login form styles */
+
+#loginFlashContainer {
+    position: fixed;
+    /*
+     top: 3mm;        Distance from top edge 
+     right: 3mm;      Distance from right edge 
+    */
+    top: 10px; /* Adjust as needed */
+    right: 10px; /* Adjust as needed */
+    animation: flash 1s infinite alternate; /* Flashing animation */
+    z-index: 500; /* Ensure it's above other content */
+}
+
+#loginFlashContainer iframe {
+    width: 300px; /* Adjust width as needed */
+    height: 150px; /* Adjust height as needed */
+    border: none;
+}
+
+@keyframes flash {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0.5;
+    }
+}

@@ -62,12 +62,12 @@ h1, h2, h3 {
 }
 
 h1 {
-    color: black;
-    font-size:24px;
-    font-weight:normal;
-    margin:0px;
+    color: brown;
+    font-size: 48px;px;
+    font-weight: 999;
+    margin: 10px;
     overflow:visible;
-    padding:0px;
+    padding: 10 px;
     text-align:center;
 }
 
@@ -174,4 +174,11 @@ p {
 
 .checkbox-container input[type="checkbox"] {
     margin-right: 10px; /* Space between the checkbox and the label */
+}
+
+
+/* Ensure the images are displayed as block elements and have proper sizing */
+#qrCodeImage, #bibTrackImage {
+    display: block;
+    margin: 0 auto; /* Center the images */
 }
