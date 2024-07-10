@@ -1,62 +1,102 @@
-//  btf/www/js/attendance.js
-document.addEventListener('DOMContentLoaded', function () {
-    const form = document.getElementById('attendance');
+console.log('loaded websites/btf/www/js/attendance.js');
 
-    form.addEventListener('submit', function (event) {
-        event.preventDefault();
-        const chkInDTS = document.getElementById('chkInDTS').value;
-        const chkOutDTS = document.getElementById('chkOutDTS').value;
+// Handle attendance form submission
+document.getElementById('attendanceForm').addEventListener('submit', function(event) {
+    event.preventDefault();
 
-        // Validate Check-Out DateTime is after Check-In DateTime
-        if (chkInDTS >= chkOutDTS) {
-            alert('Check-Out DateTime must be after Check-In DateTime');
-            return;
-        }
+    const userData = JSON.parse(localStorage.getItem('userData'));
+    if (!userData || !userData.IDregistration) {
+        alert('attendance.js line 20 User not found. Please log in again.');
+        window.location.href = '../html/login.html';
+        return;
+    }
 
-        // Calculate time difference
-        const checkInTime = new Date(chkInDTS);
-        const checkOutTime = new Date(chkOutDTS);
-        const timeDifferenceMs = checkOutTime - checkInTime;
-        const timeDifferenceHours = timeDifferenceMs / (1000 * 60 * 60);
+    const chkInDTS = new Date(document.getElementById('chkInDTS').value);
+    const chkOutDTS = new Date(document.getElementById('chkOutDTS').value);
 
-        // Update time difference field
-        document.getElementById('volHours').value = timeDifferenceHours.toFixed(2);
+    if (chkInDTS >= chkOutDTS) {
+        alert('Check Out Date Time must be later than Check In Date Time.');
+        return;
+    }
 
-        // Fetch accumulated volunteer hours from the server
-        fetch('/attendance/hours')
-            .then(response => response.json())
-            .then(data => {
-                const accumulatedHours = data.aVolHours || 0;
-                const newAccumulatedHours = accumulatedHours + timeDifferenceHours;
-                document.getElementById('aVolHours').value = newAccumulatedHours.toFixed(2);
+    const volHours = calculateVolunteeredHours(chkInDTS, chkOutDTS);
+    const aVolHours = volHours + parseFloat(userData.aVolHours);
 
-                // Prepare data to send to server
-                const formData = {
-                    chkInDTS,
-                    chkOutDTS,
-                    volHours: timeDifferenceHours.toFixed(2),
-                    aVolHours: newAccumulatedHours.toFixed(2)
-                };
+    document.getElementById('volHours').value = volHours.toFixed(2);
+    document.getElementById('aVolHours').value = aVolHours.toFixed(2);
 
-                // Send data to server using fetch
-                return fetch('/attendance/submit', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(formData)
-                });
-            })
-            .then(response => response.json())
-            .then(result => {
-                console.log(result);
-                alert('Attendance taken');
-                // Redirect to the desired page after successful submission
-                window.location.href = '../index.html';
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('Attendance failed!');
-            });
-    });
+    updateAccumulatedHours(userData.IDregistration, aVolHours)
+        .then(() => addAttendanceRecord(userData.IDregistration, chkInDTS, chkOutDTS, volHours, aVolHours))
+        .then(() => {
+            alert('Attendance recorded successfully');
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Failed to record attendance');
+        });
 });
+
+function calculateVolunteeredHours(chkInDTS, chkOutDTS) {
+    const diff = chkOutDTS - chkInDTS;
+    const hours = diff / (1000 * 60 * 60);
+    return Math.max(0, hours); // Ensure non-negative
+}
+
+function updateAccumulatedHours(IDregistration, aVolHours) {
+    return fetch(`/api/updateUserHours/${IDregistration}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ aVolHours })
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Failed to update user hours');
+        }
+        return response.json();
+    });
+}
+
+function addAttendanceRecord(IDregistration, chkInDTS, chkOutDTS, volHours, aVolHours) {
+    const attendanceData = {
+        IDregistration,
+        chkInDTS: chkInDTS.toISOString().slice(0, 19).replace('T', ' '),
+        chkOutDTS: chkOutDTS.toISOString().slice(0, 19).replace('T', ' '),
+        volHours,
+        aVolHours
+    };
+
+    return fetch('/api/addAttendance', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(attendanceData)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Failed to add attendance record');
+        }
+        return response.json();
+    });
+}
+
+
+// Function to handle post-login actions
+// Fetch and display accumulated volunteered hours on page load
+function handlePostLogin() {
+    // Execute this block only if user is logged in
+    const userData = JSON.parse(localStorage.getItem('userData'));
+    if (userData && userData.IDregistration) {
+        // Fetch and display accumulated volunteered hours on page load
+        document.getElementById('aVolHoursPrevious').value = userData.aVolHours;
+    } else {
+        // Handle case where user data is not found
+        alert('User not found. Please log in again.');
+        window.location.href = '../html/login.html'; // Redirect to login page if user data is not found
+    }
+}
+
+// Call handlePostLogin after DOM content is loaded
+document.addEventListener('DOMContentLoaded', handlePostLogin);
