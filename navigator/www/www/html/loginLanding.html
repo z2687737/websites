@@ -1,4 +1,4 @@
-//websites/btf/www/loginlanding.html
+<!-- websites/btf/www/loginlanding.html -->
 
 <!DOCTYPE html>
 
@@ -42,14 +42,25 @@
                     <ul>
                         <li><a href="#" onclick="loadContent('volunteerProfile')"><h3>Volunteer Profile</h3></a></li><br>
                         <li><a href="#" onclick="loadContent('attendanceInfo')"><h3>Attendance Information</h3></a></li><br>
-                        <li><a href="#" onclick="loadContent('maintenanceReport')"><h3>Track Maintenance Report</h3></a></li><br>
+                        <li><a href="#" id="trackMaintenanceReportLink" onclick="loadContent('maintenanceReport')"><h3>Track Maintenance Report</h3></a></li><br>
                         <li><a href="#" onclick="loadContent('contactUs')"><h3>Contact Us</h3></a></li><br>
                         <li><a href="../index.html"><h3>logout</h3></a></li><br>
                     </ul>
                 </td>
                 <td id="content">
-                    <!-- Content will be loaded here -->
+<!-- Content will be loaded here a list of all case report by IDcasereport and created_at datetime, allow user selection -->
                     <div id="displayArea">Welcome! Please select an option from the navigation menu.</div>
+
+<!-- Right side where reports will be displayed, depends on what the user select from the list above -->
+
+    <!-- This section will show details of selected report -->
+
+<div id="reports">
+    <h2>Track Maintenance Reports</h2>
+    <ul id="reportList"></ul>
+    <div id="reportDetails"></div>
+</div>
+
                 </td>
             </tr>
         </table>
