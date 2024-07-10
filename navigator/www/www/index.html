@@ -1,3 +1,4 @@
+
 <!-- websites/btf/www/index.html -->
 
 <!DOCTYPE html>
@@ -21,8 +22,8 @@
     <link rel="stylesheet" type="text/css" href="css/leaflet.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 
-    <!-- for PWA metadata indexedDB installation on device-->
-    <link rel="manifest" href="/manifest.json">
+    <!-- for PWA metadata indexedDB installation on device
+    <link rel="manifest" href="/manifest.json">   -->
 
     <title>BTF Bibbulmun Track Maintenance App</title>
 
@@ -35,33 +36,18 @@
             <img src="img/walkTheBibTrack.jpg" id="bibTrackImage" alt="Walk the Bibbulmun Track" />
         </div>
 
-        <div class="text">
-            <h1>Welcome to the Bibbulmun Track Maintenance App </h1>
-        </div>
-
         <div class="qrcode">
             <img src="img/QRCodeBTF01Orange.jpeg" id="qrCodeImage" alt="Mobile App" />
         </div>
 
-<!-- Login and Registration box -->
-<form id="login">
-        <div class="login">
-            <!-- User login and Registration -->
-            <h2 id="userLogin" style="color: black; font-weight: bold;">Volunteer Login</h2>
-            <div class="login-container">
-            <div class="login-item">
-                <label for="loginUserName">Login User Name</label>
-                <input placeholder="Login User Name" type="text" id="loginUserName" name="loginUserName">
-            </div>
-           < div class="login-item">
-                <label for="loginPassword">Login Password</label>
-                <input placeholder="Login Password" type="password" id="loginPassword" name="loginPassword">
-            </div>
+        <div class="text">
+            <h1>Welcome to the Bibbulmun Track Maintenance App </h1>
         </div>
-            <button type="submit">Login</button>
-            <a href="html/registration.html" target="_blank"> <button type="button">Register</button></a><br><br>
+
+        <div id="loginFlashContainer">
+            <iframe src="html/login.html" frameborder="0" width="100%" height="200px" ></iframe>
         </div>
-</form>
+
     </header>
 
     <nav class="navbar">
@@ -108,45 +94,37 @@
                 </div>
             </li>
 
-            <li><a href="./html/contactUs.html" target="_blank">Contact Us</a></li>
-            <li><a href="./html/attendance.html" target="_blank">Attendance</a></li>
-
-        
+            <li><a href="./html/contactUs.html" >Contact Us</a></li>
+            <li><a href="./html/attendance.html" >Attendance</a></li>
         </ul>
     </nav>
 
-    <main>
+<main>
 
-
-    <!-- for testing purposes: Fetch messages from server 
-    <form id="saveForm"> 
-        <h2>( 3 )  API endpoint to handle /save form submission</h2>
-        <label for="save">Save</label>
-        <input name="save" placeholder="type save something" type="text" id="save">
-        <button type="submit">Submit</button>
-      </form>
-      -->
  <!-- caseReport -->
- <form id="caseReport" onsubmit="saveFormData(event)">
+ <form id="caseReport" enctype="multipart/form-data" onsubmit="saveFormData(event)">
             <br>
              <h2 id="trackMaintenanceReport">TRACK MAINTENANCE REPORT</h2>
              <br>
 
 
              <h2>Reported BY</h2>
-
+<br>
              <label for="reporterName">Name:</label>
-             <textarea placeholder="Enter your name here" id="reporterName" name="reporterName" rows="1"
-                 cols="20"></textarea>
+             <textarea placeholder="Enter your name" id="reporterName" name="reporterName" rows="1"
+                 cols="30" required></textarea>
  
              <label for="reporterContact">Contact:</label>
-             <textarea placeholder="Enter your contact here" id="reporterContact" name="reporterContact" rows="1"
-                 cols="20"></textarea><br><br>
- 
+             <textarea placeholder="Enter your hp number" id="reporterContact" name="reporterContact" rows="1"
+                 cols="30" required></textarea><br><br>
+
+<label for="reporterEmailAddress">Email Address</label>
+                 <textarea placeholder="Enter your email Address" id="reporterEmailAddress" name="reporterEmailAddress" rows="1"
+                     cols="30" required></textarea><br><br>
  
                  <h2>Inspection Date</h2>
-            <label for="dateTimePicker">Inspection Date</label>
-            <input type="datetime-local" id="dateTimePicker" name="dateTimePicker"><br>
+<br>            <label for="dateTimePicker">Inspection Date</label>
+            <input type="datetime-local" id="dateTimePicker" name="dateTimePicker"><br><br>
             <!--here a field to capture / save from date time picker since it's off line -->
 
             <h2>Campsite Report</h2>
@@ -351,7 +329,7 @@
             <!--Bibbulmun Track Campsites -->
             <!-- Problem Description -->
             <h2 id="issueReport">Report an Issue</h2>
-
+<br>
             <label for="issueType">Issue Type:</label>
             <select id="issueType" name="issueType" onchange="showIssueOptions()">
                 <option value=" ">ISSUE TYPE</option>
@@ -477,36 +455,30 @@
 
 
             <br>
-
+<!--The camera and video -->
             <div class="table-container">
                 <table>
                     <tr>
                         <td class="camera-cell">
-                            <form id="photoUploadForm" enctype="multipart/form-data">
                             <label for="clickCamera">Take Photo</label>
-                            <button id="clickCamera" type="button">Take Photo</button>
+<!-- Camera button--> <button id="clickCamera" type="button">Take Photo</button>
+
                             <div id="imageContainer"></div>
                             <img id="image" style="display:none;" src="#" alt="Image will appear here">
                             <input type="file" name="photo" id="photoInput" style="display:none;">
-                    <button type="submit" style="display:none;">Upload Photo</button>
-                </form>        
-                </td>
+                       </td>
                     </tr>
                 </table>
             </div>
 
-            
             <div class="table-container">
                 <table>
                     <tr>
                         <td class="video-cell">
-                            <form id="videoUploadForm" enctype="multipart/form-data">
                         <label for="clickVideo">Record Video</label>
-                           <button id="clickVideo" type="button">Record Video</button>
+<!--Video button --> <button id="clickVideo" type="button">Record Video</button>
                             <div id="videoContainer"></div>
                             <input type="file" name="video" id="videoInput" style="display:none;">
-                    <button type="submit" style="display:none;">Upload Video</button>
-                </form>
                         </td>
                     </tr>
                 </table>
@@ -521,25 +493,33 @@
 <br><br>
 
 <div id="syncData" class="center-buttons">
-    <button type="submit">ONLINE Data Sync to Database Email DEC</button>
-    <br>
+    <button type="button">ONLINE Data Sync to Database Email DEC</button>
 </div>
 <br><br>
+        </form>   
+        
 
-            <br><br><br><br><br><br>
-        </form>
+    <!-- for testing purposes: Fetch messages from server 
+    <form id="saveForm"> 
+        <h2>( 3 )  API endpoint to handle /save form submission</h2>
+        <label for="save">Save</label>
+        <input name="save" placeholder="type save something" type="text" id="save">
+        <button type="submit">Submit</button>
+      </form>
+      -->
+
 
     </main>
-
+<br><br><br><br>
     <footer>
         <p>&copy; 2024 Bibbulmun Track Maintenance App</p>
     </footer>
 
-    <script src="js/save.js" defer></script>
+
     
-    <script src="js/login.js"></script>
+ <script src="js/login.js" defer></script>   
     
-    <script src="js/attendance.js"></script>
+    <script src="js/attendance.js" defer></script>
     
     <!--Javascript for Issue Type Selection-->
     <!--  <script src="js/index.js"></script>  -->
@@ -551,14 +531,23 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDzI4CfMoJ6ZgrjxEX1zaZDlKMu6pBEZHQ" defer></script>
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
-    <!-- ( 5 ) External JavaScript for takePicture (line 298)-->
+    <!-- ( 5 ) External JavaScript for takePicture (line 480)-->
     <script src="./js/clickCamera.js"></script>
     <script src="js/clickVideo.js"></script>
 
+<!-- ( 6 ) Integration: -->
+<!-- ( 6.a ) Save LocalStorage offline -->
+<!-- ( 6.b.i ) Syncing Data Online -->
+<!-- ( 6.b.ii ) email DEC district Online -->
+
+<script src="js/caseReport.js"></script>
+
+
     <!-- backend connection-->
-<!--    <script src="cordova.js"></script>  -->
-    <script src="./js/app.js"></script>
-<!--  <script src="js/indexedDB.js"></script>   -->
+<!--    <script src="js/save.js" defer></script>
+    <script src="cordova.js"></script> 
+
+  <script src="js/indexedDB.js"></script>   -->
 
 </body>
 
