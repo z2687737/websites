@@ -11,18 +11,18 @@
     <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
     <meta name="color-scheme" content="light dark">
 
-    <link rel="stylesheet" type="text/css" href="css/index.css">
-    <link rel="stylesheet" type="text/css" href="css/navigator.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">     
     <link rel="stylesheet" type="text/css" href="css/form.css">
+    <link rel="stylesheet" type="text/css" href="css/formLogin.css">
+
+    <link rel="stylesheet" type="text/css" href="css/navigator.css">
+    
     <link rel="stylesheet" type="text/css" href="css/header.css">
     <link rel="stylesheet" type="text/css" href="css/table.css">
 
     <!--for clickGPS -->
     <link rel="stylesheet" type="text/css" href="css/leaflet.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-
-    <!-- for PWA metadata indexedDB installation on device
-    <link rel="manifest" href="/manifest.json">   -->
 
     <title>BTF Bibbulmun Track Maintenance App</title>
 
@@ -32,7 +32,7 @@
 
     <header class="header-content">
         <div class="logo">
-            <img src="img/walkTheBibTrack.jpg" id="bibTrackImage" alt="Walk the Bibbulmun Track" />
+            <img src="img/walkTheBibTrack.jpg" id="bibTrackImage" class = "blink" alt="Walk the Bibbulmun Track" />
         </div>
 
         <div class="qrcode">
@@ -43,9 +43,14 @@
             <h1>Welcome to the Bibbulmun Track Maintenance App </h1>
         </div>
 
-        <div id="loginFlashContainer">
-            <iframe src="html/login.html" frameborder="0" width="100%" height="200px" ></iframe>
+        <!-- Container for the login form -->
+        <div id="loginContainer" class="hidden">
+            <!-- The form will be injected here by JavaScript -->
         </div>
+
+        <!-- div id="loginFlashContainer">
+            <iframe src="html/login.html" frameborder="0" width="180px" height="300px" ></iframe>
+        </!-->
 
     </header>
 
@@ -514,10 +519,10 @@
         <p>&copy; 2024 Bibbulmun Track Maintenance App</p>
     </footer>
 
+<!-- ( 1 ) login form)-->
 
-    
- <script src="js/login.js" defer></script>   
-    
+ <script src="js/loginContainer.js" defer></script>  
+ <script src="js/login.js" defer></script>  
     <script src="js/attendance.js" defer></script>
     
     <!--Javascript for Issue Type Selection-->
