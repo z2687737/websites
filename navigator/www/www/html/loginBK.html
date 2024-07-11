@@ -11,17 +11,17 @@
 
     <!-- Login and Registration box -->
     <div id="loginContainer">        
-        <form id="loginForm"   action="/api/login" method="post"> 
-        
-            <input type="text" name="username" placeholder="Username" required> <br>  <br>
-            <input type="password" name="password" placeholder="Password" required> <br>  <br>
+        <form id="loginForm" class="login-form"  action="/api/login" method="post"> 
+            <h3 style="color: black; font-weight: bold;">Volunteer Login</h3>
+<br>
+            <input type="text" name="loginUserName" placeholder="Username" required> <br>  <br>
+            <input type="password" name="loginPassword" placeholder="Password" required> <br>  <br>
             <button type="submit">Login</button>
             <a href="../html/registration.html"><button type="button">Register</button></a>
         </form>
     </div>
 
-
-        <script src="../js/login.js"></script>
-    
+        <script src="../js/loginContainer.js"></script>
+        <script src="../js/login.js" defer></script>  
 </body>
 </html>

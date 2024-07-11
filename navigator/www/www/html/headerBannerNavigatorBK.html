@@ -1,23 +1,59 @@
-<!-- www/html/headerBannerNavigator.html
- 
+<!-- websites/btf/www/html/headerBannerNavigator.html
+
 to use this header 
  on .html, add this   <div id="headerPlaceholder"></div>           after <body> 
- on .html, add this    <script src="../js/headerBannerNavigator.js"></script>  before  </body-> 
- 
+ on .html, add this    <script src="../js/headerBannerNavigator.js"></script>  before  </body->  
 -->
+
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+    <meta name="color-scheme" content="light dark">
+
+    <link rel="stylesheet" type="text/css" href="css/index.css">     
+    <link rel="stylesheet" type="text/css" href="css/form.css">
+    <link rel="stylesheet" type="text/css" href="css/formLogin.css">
+
+    <link rel="stylesheet" type="text/css" href="css/navigator.css">
+    
+    <link rel="stylesheet" type="text/css" href="css/header.css">
+    <link rel="stylesheet" type="text/css" href="css/table.css">
+
+    <!--for clickGPS -->
+    <link rel="stylesheet" type="text/css" href="css/leaflet.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    <title>BTF Bibbulmun Track Maintenance App</title>
+
+</head>
+
+<body>
+
 
 <header class="header-content">
     <div class="logo">
-          <img src="../img/walkTheBibTrack.jpg" alt="Walk the Bibbulmun Track" />
-        </div>
+        <img src="img/walkTheBibTrack.jpg" id="bibTrackImage" class = "blink" alt="Walk the Bibbulmun Track" />
 
         <div class="text">
-          <h1>Welcome to the Bibbulmun Track Maintenance App   </h1>
+            <h1>Track Maintenance App</h1>
         </div>
+    </div>
 
-        <div class="qrcode">
-            <img src="../img/QRCodeBTF01Orange.jpeg" alt="Mobile App" />
-        </div>  
+    <div class="qrcode">
+        <img src="img/QRCodeBTF01Orange.jpeg" id="qrCodeImage" alt="Mobile App" />
+    </div>
+
+    <!-- Container for the login form -->
+    <div id="loginContainer" class="hidden">
+        <!-- The form will be injected here by JavaScript -->
+    </div>
      
 
    <h1>     <div id="userHeader">
@@ -69,7 +105,12 @@ to use this header
         </li>     
 
         <li><a href="../html/contactUs.html" target="_blank">Contact Us</a></li>
-        <li><a href="../html/attendance.html" target="_blank">Attendance</a></li>
+
 
     </ul>
 </nav>
+
+<script src="js/loginContainer.js" defer></script>  
+<script src="js/login.js" defer></script>  
+
+</body>

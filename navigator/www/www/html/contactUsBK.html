@@ -7,15 +7,14 @@
 <head>
     <meta charset="utf-8">
 
-    <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self' data: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
-    <meta name="format-detection" content="telephone=no">
+   <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
     <meta name="color-scheme" content="light dark">
 
     <link rel="stylesheet" type="text/css" href="../css/index.css">
     <link rel="stylesheet" type="text/css" href="../css/navigator.css">
+    <link rel="stylesheet" type="text/css" href="../css/formLogin.css">
     <link rel="stylesheet" type="text/css" href="../css/form.css">
     <link rel="stylesheet" type="text/css" href="../css/header.css">
     <link rel="stylesheet" type="text/css" href="../css/table.css">
@@ -25,37 +24,31 @@
 </head>
 
 <body>
-    
-<header class="header-content">
-        <div class="logo">
-            <img src="../img/walkTheBibTrack.jpg" alt="Walk the Bibbulmun Track" />
-        </div>
 
-        <div class="text">
-            <h1>Welcome to the Bibbulmun Track Maintenance App </h1>
+    <header class="header-content">
+
+        <div class="logo">
+            <img src="../img/walkTheBibTrack.jpg" id="bibTrackImage" class = "blink" alt="Walk the Bibbulmun Track" />
+
+            <div class="text">
+                <h1>Track Maintenance App</h1>
+            </div>
         </div>
 
         <div class="qrcode">
-            
-            <img src="../img/QRCodeBTF01Orange.jpeg" alt="Mobile App" />
+            <img src="../img/QRCodeBTF01Orange.jpeg" id="qrCodeImage" alt="Mobile App" />
         </div>
 
-<!-- Login and Registration box -->
-<form id="login"  class="login-form">
-
-        <div class="login">
-            <!-- User login and Registration -->
-            <h2 id="userLogin" style="color: black; font-weight: bold;">Volunteer Login</h2>
-            <label for="loginUserName">Login User Name</label>
-            <input placeholder="Login User Name" type="text" id="loginUserName" name="loginUserName"><br>
-            <label for="loginPassword">Login Password</label>
-            <input placeholder="Login Password" type="password" id="loginPassword" name="loginPassword"><br>
-            <button type="submit">Login</button>
-            <a href="../html/registration.html" target="_blank"> <button type="button">Register</button></a><br><br>
+        <!-- Container for the login form -->
+        <div id="loginContainer" >
+            <!-- The form will be injected here by JavaScript -->
         </div>
-</form>
+
+        <!-- div id="loginFlashContainer">
+            <iframe src="html/login.html" frameborder="0" width="180px" height="300px" ></iframe>
+        </!-->
+
     </header>
-
 
     <nav class="navbar">
         <ul>
@@ -137,6 +130,8 @@
 
 <script src="../js/index.js"></script>
 <script src="../js/login.js"></script>
+<script src="../js/loginContainer.js" defer></script>  
+ 
 
 <script src="../js/contactUs.js"></script>
 

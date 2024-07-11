@@ -1,22 +1,23 @@
-<!DOCTYPE html>
-
 <!-- btf/www/html/contactUs.html-->
+
+<!DOCTYPE html>
 
 <html>
 
 <head>
     <meta charset="utf-8">
 
-    <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self' data: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
-    <meta name="format-detection" content="telephone=no">
+   <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
     <meta name="color-scheme" content="light dark">
 
     <link rel="stylesheet" type="text/css" href="../css/index.css">
     <link rel="stylesheet" type="text/css" href="../css/navigator.css">
+    <link rel="stylesheet" type="text/css" href="../css/headerBannernavigator.css">
     <link rel="stylesheet" type="text/css" href="../css/form.css">
+    <link rel="stylesheet" type="text/css" href="../css/formLogin.css">
+    <link rel="stylesheet" type="text/css" href="../css/nevigator.css">
     <link rel="stylesheet" type="text/css" href="../css/header.css">
     <link rel="stylesheet" type="text/css" href="../css/table.css">
 
@@ -25,89 +26,9 @@
 </head>
 
 <body>
-    
-<header class="header-content">
-        <div class="logo">
-            <img src="../img/walkTheBibTrack.jpg" alt="Walk the Bibbulmun Track" />
-        </div>
-
-        <div class="text">
-            <h1>Welcome to the Bibbulmun Track Maintenance App </h1>
-        </div>
-
-        <div class="qrcode">
-            
-            <img src="../img/QRCodeBTF01Orange.jpeg" alt="Mobile App" />
-        </div>
-
-<!-- Login and Registration box -->
-<form id="login"  class="login-form">
-
-        <div class="login">
-            <!-- User login and Registration -->
-            <h2 id="userLogin" style="color: black; font-weight: bold;">Volunteer Login</h2>
-            <label for="loginUserName">Login User Name</label>
-            <input placeholder="Login User Name" type="text" id="loginUserName" name="loginUserName"><br>
-            <label for="loginPassword">Login Password</label>
-            <input placeholder="Login Password" type="password" id="loginPassword" name="loginPassword"><br>
-            <button type="submit">Login</button>
-            <a href="../html/registration.html" target="_blank"> <button type="button">Register</button></a><br><br>
-        </div>
-</form>
-    </header>
 
 
-    <nav class="navbar">
-        <ul>
-
-            <li class="dropdown">
-                <a href="javascript:void(0)" class="dropbtn">HOME</a>
-                <div class="dropdown-content">
-                    <a href="../index.html" target="_blank">HOME Login Register Report</a>
-                    <a href="../html/registration.html#volProfile">Register Volunteer Profile</a>
-                    <a href="../index.html#trackMaintenanceReport">HOME Maintenance Report</a>
-                    <a href="../html/clickGPS.html">Click GPS Map</a>
-                </div>
-            </li>
-
-            <li class="dropdown">
-                <a href="javascript:void(0)" class="dropbtn">Bibbulmun</a>
-                <div class="dropdown-content">
-                    <a href="https://www.bibbulmuntrack.org.au/the-track/" target="_blank">Walk The Bibbulmun Track</a>
-                    <a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/">Volunteer
-                        With Us</a>
-                    <a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/training-recognition/">Training
-                        and Recognition</a>
-                    <a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/volunteering-faqs/">Volunteering
-                        FAQs</a>
-                </div>
-            </li>
-
-
-            <li class="dropdown">
-                <a href="javascript:void(0)" class="dropbtn">Project</a>
-                <div class="dropdown-content">
-                    <a href="https://docs.google.com/document/d/1ijmDKX9Eb4ph3X2y8SCljUWEqL9flKbr/edit?usp=sharing&ouid=102690957484764986431&rtpof=true&sd=true"
-                        target="_blank">Project paper</a>
-                    <a
-                        href="https://docs.google.com/spreadsheets/d/1s2p3TSCYY5Vh6vhblPEi25_9b6n10qWl/edit?usp=sharing&ouid=102690957484764986431&rtpof=true&sd=true">TrackInspectionReportXLS</a>
-                    <a
-                        href="https://drive.google.com/file/d/1NezoBfJuzdqkjP_9EmAmTb5IP1VBhF2I/view?usp=sharing">VolunteeringPDF</a>
-                    <a
-                        href="https://drive.google.com/file/d/1yaRAgKrB8Kt_-z2ZKa9jPq5cuSN8uU3o/view?usp=sharing">CampsiteReportPNG</a>
-                    <a
-                        href="https://docs.google.com/document/d/1ua7MqJL4XS2BaUwiyPjofkEDkKqgDN38/edit?usp=sharing&ouid=102690957484764986431&rtpof=true&sd=true">download
-                        CampsiteReportWORDS</a>
-                </div>
-            </li>
-
-            <li><a href="../html/contactUs.html" target="_blank">Contact Us</a></li>
-            <li><a href="../html/attendance.html" target="_blank">Attendance</a></li>
-          
-        
-        </ul>
-    </nav>
-
+    <div id="headerPlaceholder"></div>   
 
 
 <section class="contact-us">
@@ -135,8 +56,12 @@
 <p>&copy; 2024 Bibbulmun Track Maintenance App</p>
 </footer>
 
+
+<script src="../js/headerBannerNavigator.js"></script> 
+
 <script src="../js/index.js"></script>
 <script src="../js/login.js"></script>
+<script src="../js/loginContainer.js" defer></script>  
 
 <script src="../js/contactUs.js"></script>
 

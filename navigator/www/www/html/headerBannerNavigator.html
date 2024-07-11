@@ -1,75 +1,121 @@
-<!-- www/html/headerBannerNavigator.html
- 
+<!-- websites/btf/www/html/headerBannerNavigator.html
+
 to use this header 
  on .html, add this   <div id="headerPlaceholder"></div>           after <body> 
- on .html, add this    <script src="../js/headerBannerNavigator.js"></script>  before  </body-> 
- 
+ on .html, add this    <script src="../js/headerBannerNavigator.js"></script>  before  </body->  
 -->
 
-<header class="header-content">
-    <div class="logo">
-          <img src="../img/walkTheBibTrack.jpg" alt="Walk the Bibbulmun Track" />
-        </div>
+<!-- websites/btf/www/index.html -->
 
-        <div class="text">
-          <h1>Welcome to the Bibbulmun Track Maintenance App   </h1>
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+    <meta name="color-scheme" content="light dark">
+
+    <link rel="stylesheet" type="text/css" href="../css/index.css">     
+    <link rel="stylesheet" type="text/css" href="../css/form.css">
+    <link rel="stylesheet" type="text/css" href="../css/formLogin.css">
+
+    <link rel="stylesheet" type="text/css" href="../css/navigator.css">
+    
+    <link rel="stylesheet" type="text/css" href="../css/header.css">
+    <link rel="stylesheet" type="text/css" href="../css/table.css">
+
+<!--for clickGPS -->
+    <link rel="stylesheet" type="text/css" href="../css/leaflet.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    <title>BTF Bibbulmun Track Maintenance App</title>
+
+</head>
+
+<body>
+
+    <header class="header-content">
+
+        <div class="logo">
+            <img src="../img/walkTheBibTrack.jpg" id="bibTrackImage" class = "blink" alt="Walk the Bibbulmun Track" />
+
+            <div class="text">
+                <h1>Track Maintenance App</h1>
+            </div>
         </div>
 
         <div class="qrcode">
-            <img src="../img/QRCodeBTF01Orange.jpeg" alt="Mobile App" />
-        </div>  
-     
+            <img src="../img/QRCodeBTF01Orange.jpeg" id="qrCodeImage" alt="Mobile App" />
+        </div>
 
-   <h1>     <div id="userHeader">
-          <!-- This is where the user's name will appear -->
-        </div></h1>
+        <!-- Container for the login form -->
+        <div id="loginContainer" >
+            <!-- The form will be injected here by JavaScript -->
+        </div>
 
-</header>
+        <!-- div id="loginFlashContainer">
+            <iframe src="html/login.html" frameborder="0" width="180px" height="300px" ></iframe>
+        </!-->
 
-<nav class="navbar">
-    <ul>
-   <!--     <li><a href="../index.html" target="_blank">Login Registration Report</a></li>
-        <li><a href="https://www.bibbulmuntrack.org.au/the-track/" target="_blank">Walk The Bibbulmun Track</a></li>
-        <li><a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/" target="_blank">Volunteer With Us</a></li>
-        <li><a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/training-recognition/" target="_blank">Training and Recognition</a></li>
-        <li><a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/volunteering-faqs/" target="_blank">Volunteering FAQs</a></li>
-        <li><a href="html/clickGPS.html" target="_blank">Get GPS map</a></li>
-    -->
-        <li class="dropdown">
-            <a href="javascript:void(0)" class="dropbtn">HOME</a>
-            <div class="dropdown-content">
-                <a href="../index.html#trackMaintenanceReport">Track Maintenance Report</a>
-                <a href="../html/clickGPS.html">Click GPS Map</a>
-                <a href="../html/contactUs.html" target="_blank">Contact Us</a>
-                <a href="../html/attendance.html" target="_blank">Scan Attendance</a>
-            </div>
-        </li>
+    </header>
 
-        <li class="dropdown">
-            <a href="javascript:void(0)" class="dropbtn">About Bibbulmun</a>
-            <div class="dropdown-content">
-                <a href="https://www.bibbulmuntrack.org.au/the-track/" target="_blank">Walk The Bibbulmun Track</a>
-                <a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/" target="_blank">Volunteer
-                    With Us</a>
-                <a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/training-recognition/" target="_blank">Training and Recognition</a>
-                <a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/volunteering-faqs/" target="_blank">Volunteering FAQs</a>
-            </div>
-        </li>
+    <nav class="navbar">
+        <ul>
+
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">HOME</a>
+                <div class="dropdown-content">
+                    <a href="../index.html" target="_blank">HOME Login Register Report</a>
+                    <a href="../html/registration.html#volProfile">Register Volunteer Profile</a>
+
+                    <a href="../index.html#trackMaintenanceReport">HOME Maintenance Report</a>
+                    <a href="../html/clickGPS.html">Click GPS Map</a>
+
+                    <a href="../html/attendance.html">Attendance</a>
+                    <a href="../html/loginLanding.html">Login Landing</a>
+
+                </div>
+            </li>
+
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">Bibbulmun</a>
+                <div class="dropdown-content">
+                    <a href="https://www.bibbulmuntrack.org.au/the-track/" target="_blank">Walk The Bibbulmun Track</a>
+                    <a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/">Volunteer
+                        With Us</a>
+                    <a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/training-recognition/">Training
+                        and Recognition</a>
+                    <a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/volunteering-faqs/">Volunteering
+                        FAQs</a>
+                </div>
+            </li>
 
 
-        <li class="dropdown">
-            <a href="javascript:void(0)" class="dropbtn">This Project</a>
-            <div class="dropdown-content">
-                <a href="https://docs.google.com/document/d/1ijmDKX9Eb4ph3X2y8SCljUWEqL9flKbr/edit?usp=sharing&ouid=102690957484764986431&rtpof=true&sd=true" target="_blank">Project paper</a>
-                <a href="https://docs.google.com/spreadsheets/d/1s2p3TSCYY5Vh6vhblPEi25_9b6n10qWl/edit?usp=sharing&ouid=102690957484764986431&rtpof=true&sd=true">TrackInspectionReportXLS</a>
-                <a href="https://drive.google.com/file/d/1NezoBfJuzdqkjP_9EmAmTb5IP1VBhF2I/view?usp=sharing">VolunteeringPDF</a>
-                <a href="https://drive.google.com/file/d/1yaRAgKrB8Kt_-z2ZKa9jPq5cuSN8uU3o/view?usp=sharing">CampsiteReportPNG</a>
-                <a href="https://docs.google.com/document/d/1ua7MqJL4XS2BaUwiyPjofkEDkKqgDN38/edit?usp=sharing&ouid=102690957484764986431&rtpof=true&sd=true">download CampsiteReportWORDS</a>
-            </div>
-        </li>     
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">Project</a>
+                <div class="dropdown-content">
+                    <a href="https://docs.google.com/document/d/1ijmDKX9Eb4ph3X2y8SCljUWEqL9flKbr/edit?usp=sharing&ouid=102690957484764986431&rtpof=true&sd=true"
+                        target="_blank">Project paper</a>
+                    <a
+                        href="https://docs.google.com/spreadsheets/d/1s2p3TSCYY5Vh6vhblPEi25_9b6n10qWl/edit?usp=sharing&ouid=102690957484764986431&rtpof=true&sd=true">TrackInspectionReportXLS</a>
+                    <a
+                        href="https://drive.google.com/file/d/1NezoBfJuzdqkjP_9EmAmTb5IP1VBhF2I/view?usp=sharing">VolunteeringPDF</a>
+                    <a
+                        href="https://drive.google.com/file/d/1yaRAgKrB8Kt_-z2ZKa9jPq5cuSN8uU3o/view?usp=sharing">CampsiteReportPNG</a>
 
-        <li><a href="../html/contactUs.html" target="_blank">Contact Us</a></li>
-        <li><a href="../html/attendance.html" target="_blank">Attendance</a></li>
+                </div>
+            </li>
 
-    </ul>
-</nav>
+            <li><a href="../html/contactUs.html" >Contact Us</a></li>
+           
+        </ul>
+    </nav>
+
+<script src="../js/loginContainer.js" defer></script>  
+<script src="../js/login.js" defer></script>  
+<script src="../js/headerBannerNavigator.js"></script>
+
+</body>
