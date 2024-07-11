@@ -1,60 +1,58 @@
 /*websites/btf/www/css/formLogin.css*/
 
-form {
-    max-width: 180px; /* width of the whole form*/
-    margin: auto;
-    margin-top: 8px;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-
+.login {
+    display: flex;
+    align-items: center;
 }
 
+#loginContainer {
+    max-width: 180px; /* Set a more reasonable max-width */
+    margin-left: 10px; /* Adjust margin for spacing between QR code and login form */
+}
 
 .login-form {
-    max-width: 170; /* width of the login-form*/
-    margin: auto;
-    margin-top: 10px;
+    max-width: 180px; /* Set the max-width for the form */
+    margin: auto; /* Center the form */
     background-color: #fff;
-    padding: 2px;
+    padding: 10px; /* Add some padding */
+    border: 1px solid #ccc;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Styles for the login form only */
 .login-form input[type="text"],
-.login-form input[type="email"],
-.login-form input[type="password"],
-.login-form input[type="date"],
-.login-form input[type="submit"],
-.login-form textarea,
-.login-form select {
-    width: 150px; 
-    /* Set width specific to the login form */
-    padding: 8px; /* Set padding specific to the login form */
-    margin: 4px 0; /* Set margin specific to the login form */
-    box-sizing: border-box;
-    /* Add any other styles specific to the login form */
-    font-size: 1.2em; /* Ensure consistent font size */
+.login-form input[type="password"] {
+    width: 100%; /* Make the input fields take full width */
+    padding: 1px;
+    margin: 5px, 0; /* Add some margin between inputs */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+    font-size: 12px; /* Ensure consistent font size */
 }
 
-/* Additional specific styles for the login form container if needed */
-.login-form {
-    max-width: 300px; /* Example: set a max-width for the login form */
-    margin: auto; /* Center the login form */
-    /* Add any other styles specific to the login form container */
+.login-form button {
+    padding: 10px;
+    margin: 1px 0; /* Add some margin */
+    background-color: #d86817; /* Button color */
+    color: #fff; /* Text color */
+    border: none;
+    border-radius: 4px;
+    font-size: 10px;
+    cursor: pointer;
+}
+
+.login-form button:hover {
+    background-color: maroon; /* Darken button color on hover */
 }
 
 /* Flashing login form styles */
-
 #loginFlashContainer {
     position: fixed;
-    /*
-     top: 3mm;        Distance from top edge 
-     right: 3mm;      Distance from right edge 
-    */
+    
+     top: 3mm;       /* Distance from top edge */
+     right: 3mm;    /*  Distance from right edge */
+    
     top: 10px; /* Adjust as needed */
     right: 10px; /* Adjust as needed */
     animation: flash 1s infinite alternate; /* Flashing animation */
@@ -62,7 +60,7 @@ form {
 }
 
 #loginFlashContainer iframe {
-    width: 300px; /* Adjust width as needed */
+    width: 120px; /* Adjust width as needed */
     height: 150px; /* Adjust height as needed */
     border: none;
 }
@@ -72,6 +70,7 @@ form {
         opacity: 1;
     }
     to {
-        opacity: 0.5;
+        opacity: 0.7;
     }
 }
+

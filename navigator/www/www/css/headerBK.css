@@ -1,5 +1,10 @@
 /*css/header.css*/
 
+body {
+    margin: 0; /* Ensure no default body margin */
+    padding: 0; /* Ensure no default body padding */
+}
+
 header {
     /*  position: fixed;*/ /*here fixed header, but navigator went behind on top*/
       align-items: center;
@@ -17,18 +22,21 @@ to ensure that the header stays on top of
 most other elements on the page.
      */  
       display: flex;
+      justify-content: center;
   }
   
   header img {
     max-width: 100%; /* Ensure it doesn't exceed the container's width */
     height: auto;   /* Maintain aspect ratio */
-    max-height: 10px; /* Set a maximum height to ensure the header is not too tall */
+/*    max-height: 10px;  Set a maximum height to ensure the header is not too tall */
 }
   
   .header-content {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;      /* space-between; */
+      background-color: #eba308;
+      color: white;
       padding: 20px 20px; 
        /* vertical, horizontal: Adjust the vertical padding to reduce height */
   }
@@ -38,7 +46,7 @@ most other elements on the page.
   }
   
   .user-header {
-    margin-left: auto;
+  /*  margin-left: auto;   */
     padding-right: 20px;
 }
 
@@ -48,10 +56,14 @@ most other elements on the page.
 }
 
   .logo img {
-      max-height: 200px; /* Example max height for images */
+    display: flex;
+    align-items: center;  
+    max-height: 200px; /* Example max height for images */
   }
 
   .qrcode {
+    display: flex;
+    align-items: center;
     /* Customize QR code styles */
     padding: 20px;
 }
@@ -60,10 +72,6 @@ most other elements on the page.
       padding-right: 50px;
   }
   
-  .login {
-      /* Customize login/registration box styles */
-      padding: 10px;
-  }
   
 footer {
     background-color: #eba308;

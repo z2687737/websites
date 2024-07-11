@@ -10,11 +10,11 @@
 /* Importing another CSS file */
 @import url("navigator.css");
 @import url("form.css");
+@import url("formLogin.css");
 @import url("header.css");
 @import url("table.css");
 
 /* styles.css */
-
 
 body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
@@ -33,7 +33,6 @@ body {
     width:100%;
 }
 
-
 section {
     padding: 20px;
     margin: 20px 0;
@@ -43,17 +42,12 @@ section h2 {
     margin-top: 0;
 }
 
-/* dropdown END */
-
-
-
 /* Targeting the <main> element */
 main {
     margin-left: 20px;
     padding: 20px;
     padding-top: 20px; /* Ensure the content doesn't hide behind the fixed header */
 }
-
 
 h1, h2, h3 {
     color: black;
@@ -63,7 +57,7 @@ h1, h2, h3 {
 
 h1 {
     color: brown;
-    font-size: 48px;px;
+    font-size: 24px;
     font-weight: 999;
     margin: 10px;
     overflow:visible;
@@ -82,12 +76,12 @@ h2 {
 }
 
 h3 {
-    font-size:16px;
+    font: size 20px;
     font-weight:normal;
     margin:0px;
     overflow:visible;
     padding:0px;
-    text-align:left;
+    text-align:center;
 }
 
 
@@ -110,6 +104,33 @@ p {
     margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
                                    /* offset horizontal: half of text area width */
 }
+
+
+/* Responsive adjustments */
+@media (max-width: 620px) {
+    .header-content {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+        text-align: center;
+    }
+
+    .logo, .qrcode, .login {
+        margin-bottom: 10px; /* Add margin between stacked items */
+    }
+
+    .login {
+        margin-top: 10px; /* Add margin above login form */
+    }
+
+    .text {
+        margin-left: 0; /* Remove left margin for text on smaller screens */
+    }
+
+    #loginContainer {
+        margin-left: 0; /* Remove left margin for login container on smaller screens */
+    }
+}
+
+
 
 /* Landscape layout (with min-width) */
 @media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
