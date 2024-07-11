@@ -105,6 +105,33 @@ p {
                                    /* offset horizontal: half of text area width */
 }
 
+
+/* Responsive adjustments */
+@media (max-width: 620px) {
+    .header-content {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+        text-align: center;
+    }
+
+    .logo, .qrcode, .login {
+        margin-bottom: 10px; /* Add margin between stacked items */
+    }
+
+    .login {
+        margin-top: 10px; /* Add margin above login form */
+    }
+
+    .text {
+        margin-left: 0; /* Remove left margin for text on smaller screens */
+    }
+
+    #loginContainer {
+        margin-left: 0; /* Remove left margin for login container on smaller screens */
+    }
+}
+
+
+
 /* Landscape layout (with min-width) */
 @media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
     .app {

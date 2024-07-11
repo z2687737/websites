@@ -1,8 +1,13 @@
 /*websites/btf/www/css/formLogin.css*/
 
+.login {
+    display: flex;
+    align-items: center;
+}
+
 #loginContainer {
     max-width: 180px; /* Set a more reasonable max-width */
-    margin: auto; /* Center the container */
+    margin-left: 10px; /* Adjust margin for spacing between QR code and login form */
 }
 
 .login-form {
@@ -19,7 +24,7 @@
 .login-form input[type="password"] {
     width: 100%; /* Make the input fields take full width */
     padding: 1px;
-    margin: 0 0; /* Add some margin between inputs */
+    margin: 5px, 0; /* Add some margin between inputs */
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
