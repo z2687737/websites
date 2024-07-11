@@ -31,5 +31,5 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-/* on .html, add after <body>   <div id="headerPlaceholder"></div>    
+/* on .html, add after <body>   <div id="headerPlaceholder"></div>      
  on .html, add before </body> <script src="../js/headerBannerNavigator.js"></script>  */

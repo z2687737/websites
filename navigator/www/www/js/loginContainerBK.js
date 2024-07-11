@@ -1,9 +1,7 @@
 console.log( "  dynamic load form websites/btfwww/js/loginContainer.js " ); 
 
-
-
 document.addEventListener('DOMContentLoaded', function() {
-    fetch('login.html')
+    fetch('html/login.html')
         .then(response => response.text())
         .then(html => {
             const loginContainer = document.getElementById('loginContainer');
@@ -13,7 +11,3 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error('Error fetching login form:', error);
         });
 });
-
-
-
-
