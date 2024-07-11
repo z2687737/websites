@@ -1,7 +1,7 @@
 /*websites/btf/www/css/form.css*/
 
 form {
-    max-width: 600px; /* width of the whole form*/
+    max-width: 300px; /* width of the whole form*/
     margin: auto;
     background-color: #fff;
     padding: 20px;
@@ -11,9 +11,10 @@ form {
 
 label {
     font-size: 1.2em; /* Example: Reduce font size to 0.8 */
+    font-weight: lighter;
     text-align: left;
     color: black; /* Example: Lighter color */
-    margin-left: 10px; /* Example: Adjust margin */
+    margin-left: 0px; /* Example: Adjust margin */
     margin-bottom: 2px; /* Example: Adjust margin */
     display: block; /* Example: Ensure each label is on a new line */
 }
@@ -26,17 +27,16 @@ form input[type="date"],
 form input[type="submit"],
 form textarea,
 form select {
-
     width: 100%;   
-/* width: 300px;   (fixed)
+/* width: 280px;   (fixed)
 use % floating width of the whole form match with line 4. 
 including the size of the input boxes.
 Set a fixed width to match 30 columns, 
 for the input of Name, Contact, issue description, volhour etc., */ 
-    padding: 8px 10px; /* Adjust padding for height */
+  /*  padding: 8px 10px;  Adjust padding for height */
     border: 1px solid #ccc;
     border-radius: 4px;
-    margin-bottom: 10px;
+    margin-bottom: auto;
     box-sizing: border-box; 
 /* Ensure padding and border are included in the element's total width and height */
     font-size: 1.5em; 
@@ -49,7 +49,6 @@ for the input of Name, Contact, issue description, volhour etc., */
 textarea {
     height: auto; /* Allow textarea to have flexible height */
 }
-
 
 /* Specific rule for #issueDescription */
 #issueDescription, message {
