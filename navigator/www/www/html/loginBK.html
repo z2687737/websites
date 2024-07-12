@@ -1,4 +1,3 @@
-<!-- websites/btf/www/html/login.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,12 +5,14 @@
     <title>Login</title>
 
               <link rel="stylesheet" href="../css/formLogin.css">   
+              <link rel="stylesheet" href="../css/form.css">
 </head>
 <body>
 
     <!-- Login and Registration box -->
-    <div id="loginContainer">        
-        <form id="loginForm" class="login-form"  action="/api/login" method="post"> 
+    <div id="loginContainer">
+  <!--       <form id="loginForm" class="login-form">  -->
+<form id="loginForm" class="login-form" action="/api/login" method="post">  
             <h3 style="color: black; font-weight: bold;">Volunteer Login</h3>
 <br>
             <input type="text" name="loginUserName" placeholder="Username" required> <br>  <br>
