@@ -68,11 +68,10 @@ most other elements on the page.
     padding: 20px;
 }
   .qrcode img {
-      max-height: 240px; /* Example max height for images */
+      max-height: 200px; /* Example max height for images */
       padding-right: 50px;
   }
-  
-  
+
 footer {
     background-color: #eba308;
     color: black;
