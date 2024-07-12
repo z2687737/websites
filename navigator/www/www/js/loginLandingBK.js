@@ -1,5 +1,9 @@
 //www/js/loginLanding.js 
 
+
+//  <div id="userHeader" style="text-align: left;">  </div>
+//    <!-- This is where the "Hello loginUserName" will appear -->
+
 document.addEventListener('DOMContentLoaded', () => {
     const userData = JSON.parse(localStorage.getItem('userData'));
     if (userData && userData.userName) {

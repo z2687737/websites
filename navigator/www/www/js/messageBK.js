@@ -14,6 +14,14 @@ document.getElementById('fetchMessage').addEventListener('click', () => {
       });
   });
   
+  document.getElementById('fetchMessage1').addEventListener('click', () => {
+    fetch('/api/another-message')
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('message1').innerText = data.message;
+      });
+  });
+  
 
 // Optional: Handle form submission via JavaScript for a better user experience
 //index.html <form id="login"  line 66 id="message" 

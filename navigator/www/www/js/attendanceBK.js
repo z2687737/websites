@@ -1,102 +1,97 @@
-console.log('loaded websites/btf/www/js/attendance.js');
+console.log("websites/btf/www/js/attendance.js");
 
-// Handle attendance form submission
-document.getElementById('attendanceForm').addEventListener('submit', function(event) {
-    event.preventDefault();
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('attendanceForm');
 
-    const userData = JSON.parse(localStorage.getItem('userData'));
-    if (!userData || !userData.IDregistration) {
-        alert('attendance.js line 20 User not found. Please log in again.');
-        window.location.href = '../html/login.html';
-        return;
-    }
+    const hardcodedUserName = 'A'; // Hardcoded for testing
 
-    const chkInDTS = new Date(document.getElementById('chkInDTS').value);
-    const chkOutDTS = new Date(document.getElementById('chkOutDTS').value);
+    const userData = {
+        userName: hardcodedUserName,
+        IDregistration: 1, // Hardcoded ID for testing
+        aVolHours: 0 // Hardcoded accumulated volunteer hours for testing
+    };
 
-    if (chkInDTS >= chkOutDTS) {
-        alert('Check Out Date Time must be later than Check In Date Time.');
-        return;
-    }
+    localStorage.setItem('userData', JSON.stringify(userData));
 
-    const volHours = calculateVolunteeredHours(chkInDTS, chkOutDTS);
-    const aVolHours = volHours + parseFloat(userData.aVolHours);
+    // Display accumulated volunteer hours on page load
+    document.getElementById('aVolHoursPrevious').value = userData.aVolHours;
 
-    document.getElementById('volHours').value = volHours.toFixed(2);
-    document.getElementById('aVolHours').value = aVolHours.toFixed(2);
+    // Form submission event listener, validate ChkInDTS before chkOutDTS
+    form.addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent form submission for now
 
-    updateAccumulatedHours(userData.IDregistration, aVolHours)
-        .then(() => addAttendanceRecord(userData.IDregistration, chkInDTS, chkOutDTS, volHours, aVolHours))
-        .then(() => {
-            alert('Attendance recorded successfully');
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('Failed to record attendance');
-        });
+        // Get values from form
+        let chkInDTS = new Date(document.getElementById('chkInDTS').value);
+        let chkOutDTS = new Date(document.getElementById('chkOutDTS').value);
+
+        // Perform validation
+        if (chkInDTS >= chkOutDTS) {
+            alert('Check Out Date Time must be later than Check In Date Time.');
+            return;
+        }
+
+        // Calculate volHours
+        let volHours = calculateVolunteeredHours(chkInDTS, chkOutDTS);
+
+        // Update volHours textarea
+        document.getElementById('volHours').textContent = volHours;
+
+        // Update aVolHours textarea if volHours is valid
+        if (!isNaN(volHours)) {
+            updateAccumulatedHours(volHours);
+        }
+
+        // Calculate new aVolHours
+        let aVolHours = parseFloat(userData.aVolHours) + volHours;
+
+        // Update accumulated hours display
+        document.getElementById('aVolHours').value = aVolHours.toFixed(2);
+
+        // Update user data in local storage
+        userData.aVolHours = aVolHours;
+        localStorage.setItem('userData', JSON.stringify(userData));
+
+        // Prepare data for submission
+        const data = {
+            IDregistration: userData.IDregistration,
+            chkInDTS: chkInDTS.toISOString(),
+            chkOutDTS: chkOutDTS.toISOString(),
+            volHours: volHours
+        };
+
+        // Submit attendance data
+        submitAttendanceForm(data);
+    });
 });
 
 function calculateVolunteeredHours(chkInDTS, chkOutDTS) {
-    const diff = chkOutDTS - chkInDTS;
-    const hours = diff / (1000 * 60 * 60);
-    return Math.max(0, hours); // Ensure non-negative
+    return (chkOutDTS - chkInDTS) / 3600000; // Convert milliseconds to hours
 }
 
-function updateAccumulatedHours(IDregistration, aVolHours) {
-    return fetch(`/api/updateUserHours/${IDregistration}`, {
+function updateAccumulatedHours(volHours) {
+    const aVolHoursElement = document.getElementById('aVolHours');
+    const currentHours = parseFloat(aVolHoursElement.value) || 0;
+    aVolHoursElement.value = (currentHours + volHours).toFixed(2);
+}
+
+function submitAttendanceForm(data) {
+    fetch('/api/submitAttendance', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ aVolHours })
+        body: JSON.stringify(data)
     })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Failed to update user hours');
+    .then(response => response.json())
+    .then(result => {
+        if (result.error) {
+            alert('Error recording attendance: ' + result.error);
+        } else {
+            alert('Attendance recorded successfully');
         }
-        return response.json();
+    })
+    .catch(error => {
+        console.error('attandance.js line 94 Error submitting attendance:', error);
+        alert('Error recording attendance. Please try again.');
     });
 }
-
-function addAttendanceRecord(IDregistration, chkInDTS, chkOutDTS, volHours, aVolHours) {
-    const attendanceData = {
-        IDregistration,
-        chkInDTS: chkInDTS.toISOString().slice(0, 19).replace('T', ' '),
-        chkOutDTS: chkOutDTS.toISOString().slice(0, 19).replace('T', ' '),
-        volHours,
-        aVolHours
-    };
-
-    return fetch('/api/addAttendance', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(attendanceData)
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Failed to add attendance record');
-        }
-        return response.json();
-    });
-}
-
-
-// Function to handle post-login actions
-// Fetch and display accumulated volunteered hours on page load
-function handlePostLogin() {
-    // Execute this block only if user is logged in
-    const userData = JSON.parse(localStorage.getItem('userData'));
-    if (userData && userData.IDregistration) {
-        // Fetch and display accumulated volunteered hours on page load
-        document.getElementById('aVolHoursPrevious').value = userData.aVolHours;
-    } else {
-        // Handle case where user data is not found
-        alert('User not found. Please log in again.');
-        window.location.href = '../html/login.html'; // Redirect to login page if user data is not found
-    }
-}
-
-// Call handlePostLogin after DOM content is loaded
-document.addEventListener('DOMContentLoaded', handlePostLogin);

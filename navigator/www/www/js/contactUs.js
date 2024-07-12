@@ -1,9 +1,8 @@
 console.log  ("  load btf/www/js/contactUs.js ");
 
 document.addEventListener('DOMContentLoaded', function() {
-
-document.getElementById('contactus').addEventListener('submit', function (e) {
-    e.preventDefault();
+    document.getElementById('contactus').addEventListener('submit', function(e) {
+        e.preventDefault();
 
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;    
