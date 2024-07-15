@@ -1,0 +1,210 @@
+// www/css/table.css
+
+body, html {
+  font-family: Arial, sans-serif;
+   display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin: 5;
+    padding: 5px;
+    background-color: beige;
+  }
+
+  h1, h2, h3 {
+    color: brown;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: brown;
+    background-color: orange;
+    font-size: 20px;
+    font-weight: 999;
+    margin: 10px;
+    overflow:visible;
+    padding: 5 px;
+    text-align:center;
+}
+
+h2 {
+    color: orange;
+    font-size:18px;
+    font-weight: 999;
+    margin:0px;
+    overflow:visible;
+    padding:0px;
+    text-align:left;
+}
+
+h3 {
+    color: maroon;
+    font: size 16px;
+    font-weight:normal;
+    margin-left:20px;
+    overflow:visible;
+    padding:0px;
+    text-align:justify;
+}
+
+userManual {
+  position: center;
+  text-align:center;
+}
+
+
+button {
+  flex: 1;
+  float: right;
+  font-size: 12px; 
+   background-color: #d86817;
+  color: #ffffff;
+  border: 1px solid transparent;
+  padding: 2px;
+  cursor: pointer;
+  margin: 0;
+  border-radius: 4px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%; 
+  /* Adjust as needed use 100% to evenly spread 5 buttons from left to right*/
+}
+
+button:hover {
+  background-color: maroon;
+}
+
+/* New styles for centering buttons */
+.center-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.dropDownContainer {
+  max-width: 150px;
+  position: relative;
+    display: inline-block;
+  flex: 1;
+  margin: 0;
+  justify-content: center;
+/* flex-end;  Aligns the entire button to the end (right) of the container */
+  padding: 2px; /* Optional padding for the container */
+}
+
+.dropdownUserManual {
+  position: relative;
+  display: inline-block;
+  text-align: left;  /*the text inside the button*/
+}
+
+.dropbtnUserManual {
+  background-color: #d86817;
+  color: white;
+  padding: 10px;
+  font-size: 12px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown-contentUserManual {
+  
+  display: none;
+  position: absolute;
+  background-color: orange;
+  min-width: 150px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-contentUserManual a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-contentUserManual a:hover {
+  background-color:maroon;
+  color: white;
+}
+
+.dropdownUserManual:hover .dropdown-contentUserManual {
+  display: block;
+}
+
+.dropdownUserManual:hover .dropbtnUserManual {
+  background-color: maroon
+}
+
+div.static {
+  position: static;
+  border: 3px solid orange
+}
+
+
+center {
+padding:20px;
+  text-align:center;
+  }
+
+.center {
+  text-align:center;
+  }
+
+img {
+    max-width: 95%;
+    height: auto;
+  }
+
+  /*external border frame*/
+  .table-container-index {
+    display: flex;
+    margin: 0;
+    padding: 2px;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: 100%;
+    background-color: beige; /* Optional background color */
+  }
+
+  .centered-table-index {
+    width: 100%; /* Adjust width as needed */
+    max-width: 1000px; /* Max width for responsiveness */
+    border-collapse: collapse;
+    text-align: center;
+  }
+
+  .centered-table-index th, .centered-table td {
+    border: 1px solid orangered;
+    padding: 2px;
+    
+  }
+
+table-index {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 1000px; 
+  /* A  djust width as needed */
+    text-align: center;
+    
+  }
+
+  /*the border of the table*/
+  table-index, th, td {
+    max-width: 888px; 
+    border: 1px solid orange(0, 0, 0);
+    border-style: solid;
+    border-color: beige; /* red */
+  }
+
+  th, td {
+    padding: 10px;
+  }

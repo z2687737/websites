@@ -33,6 +33,10 @@ body {
     width:100%;
 }
 
+#registrationForm{
+    background-color:beige;
+}
+
 section {
     padding: 20px;
     margin: 20px 0;
@@ -90,6 +94,10 @@ p {
     margin-left: 50px;
 }
 
+/* Targeting the <p> element */
+p1 {
+    margin-left: 100px;
+}
 
 /* Portrait layout (default) */
 .app {
