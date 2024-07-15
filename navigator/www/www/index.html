@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
@@ -10,15 +10,13 @@
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
     <meta name="color-scheme" content="light dark">
-
-    <link rel="stylesheet" type="text/css" href="css/index.css">     
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css"> 
+    <link rel="stylesheet" type="text/css" href="css/indexTable.css">     
     <link rel="stylesheet" type="text/css" href="css/form.css">
     <link rel="stylesheet" type="text/css" href="css/formLogin.css">
-
     <link rel="stylesheet" type="text/css" href="css/navigator.css">
-    
     <link rel="stylesheet" type="text/css" href="css/header.css">
-    <link rel="stylesheet" type="text/css" href="css/table.css">
 
     <!--for clickGPS -->
     <link rel="stylesheet" type="text/css" href="css/leaflet.css">
@@ -44,19 +42,17 @@
             <img src="img/QRCodeBTF01Orange.jpeg" id="qrCodeImage" alt="Mobile App" />
         </div>
     <div>
-        <a href="./html/caseReport.html"><button type="button">Login</button></a><br><br>
-        <a href="./html/registration.html"><button type="button">Registration</button></a><br><br>
-        <a href="./html/caseReport.html"><button type="button">Case Report</button></a><br><br>
-    </div>
+        <br>   <a href="./html/caseReport.html"><button type="button" style=float:right;>Login</button></a><br><br>
+    <br>   <a href="./html/registration.html"><button type="button" style=float:right;>Registration</button></a><br><br>
+</div>
     </header>
 
     <nav class="navbar">
         <ul>
-
             <li class="dropdown">
                 <a href="javascript:void(0)" class="dropbtn">Bibbulmun</a>
                 <div class="dropdown-content">
-                    <a href="https://www.bibbulmuntrack.org.au/the-track/" target="_blank">Walk The Bibbulmun Track</a>
+                    <a href="https://www.bibbulmuntrack.org.au/the-track/">Walk The Bibbulmun Track</a>
                     <a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/">Volunteer
                         With Us</a>
                     <a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/training-recognition/">Training
@@ -85,32 +81,526 @@
             <li class="dropdown">
                 <a href="javascript:void(0)" class="dropbtn">App</a>
                 <div class="dropdown-content">
+                    <a href="#hl1" >User Manual</a>
                     <a href="./html/caseReport.html">Case Report</a>
-                    <a href="../html/registration.html#volProfile">Register Volunteer Profile</a>
-                    <a href="../html/clickGPS.html">Click GPS Map</a>
-                    <a href="./html/attendance.html" >Attendance</a>
-                    <a href="./html/loginLanding.html" >Login Landing</a>
+                    <a href="../html/registration.html#volProfile">Registration</a>
+                    <a href="./html/attendance.html" >Attendance Logging</a>
+                    <a href="./html/loginLanding.html" >Login Admin</a>
                     <a href="./html/contactUs.html" >Contact Us</a>
+
+
                     <a href="./index.html" >Log out</a>
+                    
                 </div>
             </li>
             <li><a href="./html/contactUs.html" >Contact Us</a></li>
 
+
+
         </ul>
     </nav>
 
+<!-- starting of the table --><br>
 <div>
+    <div class="table-container-index">
+        <table class="centered-table-index">
+            <tr>
+                <td colspan="2"> 
+                  
+                                <h1>Walk the Bibbulmun Track</h1>
+
+<!-- Bibullmun Website Button -->
+<div class="dropDownContainer">
+    <div class="dropdownUserManual">
+                            <button class="dropbtnUserManual" id="button" type="button" style=float:left;>Walk the Bibbulmun</button>
+                            <div class="dropdown-contentUserManual">
+                                <a href="https://www.bibbulmuntrack.org.au/the-track/" target="_blank">Walk The Bibbulmun Track</a>
+                                <a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/">Volunteer
+                                    With Us</a>
+                                <a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/training-recognition/">Training
+                                    and Recognition</a>
+                                <a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/volunteering-faqs/">Volunteering
+                                    FAQs</a>
+                            </div>
+                        </div>
+                    </div>
+<!-- Home Button END-->
+
+<!-- App Button -->
+<div class="dropDownContainer">
+    <div class="dropdownUserManual">
+                            <button class="dropbtnUserManual" id="button" type="button" style=float:left;>Track Maintenance App</button>
+                            <div class="dropdown-contentUserManual">
+                                <a href="./html/login.html">Login</a>
+                                <a href="./html/registration.html">Registration</a>
+                                <a href="./html/caseReport.html">Case Report</a>
+                                <a href="./html/contactUs.html">Contact Us</a>
+                                <a href="./index.html">Logout</a>
+                            </div>
+                        </div>
+                    </div>
+<!-- Home Button END-->
+
+<!-- User Manual Button -->
+                  <div class="dropDownContainer">
+                    <div class="dropdownUserManual">
+                                            <button class="dropbtnUserManual" id="button"type="button" style=float:right;>User Manual</button>
+                                            <div class="dropdown-contentUserManual">
+                                                <a href="#hl1">Login Registration Volunteers Profile</a>
+                                                <a href="#hl2">System Admin Function</a>
+                                                <a href="#hl3">Volunteers Attendance Logging</a>
+                                                <a href="#hl4">Case Report Highlight</a>
+                                                <a href="#hl5">Save and Sync Buttons</a>
+                                            </div>
+                                        </div>
+                                    </div>
+<!-- User Manual Button END-->
+
+                                <div class="image-container">
+                                    <img src="./img/goldenValleyTreeParkGreenHills.jpg" id="BTFHomePage1" alt="BTFHomePage1" class="center"  /><br><br>
+                                    <img src="./img/mundaringWeirDamWall.jpg" id="BTFHomePage3" alt="BTFHomePage3" class="center"  /><br><br>
+                                    <img src="./img/collage01.jpg" id="BTFHomePage2" alt="BTFHomePage2" class="center"  /><br><br>
+                                    <img src="./img/darlingRange.jpg" id="BTFHomePage3" alt="BTFHomePage3" class="center"  /><br><br>
+                                    <img src="./img/trail02.jpg" id="BTFHomePage1" alt="BTFHomePage1" class="center"  /><br><br>
+                                    <img src="./img/BTFTrack01.jpg" id="BTFHomePage1" alt="BTFHomePage1" class="center"  /><br><br>
+                               
+                                    <img src="./img/featherFlowers.jpg" id="BTFHomePage2" alt="BTFHomePage2" class="center"  /><br><br>
+                                  
+                                    <img src="./img/goldenValleyTreePark.jpg" id="BTFHomePage3" alt="BTFHomePage3" class="center"  /><br><br>
+                                   </div>
+                </td>
+            </tr>
+            <div class="static">
+            <tr><td> <h1 id="userManual" class="center"><b>USER MANUAL<b></h1> <br>
+            </td></tr>
+                <td>
+                    <div id="button" class="button-container">
+              <a href="./#hl1"><button id="button" type="button" style=float:left;>Login Registration Volunteers Profile</button></a>
+                <a href="./#hl2"><button id="button" type="button" style=float:left;>System Admin Function</button></a>
+               <a href="./#hl3"><button id="button" type="button" style=float:left;>Volunteers Attendance Logging</button></a>
+            <a href="./#hl4"><button id="button" type="button" style=float:left;>Case Report Highlight</button></a>
+            <a href="./#hl5"><button id="button" type="button" style=float:left;>Save and Sync Buttons</button></a>
+        </div>        
+        </td>
+            </tr></div>
+<!-- track maintenance app highlight 1 - volunteers profile -->
+            <tr>
+                <td> <a href="./#userManual"><button type="button" style=float:right;>User Manual</button></a>
+                    <h1 id="hl1"><b></b>track maintenance app highlight 1 - volunteers profile<b></b></h1><br>
+
+<!-- Bibullmun Website Button -->
+<div class="dropDownContainer">
+    <div class="dropdownUserManual">
+                            <button class="dropbtnUserManual" id="button" type="button" style=float:left;>Walk the Bibbulmun</button>
+                            <div class="dropdown-contentUserManual">
+                                <a href="https://www.bibbulmuntrack.org.au/the-track/" target="_blank">Walk The Bibbulmun Track</a>
+                                <a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/">Volunteer
+                                    With Us</a>
+                                <a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/training-recognition/">Training
+                                    and Recognition</a>
+                                <a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/volunteering-faqs/">Volunteering
+                                    FAQs</a>
+                            </div>
+                        </div>
+                    </div>
+<!-- Home Button END-->
+
+<!-- App Button -->
+<div class="dropDownContainer">
+    <div class="dropdownUserManual">
+                            <button class="dropbtnUserManual" id="button" type="button" style=float:left;>Track Maintenance App</button>
+                            <div class="dropdown-contentUserManual">
+                                <a href="./html/login.html">Login</a>
+                                <a href="./html/registration.html">Registration</a>
+                                <a href="./html/caseReport.html">Case Report</a>
+                                <a href="./html/contactUs.html">Contact Us</a>
+                                <a href="./index.html">Logout</a>
+                            </div>
+                        </div>
+                    </div>
+<!-- Home Button END-->
+
+<!-- User Manual Button -->
+                  <div class="dropDownContainer">
+                    <div class="dropdownUserManual">
+                                            <button class="dropbtnUserManual" id="button"type="button" style=float:right;>User Manual</button>
+                                            <div class="dropdown-contentUserManual">
+                                                <a href="#hl1">Login Registration Volunteers Profile</a>
+                                                <a href="#hl2">System Admin Function</a>
+                                                <a href="#hl3">Volunteers Attendance Logging</a>
+                                                <a href="#hl4">Case Report Highlight</a>
+                                                <a href="#hl5">Save and Sync Buttons</a>
+                                            </div>
+                                        </div>
+                                    </div>
+<!-- User Manual Button END-->          
+
+                    <h2><b></b>login registration volunteers profile<b></b></h2><br>
+                    
+<h3>all users can create an account by filling up the registration form successfully.  The form comes with "empty field" and password validation, as well as a volunteers profile selector for user to select "role", check "training and certificates" and to input "description".</h3><br>
+<div class="image-container">
+<img src="./img/forms/registration-01.jpg" id="BTFHomePage1" alt="BTFHomePage1" class="center">
+                    </div>
+
+                       <h2><b>address input highlight<b></b></h2><br>
+                       <h3>when user select City, Town, or Suburb,  the repsective name belonged to the particular selection emerge for further selection, and then, street names selection for that particular city, town or suburb appear.  This reduces chance of user's typo error input.<b></b></h3><br>
+                       <br>
+                       <div>
+                        <img src="./img/forms/registration-02Locality.jpg" id="BTFHomePage1" alt="BTFHomePage1" class="center"  /><br>
+                     </div>
+                       <h2><b>volunteer profile selection highlight</b></h2><br>
+                       <img src="./img/HomePage2Registration.jpg" id="BTFHomePage2" alt="BTFHomePage2" class="center"  /><br><br>
+
+                       <h3>When the user is going to "register as a volunteer", In the registration form lower portion, the is a "VOLUNTEER PROFILE" portion, whereby the user can select their preferred role and area that they are interested to volunteer with. it also capture their possible qualification and certificates with check box, with a box for them to describe their background.  This encourage the users to tell admin as much as they can.</h3><br>
+                       <img src="./img/forms/registration-01VolunteersProfile.jpg" id="BTFHomePage1" alt="BTFHomePage1" class="center"  /><br><br>
+                       <img src="./img/forms/registration-03Role.jpg" id="BTFHomePage1" alt="BTFHomePage1" class="center"  /><br>
+                       <br>
+
+                       <h3>When the user select their preferred role as "system administrator", they have the access to the page to read report from the "administratio function" page, or update report from the database.</h3><br>
+                       <img src="./img/forms/registration-03RoleSysAdmin.jpg" id="BTFHomePage1" alt="BTFHomePage1" class="center"  /><br>
+                       </td>
+                </td>
+            </tr>
+       
+<!-- track maintenance app highlight 2 - Administration Function -->
+            <tr>
+                <td id="content">
+                       <a href="./#userManual"><button type="button" style=float:right;>User Manual</button></a>
+                       
+<h1 id="hl2"><b>track maintenance app highlight 2</b></h1> 
 
 
-<br><br>
+<!-- Bibullmun Website Button -->
+<div class="dropDownContainer">
+    <div class="dropdownUserManual">
+                            <button class="dropbtnUserManual" id="button" type="button" style=float:left;>Walk the Bibbulmun</button>
+                            <div class="dropdown-contentUserManual">
+                                <a href="https://www.bibbulmuntrack.org.au/the-track/" target="_blank">Walk The Bibbulmun Track</a>
+                                <a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/">Volunteer
+                                    With Us</a>
+                                <a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/training-recognition/">Training
+                                    and Recognition</a>
+                                <a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/volunteering-faqs/">Volunteering
+                                    FAQs</a>
+                            </div>
+                        </div>
+                    </div>
+<!-- Home Button END-->
+
+<!-- App Button -->
+<div class="dropDownContainer">
+    <div class="dropdownUserManual">
+                            <button class="dropbtnUserManual" id="button" type="button" style=float:left;>Track Maintenance App</button>
+                            <div class="dropdown-contentUserManual">
+                                <a href="./html/login.html">Login</a>
+                                <a href="./html/registration.html">Registration</a>
+                                <a href="./html/caseReport.html">Case Report</a>
+                                <a href="./html/contactUs.html">Contact Us</a>
+                                <a href="./index.html">Logout</a>
+                            </div>
+                        </div>
+                    </div>
+<!-- Home Button END-->
+
+<!-- User Manual Button -->
+                  <div class="dropDownContainer">
+                    <div class="dropdownUserManual">
+                                            <button class="dropbtnUserManual" id="button"type="button" style=float:right;>User Manual</button>
+                                            <div class="dropdown-contentUserManual">
+                                                <a href="#hl1">Login Registration Volunteers Profile</a>
+                                                <a href="#hl2">System Admin Function</a>
+                                                <a href="#hl3">Volunteers Attendance Logging</a>
+                                                <a href="#hl4">Case Report Highlight</a>
+                                                <a href="#hl5">Save and Sync Buttons</a>
+                                            </div>
+                                        </div>
+                                    </div>
+<!-- User Manual Button END-->
+
+
+                    <h2><b>Administration Function to retrieve database records</b></h2><br>
+                    <div class="image-container">
+                        <img src="./img/HomePage3AdminAttendanceDatabase.jpg" id="BTFHomePage3" alt="BTFHomePage3" class="center"  /><br><br>
+                        
+                       </div>
+                       <h2><b></b>administration function<b></b></h2><br>
+                       <h3>After administrator login, they are re-directed to the administration page.  In this page, users can see their administration volunteer profile, attendance information, track maintenance reports, and who has sent in the "contact us form".</h3>
+                       <br>
+                       <br>
+                </td>            
+                   </tr>
+
+<!-- ttrack maintenance app highlight 3 - attendance profile -->
+                   <tr>
+
+                    
+                    <td id="content"> <a href="./#userManual"><button type="button" style=float:right;>User Manual</button></a>
+<h1 id="hl3"><b>track maintenance app highlight 3</b></h1><br>
+
+
+<!-- Bibullmun Website Button -->
+<div class="dropDownContainer">
+    <div class="dropdownUserManual">
+                            <button class="dropbtnUserManual" id="button" type="button" style=float:left;>Walk the Bibbulmun</button>
+                            <div class="dropdown-contentUserManual">
+                                <a href="https://www.bibbulmuntrack.org.au/the-track/" target="_blank">Walk The Bibbulmun Track</a>
+                                <a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/">Volunteer
+                                    With Us</a>
+                                <a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/training-recognition/">Training
+                                    and Recognition</a>
+                                <a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/volunteering-faqs/">Volunteering
+                                    FAQs</a>
+                            </div>
+                        </div>
+                    </div>
+<!-- Home Button END-->
+
+<!-- App Button -->
+<div class="dropDownContainer">
+    <div class="dropdownUserManual">
+                            <button class="dropbtnUserManual" id="button" type="button" style=float:left;>Track Maintenance App</button>
+                            <div class="dropdown-contentUserManual">
+                                <a href="./html/login.html">Login</a>
+                                <a href="./html/registration.html">Registration</a>
+                                <a href="./html/caseReport.html">Case Report</a>
+                                <a href="./html/contactUs.html">Contact Us</a>
+                                <a href="./index.html">Logout</a>
+                            </div>
+                        </div>
+                    </div>
+<!-- Home Button END-->
+
+<!-- User Manual Button -->
+                  <div class="dropDownContainer">
+                    <div class="dropdownUserManual">
+                                            <button class="dropbtnUserManual" id="button"type="button" style=float:right;>User Manual</button>
+                                            <div class="dropdown-contentUserManual">
+                                                <a href="#hl1">Login Registration Volunteers Profile</a>
+                                                <a href="#hl2">System Admin Function</a>
+                                                <a href="#hl3">Volunteers Attendance Logging</a>
+                                                <a href="#hl4">Case Report Highlight</a>
+                                                <a href="#hl5">Save and Sync Buttons</a>
+                                            </div>
+                                        </div>
+                                    </div>
+<!-- User Manual Button END-->
+
+
+<h2><b>attendance logging</b></h2><br>
+<h3>After the user login, it comes to the "attendance" page, whereby the system allow the user to click in check in date time and check out date time, by which the system is able to compute number of hours the volunteer has worked.  it then retrieve from the previous record and add on to the "accumulation volunteered hours" and register this into the database Table Registration for individual, and Table attendance, which show a summary of this attendance logging.</h3></p>
+
 
 <div class="image-container">
-<br><br>
- <img src="./img/HomePage2Registration.jpg" id="BTFHomePage2" alt="BTFHomePage2" class="center"  /><br><br>
- <img src="./img/HomePage3AdminAttendanceDatabase.jpg" id="BTFHomePage3" alt="BTFHomePage3" class="center"  /><br><br>
- <img src="./img/HomePage1.jpg" id="BTFHomePage1" alt="BTFHomePage1" class="center"  /><br><br>
+<img src="./img/forms/attendanceLogging.jpg" id="BTFHomePage3" alt="BTFHomePage3" class="center"  /><br><br>
 </div>
-<br><br><br><br><br><br>
+<h2><b>computing and updating of the accumulated volunteered hours</b></h2><br>
+<p> <h3>The first field in the attendance loggin form, aVolHoursPrevious, 
+    will be extracted from the database registration table.
+<br><br>
+    Then user input with checkin checkout DTS
+     (or can be improved as a QR code checkInDTS checkOutDTS scan late if necessary), 
+ <br><br>
+    the attendance.js will compute the Volunteered Hours worked (i.e., volHours).
+    
+     new aVolHours = aVolHoursPrevious + volHours
+    
+    this new aVolHours will
+    (1) be displayed on the forth field (after submit button)
+   <br><br>
+    (2.i) update the table attendance.aVolHoursPrevious and
+     (2.ii) replace the first field on the aVolHoursPrevious = new aVolHours.
+   <br><br>
+     (3) update the table registration.aVolHours for this user</p>
+</h3>
+<h2><b>input validation</b></h2><br>
+<div class="image-container">
+    <img src="./img/forms/attendanceValidationDTS.jpg"   /><br><br>
+    </div>
+
+    <p> <h3>The app has a validation that the check out DTS cannot be earlier than the check in DTS, to assist user avoid error input.</p>
+    </h3>
+
+<br>
+                    </td>            
+                       </tr>
+                      
+    <!-- track maintenance app highlight 4 - case report form -->
+    <tr>
+        <td id="content">  <a href="./#userManual"><button type="button" style=float:right;>User Manual</button></a>
+            <h1 id="hl4"><b>track maintenance app highlight 4 - case report form</b></h1><br>
+
+            
+<!-- Bibullmun Website Button -->
+<div class="dropDownContainer">
+    <div class="dropdownUserManual">
+                            <button class="dropbtnUserManual" id="button" type="button" style=float:left;>Walk the Bibbulmun</button>
+                            <div class="dropdown-contentUserManual">
+                                <a href="https://www.bibbulmuntrack.org.au/the-track/" target="_blank">Walk The Bibbulmun Track</a>
+                                <a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/">Volunteer
+                                    With Us</a>
+                                <a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/training-recognition/">Training
+                                    and Recognition</a>
+                                <a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/volunteering-faqs/">Volunteering
+                                    FAQs</a>
+                            </div>
+                        </div>
+                    </div>
+<!-- Home Button END-->
+
+<!-- App Button -->
+<div class="dropDownContainer">
+    <div class="dropdownUserManual">
+                            <button class="dropbtnUserManual" id="button" type="button" style=float:left;>Track Maintenance App</button>
+                            <div class="dropdown-contentUserManual">
+                                <a href="./html/login.html">Login</a>
+                                <a href="./html/registration.html">Registration</a>
+                                <a href="./html/caseReport.html">Case Report</a>
+                                <a href="./html/contactUs.html">Contact Us</a>
+                                <a href="./index.html">Logout</a>
+                            </div>
+                        </div>
+                    </div>
+<!-- Home Button END-->
+
+<!-- User Manual Button -->
+                  <div class="dropDownContainer">
+                    <div class="dropdownUserManual">
+                                            <button class="dropbtnUserManual" id="button"type="button" style=float:right;>User Manual</button>
+                                            <div class="dropdown-contentUserManual">
+                                                <a href="#hl1">Login Registration Volunteers Profile</a>
+                                                <a href="#hl2">System Admin Function</a>
+                                                <a href="#hl3">Volunteers Attendance Logging</a>
+                                                <a href="#hl4">Case Report Highlight</a>
+                                                <a href="#hl5">Save and Sync Buttons</a>
+                                            </div>
+                                        </div>
+                                    </div>
+<!-- User Manual Button END-->
+
+<h2><b>offline input accessible</b></h2><br>
+               <h3>This case report form facility is located "outside" the "login" page. This enables the public to input for reporting a case upon emergency without being a registered volunteer.  <br><br>The public can scan QR code at the entrance to the track and get this app on their smart phone. Alternatively, the QR code can be placed together with the Waugal Trail Marker whereby the internet connection is available.<br><br>Instead of only relying on registered volunteers, this mobilise the public initialtive to report whatever needed especially after a natural disaster .</h3>
+               <br>
+
+<h2><b>Offline GPS<b></b></h2>
+<p> <h3>GPS data can be captured using the Geolocation API and stored in localStorage (inside user's handphone).  </p>
+<p>GPS extract latitude and longitude directly from satellite and hence it does not need to interact with internect connection.</p>
+
+<h2><b>Camera Video<b></b></h2>
+<p><h3>Camera and video data can be captured using the MediaDevices API and stored as " base64 strings "  in localStorage.</p>
+
+<h2><b>Technology<b></b></h2>
+<p><h3>When the user performs actions like clickGPS, capturing images or recording Video, this app convert the data into a format suitable for localStorate (JSON).</p></h3>
+
+<p><h3>There are 2 buttons at the end of this page (<i>see bottom right corner of this scren shot</i>):</p>
+ 
+<div class="image-container">
+                <img src="./img/HomePage1.jpg" id="BTFHomePage1" alt="BTFHomePage1" class="center"/>
+               </div>
+               <p>(1)The first button click to store data on localStorage (handphone or tablet devices). </p>
+               <p>(2)The second button click to </p>
+             <p1>(2.i) synchronise and transfer all form data including GPS and camera video to databases when internet connection is available, <br></p1>
+               <p1>(2.ii))with the automation to clear (get ready for next saving) localStorage on the smart phone.</p1></h3><br>
+           
+<h2><b>date time picker highlight</b></h2><br>
+                <h3>the picker automatically bounce out with the current time.  This reduces chance of user's typo error input. (If necessary,) this feature can also be replaced by "current-date-time insertion" so user need not even specific date time.
+               <br>
+<br>
+<h2><b>ease of selection from the 55 campsites</b></h2><br>
+               <h3>There are 2 options to select the campsite indicator.
+<br><br><b>OPTION A:</b><br>
+<br>a.i.  When user select DEC district, the repsective campsites belonged to the particular selection DEC district authority will emerge for further selection, This reduces chance of user's typo error input.<br>
+<br>a.ii.  the selected DEC district comes with a pre-built email address of this officer in the DEC district office.  When the user select "Yes" for "email DEC?", the last button will send email of the entire report to the DEC district officer automatically when it synchronise the data to database with internet connection.
+<br><br><b>OPTION B:</b><br>
+<br>b.  the second option, on the last selection of the "DEC district" dropdown, is the "all campsites", where, a complete list of all bibbulmun track given by Terry's email was systematically organised in alphephatical order, eliminated the duplicates.</h3>
+<br>
+<h2><b>Offline GPS indicator of exact location</b></h2><br>
+                <h3>GPS extract latitude and longitude directly from satellite without internet connection.  This enable an accurate indication of the location for easy tracing or salvation if needed.  
+                    Additionally,  this GPS can be also be use as a good "SOS" location indicator if the "victims" are able reach some place with internet connection.
+                </h3>
+               <br>
+<h2><b>camera and video features<b></h2><br>
+                <h3>The app comes with the camera and video features to convenient the user in saving the images in their hand phone, and synchronise to database and send out email (if necessary) when reaching a point with internet connection.</h3>
+        </td>   
+        </tr>
+  
+<!-- track maintenance app highlight 5 - save input on local storage and synchronise -->
+<tr>
+    <td id="content">  
+        <a href="./#userManual"><button type="button" style=float:right;>User Manual</button></a>
+
+        <h1 id="hl5"><b>track maintenance app highlight 5 - save input on local storage and synchronise</b></h1><br>
+                    
+<!-- Bibullmun Website Button -->
+<div class="dropDownContainer">
+    <div class="dropdownUserManual">
+                            <button class="dropbtnUserManual" id="button" type="button" style=float:left;>Walk the Bibbulmun</button>
+                            <div class="dropdown-contentUserManual">
+                                <a href="https://www.bibbulmuntrack.org.au/the-track/" target="_blank">Walk The Bibbulmun Track</a>
+                                <a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/">Volunteer
+                                    With Us</a>
+                                <a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/training-recognition/">Training
+                                    and Recognition</a>
+                                <a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/volunteering-faqs/">Volunteering
+                                    FAQs</a>
+                            </div>
+                        </div>
+                    </div>
+<!-- Home Button END-->
+
+<!-- App Button -->
+<div class="dropDownContainer">
+    <div class="dropdownUserManual">
+                            <button class="dropbtnUserManual" id="button" type="button" style=float:left;>Track Maintenance App</button>
+                            <div class="dropdown-contentUserManual">
+                                <a href="./html/login.html">Login</a>
+                                <a href="./html/registration.html">Registration</a>
+                                <a href="./html/caseReport.html">Case Report</a>
+                                <a href="./html/contactUs.html">Contact Us</a>
+                                <a href="./index.html">Logout</a>
+                            </div>
+                        </div>
+                    </div>
+<!-- Home Button END-->
+
+<!-- User Manual Button -->
+                  <div class="dropDownContainer">
+                    <div class="dropdownUserManual">
+                                            <button class="dropbtnUserManual" id="button"type="button" style=float:right;>User Manual</button>
+                                            <div class="dropdown-contentUserManual">
+                                                <a href="#hl1">Login Registration Volunteers Profile</a>
+                                                <a href="#hl2">System Admin Function</a>
+                                                <a href="#hl3">Volunteers Attendance Logging</a>
+                                                <a href="#hl4">Case Report Highlight</a>
+                                                <a href="#hl5">Save and Sync Buttons</a>
+                                            </div>
+                                        </div>
+                                    </div>
+<!-- User Manual Button END-->                 
+                       
+                    <h2><b>OFFFLINE Save Report to Device</b></h2><br>
+                    <h3>At the end of the report, if it is offline, without internet connection, the user click button "OFFLINE Save Report to device",  the report wil be saved on their handphone.</h3><br>
+                    <div class="image-container">
+                        <img src="./img/forms/SaveSync.jpg" id="SaveSync" alt="SaveSync" class="center"/>
+                       </div>
+
+<h2><b>ONLINE Data Sync to Database and Send Email to DEC district</b></h2><br>
+
+<h3>When the internet connection is available</h3>
+    <h3>(1) the user can click "ONLINE Data Sync to Database Email DEC" button, the report information will be transfer to databases, with an option to remove them from the handphone device temporary storage. </h3> 
+<h3>(2) At the same time, if the user select "Yes" for "email to DEC",  the report wil be email to the respective district officer automatically.</h3>
+ <br>   <img src="./img/forms/emailDEC.jpg" id="SaveSync" alt="SaveSync" class="center"/>
+                       <br>    <br><br><br><br><br><br>
+                </td>   
+                </tr>
+        </table>
+        <br><br><br><br><br><br>
+        <br><br><br><br><br><br>
+        <br><br><br><br><br><br>
+ </div>
+
+ <p>
+    <h3>.</h3><br>
+  </p>
 </body>
 
 
