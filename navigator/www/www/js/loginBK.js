@@ -29,8 +29,18 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(result => {
                 console.log('Login successful:', result);
                 document.getElementById('loginMessage').textContent = result.message;
-                // Redirect to another page or show success message
-            })
+
+// Redirect to another page or show success message
+
+    // Check if redirectUrl is provided in the response
+    if (result.redirectUrl) {
+        // Redirect based on server response
+        window.location.href = result.redirectUrl;
+    } else {
+        // Handle other actions or messages here if needed
+        console.log('No redirectUrl provided in the response.');
+    }
+})
             .catch(error => {
                 console.error('Error:', error);
                 document.getElementById('loginMessage').textContent = 'Login failed. Please try again.';
@@ -38,3 +48,19 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 });
+
+
+
+function displayGreeting(loginUserName) {
+    const helloDiv = document.getElementById('hello');
+    if (helloDiv) {
+        helloDiv.textContent = `Hello! welcome ${loginUserName}, You login as a registered ${role} `;
+    }
+}
+
+/* This function can be called with the username after a successful login
+
+Include hello.js in Your HTML
+  <div id="hello"></div> <!-- The div for the greeting message -->
+
+  */

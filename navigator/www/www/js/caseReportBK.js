@@ -44,6 +44,10 @@ using fetch() in JSON format.
             created_at: formData.get('created_at')
         };
 
+/* caseReport.js fetch user input from caseReport.html 
+to POST to serverRouteCaseReport.js 
+for inserting into database via serverRoute.js */
+
         fetch('/api/caseReport', {
             method: 'POST',
             body: JSON.stringify(data),
@@ -114,7 +118,7 @@ based on the decDist value selected by the user.
 
 // Function to save caseReport data to localStorage
 
-/*
+/* line 126 saveReportOffline()
 Offline Storage: 
 saveReportOffline() saves form data to localStorage as a JSON string.
  */
@@ -131,18 +135,104 @@ function saveReportOffline() {
     alert('Form data saved locally!');
 }
 
+// Call saveReportOffline() on form submit
+document.getElementById('form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    saveReportOffline();
+  });
+  
+  /* function to Save GPS Data offline */
+  // Save GPS data to localStorage
 
-//  function to retrieve saved data
-function retrieveSavedData() {
-    let savedData = localStorage.getItem('formData');
-    if (savedData) {
-        let formData = JSON.parse(savedData);
-        // Use formData as needed, e.g., send to server
-    }
+  function saveGPSData(position) {
+    const gpsData = {
+      latitude: position.coords.latitude,
+      longitude: position.coords.longitude,
+    };
+    localStorage.setItem('gpsData', JSON.stringify(gpsData));
+  }
+  
+  navigator.geolocation.getCurrentPosition(saveGPSData);
+  
+  /* function to Save Camera Video Data offline */
+// Capture and save camera image
+
+function captureAndSaveImage() {
+  const video = document.querySelector('video');
+  const canvas = document.createElement('canvas');
+  canvas.width = video.videoWidth;
+  canvas.height = video.videoHeight;
+  canvas.getContext('2d').drawImage(video, 0, 0);
+  const imageData = canvas.toDataURL('image/png');
+  localStorage.setItem('cameraImage', imageData);
 }
 
 
+// Capture and save video
+
+function captureAndSaveVideo() {
+    const videoBlob = new Blob(recordedChunks, { type: 'video/webm' });
+    const reader = new FileReader();
+    reader.onloadend = function() {
+      const base64data = reader.result;
+      localStorage.setItem('videoData', base64data);
+    };
+    reader.readAsDataURL(videoBlob);
+  }
+  
+
 // Function to sync data when online
+/*
+Syncing Data from Local Storage:
+On application load, check for any data in localStorage.
+
+If data exists, send it to the server and 
+clear localStorage upon successful upload response (“data uploaded to MySQL databases”);.
+
+If data does not exist, response (“no data to sync”);
+*/
+
+// Sync data to server
+async function syncDataToServer() {
+    const formData = JSON.parse(localStorage.getItem('formData'));
+    const gpsData = JSON.parse(localStorage.getItem('gpsData'));
+    const cameraImage = localStorage.getItem('cameraImage');
+    const videoData = localStorage.getItem('videoData');
+  
+    if (formData || gpsData || cameraImage || videoData) {
+      try {
+        const response = await fetch('/sync-data', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            formData: formData,
+            gpsData: gpsData,
+            cameraImage: cameraImage,
+            videoData: videoData,
+          }),
+        });
+  
+        if (response.ok) {
+          // Clear local storage after successful sync
+          localStorage.removeItem('formData');
+          localStorage.removeItem('gpsData');
+          localStorage.removeItem('cameraImage');
+          localStorage.removeItem('videoData');
+          console.log('Data synced successfully!');
+        }
+      } catch (error) {
+        console.error('Error syncing data:', error);
+      }
+    }
+  }
+  
+  // Call syncDataToServer() on application load
+  window.addEventListener('load', syncDataToServer);
+  
+
+
 /*
  Data Sync: 
  syncDataOnline() retrieves form data from localStorage, 
@@ -181,3 +271,45 @@ document.getElementById('syncData').addEventListener('click', syncDataOnline);
 Email Functionality: The email functionality checks if emailDEC is 'yes' and sends an email with relevant form data to a specified endpoint.
 Event Listeners: syncDataOnline is attached to the syncData button for online synchronization.
 */
+
+//  function to retrieve saved data
+function retrieveSavedData() {
+    let savedData = localStorage.getItem('formData');
+    if (savedData) {
+        let formData = JSON.parse(savedData);
+        // Use formData as needed, e.g., send to server
+    }
+}
+
+
+// Fetch data from server and display in administration function page
+async function fetchDataAndDisplay() {
+    try {
+      const response = await fetch('/fetch-data');
+      const data = await response.json();
+  
+      const tableBody = document.getElementById('admin-table-body');
+      data.forEach(item => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${item.name}</td>
+          <td>${item.email}</td>
+          <td>${item.latitude}</td>
+          <td>${item.longitude}</td>
+          <td><img src="${item.cameraImage}" alt="Camera Image" width="100"></td>
+          <td><video src="${item.videoData}" width="100" controls></video></td>
+        `;
+        tableBody.appendChild(row);
+      });
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  }
+  
+  // Call fetchDataAndDisplay() on page load
+  window.addEventListener('load', fetchDataAndDisplay);
+
+  
+  
+
+

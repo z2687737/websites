@@ -119,9 +119,11 @@ console.log('Registration Data:', registrationData);
             // Handle response
             console.log('Registration response (registration.js line 146):', data); // Log the response from server
             if (data.success) {
-alert('Registration successful / Received data! - registration.js line 148  please login');
-                // Optionally redirect to another page
-               window.location.href = '../html/caseReport.html';
+alert('Registration successful / Received data! - registration.js line 122  click OK and please login');
+
+// Optionally redirect to another page
+window.location.href = '../html/caseReport.html';
+
             } else {
                 alert('Error Fetching Data / Registration failed: - line 152 ' + data.message);
             }

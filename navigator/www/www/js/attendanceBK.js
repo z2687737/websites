@@ -3,20 +3,34 @@ console.log("websites/btf/www/js/attendance.js");
 document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('attendanceForm');
 
-    const hardcodedUserName = 'A'; // Hardcoded for testing
+/*  const hardcodedUserName = 'A'; // Hardcoded for testing
 
     const userData = {
         userName: hardcodedUserName,
         IDregistration: 1, // Hardcoded ID for testing
         aVolHours: 0 // Hardcoded accumulated volunteer hours for testing
     };
+*/
 
-    localStorage.setItem('userData', JSON.stringify(userData));
+// Retrieve user data from localStorage 
+   const userData = JSON.parse(localStorage.getItem('userData'));
+
+   if (userData) {
+       // Display accumulated volunteer hours on page load
+       document.getElementById('aVolHoursPrevious').value = userData.aVolHours;
+       console.log("aVolHoursPrevious = " , aVolHoursPrevious );
+   } else {
+       alert('User data not found. Please log in again.');
+       window.location.href = '/html/caseReport.html'; // Redirect to login page if user data is missing
+       return; // Stop further execution
+   }
+
+//    localStorage.setItem('userData', JSON.stringify(userData));
 
     // Display accumulated volunteer hours on page load
-    document.getElementById('aVolHoursPrevious').value = userData.aVolHours;
+ //   document.getElementById('aVolHoursPrevious').value = userData.aVolHours;
 
-    // Form submission event listener, validate ChkInDTS before chkOutDTS
+// Form submission event listener, validate ChkInDTS before chkOutDTS
     form.addEventListener('submit', function (event) {
         event.preventDefault(); // Prevent form submission for now
 
@@ -33,19 +47,22 @@ document.addEventListener('DOMContentLoaded', function () {
         // Calculate volHours
         let volHours = calculateVolunteeredHours(chkInDTS, chkOutDTS);
 
-        // Update volHours textarea
+        // Update volHours textarea (4th field)
         document.getElementById('volHours').textContent = volHours;
 
         // Update aVolHours textarea if volHours is valid
         if (!isNaN(volHours)) {
-            updateAccumulatedHours(volHours);
+            updateAccumulatedHours(volHours);  //see function below line 85
         }
 
         // Calculate new aVolHours
         let aVolHours = parseFloat(userData.aVolHours) + volHours;
 
-        // Update accumulated hours display
+        // Update accumulated hours display (5th field)
         document.getElementById('aVolHours').value = aVolHours.toFixed(2);
+        
+        // replace previous accumulated hours display (1st field)
+        document.getElementById('aVolHoursPrevious').value = aVolHours.toFixed(2);
 
         // Update user data in local storage
         userData.aVolHours = aVolHours;
@@ -56,7 +73,8 @@ document.addEventListener('DOMContentLoaded', function () {
             IDregistration: userData.IDregistration,
             chkInDTS: chkInDTS.toISOString(),
             chkOutDTS: chkOutDTS.toISOString(),
-            volHours: volHours
+            volHours: volHours,
+            aVolHours: aVolHours
         };
 
         // Submit attendance data
@@ -91,7 +109,7 @@ function submitAttendanceForm(data) {
         }
     })
     .catch(error => {
-        console.error('attandance.js line 94 Error submitting attendance:', error);
-        alert('Error recording attendance. Please try again.');
+        console.error('attandance.js line 107 Error submitting attendance:', error);
+        alert('attendance.js line 109 Error recording attendance. Please try again.');
     });
 }

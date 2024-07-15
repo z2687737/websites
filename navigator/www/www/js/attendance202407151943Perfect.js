@@ -18,7 +18,6 @@ document.addEventListener('DOMContentLoaded', function () {
    if (userData) {
        // Display accumulated volunteer hours on page load
        document.getElementById('aVolHoursPrevious').value = userData.aVolHours;
-       console.log("aVolHoursPrevious = " , aVolHoursPrevious );
    } else {
        alert('User data not found. Please log in again.');
        window.location.href = '/html/caseReport.html'; // Redirect to login page if user data is missing
