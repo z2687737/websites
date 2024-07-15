@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang = "en">
 
 <head>
     <meta charset="utf-8">
@@ -12,7 +12,6 @@
     <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
     <meta name="color-scheme" content="light dark">
 
-
     <link rel="stylesheet" type="text/css" href="../css/navAttendance.css">
     <link rel="stylesheet" type="text/css" href="../css/table.css">
   
@@ -21,33 +20,28 @@
 </head>
 
 <body>
+   
     <div id="headerPlaceholder"></div> 
         <!-- Include headerBannerNavigator.html -->
-
-<br><br><br>
+        <a href="../html/attendance.html"><button type="button" style=float:right;>attendance</button></a><br><br>
+        <br>   <a href="../index.html"><button type="button" style=float:right;>logout</button></a>
 
 <div class="table-container">
         <table class="centered-table">
             <tr>
                 <td colspan="2">
-<h1>Administration Function</h1>
-<h1><div id="userHeader" style="text-align: left;">  </div>   </h1>
-    <!-- This is where the "Hello loginUserName" will appear -->
-    <a href="../html/attendance.html"><button type="button" style=float:left;>attendance</button></a>
-   
 
-
-    <a href="../index.html"><button type="button" style=float:right;>logout</button></a>
-      
+                                <h1>Administration Function</h1>
+                                <h1><div id="hello"></div> </h1>
+                                <h1><div id="userHeader" style="text-align: left;">  </div>   </h1>
+                                <h1><div id="helloDiv"></div>  </div></h1>
+                                <!-- This is where the "Hello loginUserName" will appear -->
                 </td>
             </tr>
             <tr>
                 <td id="nav">
-<br>
 <div id="navAttendance" class="nav-attendance">
-                    <ul>
-                    
-
+                 <ul>
                         <li><a href="#" onclick="loadContent('volunteerProfile')"><button type="button" style=float:left;>volunteers profile</button></a></li><br>
                         <li><a href="#" onclick="loadContent('attendanceInfo')"><button type="button" style=float:left;>attendance information</button></a></li><br>
                         <li><a href="#" id="trackMaintenanceReportLink" onclick="loadContent('maintenanceReport')"><button type="button" style=float:left;>track maintenance report</button></a></li><br>
@@ -73,6 +67,7 @@
                 </td>   
             </tr>   
         </table>
+
  </div>
 
 

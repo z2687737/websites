@@ -21,18 +21,30 @@
 
 <body>
   <div id="headerPlaceholder"></div>    <!--paste in the entire header banner with navigatior -->
+  <a href="../html/loginLanding.html"><button type="button" style=float:right;>Administratin Function</button></a><br><br>
+  
+       <br>     <a href="../index.html"><button type="button" style=float:right;>logout</button></a>
+      
 <br><br>
   <main>
+
     <form id="attendanceForm">
         <!-- Your form inputs -->    
-    <div>
+<div>
         <br>    
 <h3>Attendance Date Time Stamp logging</h3>
 <br>
+<div id="hello"></div>  
+</div>
+
+<h1><div id="helloDiv"></div>  </div></h1>
+
 <h1><div id="userHeader" style="text-align: left;">  </div></h1>
 <!-- This is where the user's name will appear -->
 
-  <!-- Show aVolHoursPrevious on attendance.html first field-->
+<h1>Welcome to attendance logging.</h1>
+
+<!-- Show aVolHoursPrevious on attendance.html first field-->
   <div id="aVolHoursPreviousDiv">
     <label for="aVolHoursPrevious">Accumulated Volunteered Hours</label>
     <textarea placeholder="Display total hours: 0 " id="aVolHoursPrevious" name="aVolHoursPrevious" rows="1" cols="21"></textarea>
@@ -59,10 +71,8 @@
             <textarea placeholder="Accumulated Vol Hours" id="aVolHours" name="accumulatedVolunteeredHours" rows="1" cols="21"></textarea>
         
             <br> <br>
-            <a href="../html/loginLanding.html"><button type="button" style=float:left;>Administratin Function</button></a>
-  
-            <a href="../index.html"><button type="button" style=float:right;>logout</button></a>
-      
+            
+            
             <br> <br>
         </div>
     </form>
@@ -74,8 +84,13 @@
 <footer>
 <p>&copy; 2024 Bibbulmun Track Maintenance App</p>
 </footer>
+
 <script src="../js/headerBannerNavigator.js"></script>
 <script src="../js/attendance.js"></script> <!-- Link to your registration.js script -->
+
+<!-- (  helloDiv.textContent = `Hello, ${loginUserName}`) --> 
+<script src="../js/login.js"></script>
+<script src="../js/hello.js"></script>
 
 </body>
 </html>
