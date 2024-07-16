@@ -30,6 +30,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 console.log('Login successful:', result);
                 document.getElementById('loginMessage').textContent = result.message;
 
+//==========
+ // Store user data in localStorage
+ const userData = {
+    IDregistration: result.IDregistration,
+    aVolHours: result.aVolHours
+    // Add other relevant user data if needed
+};
+localStorage.setItem('userData', JSON.stringify(userData));
+//==========
+
 // Redirect to another page or show success message
 
     // Check if redirectUrl is provided in the response
@@ -40,6 +50,31 @@ document.addEventListener('DOMContentLoaded', function () {
         // Handle other actions or messages here if needed
         console.log('No redirectUrl provided in the response.');
     }
+
+
+//display greeting ===================
+
+// Set welcome message based on user role
+let welcomeMessage;
+if (userData.userRole === 'admin') {
+    welcomeMessage = `Welcome, ${userData.loginUserName} (Administrator)!`;
+} else {
+    welcomeMessage = `Welcome, ${userData.loginUserName}!`;
+}
+
+// Display welcome message in HTML
+const welcomeMessageElement = document.getElementById('welcomeMessage');
+if (welcomeMessageElement) {
+    welcomeMessageElement.innerText = welcomeMessage;
+} else {
+    console.error('Element with ID "welcomeMessage" not found.');
+}
+
+
+
+
+    // Display greeting ===============
+         displayGreeting(loginUserName);
 })
             .catch(error => {
                 console.error('Error:', error);
@@ -64,3 +99,6 @@ Include hello.js in Your HTML
   <div id="hello"></div> <!-- The div for the greeting message -->
 
   */
+
+
+

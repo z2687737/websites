@@ -3,27 +3,38 @@ console.log("websites/btf/www/js/attendance.js");
 document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('attendanceForm');
 
-/*  const hardcodedUserName = 'A'; // Hardcoded for testing
 
+/* ===== working on saving to database=========== 
+===== get data from serverRouteLogin.js =========== 
+===== cookie of aVolHourPrevious did not clear upon logout =========== 
+===== it should be replaced 
+by the transfer of new aVolHoursPrevious from serverRouteLogin.js =========== 
+ ==============  */
+ 
+// Hardcoded for testing
+const hardcodedUserName = 'A'; 
     const userData = {
         userName: hardcodedUserName,
         IDregistration: 1, // Hardcoded ID for testing
         aVolHours: 0 // Hardcoded accumulated volunteer hours for testing
     };
-*/
 
-// Retrieve user data from localStorage 
-   const userData = JSON.parse(localStorage.getItem('userData'));
+
+/* Retrieve user data from localStorage 
+her the userData comes from serverRouteAttendance.js 
+which were retrieved from table registration after matching with the loginUserName
+
+ const userData = JSON.parse(localStorage.getItem('userData'));
 
    if (userData) {
        // Display accumulated volunteer hours on page load
        document.getElementById('aVolHoursPrevious').value = userData.aVolHours;
-       console.log("aVolHoursPrevious = " , aVolHoursPrevious );
    } else {
-       alert('User data not found. Please log in again.');
+       alert('attendance.js line 31 User data not found. Please log in again.');
        window.location.href = '/html/caseReport.html'; // Redirect to login page if user data is missing
        return; // Stop further execution
    }
+*/
 
 //    localStorage.setItem('userData', JSON.stringify(userData));
 
@@ -77,8 +88,8 @@ document.addEventListener('DOMContentLoaded', function () {
             aVolHours: aVolHours
         };
 
-        // Submit attendance data
-        submitAttendanceForm(data);
+// insert attendance data to database via serverRouteAttendance.js
+        insertAttendance(data);
     });
 });
 
@@ -92,8 +103,8 @@ function updateAccumulatedHours(volHours) {
     aVolHoursElement.value = (currentHours + volHours).toFixed(2);
 }
 
-function submitAttendanceForm(data) {
-    fetch('/api/submitAttendance', {
+function insertAttendance(data) {
+    fetch('/api/attendance', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -110,6 +121,6 @@ function submitAttendanceForm(data) {
     })
     .catch(error => {
         console.error('attandance.js line 107 Error submitting attendance:', error);
-        alert('attendance.js line 109 Error recording attendance. Please try again.');
+        alert('attendance.js line 122 Error recording attendance. Please try again.');
     });
 }
