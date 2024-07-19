@@ -121,6 +121,6 @@ function insertAttendance(data) {
     })
     .catch(error => {
         console.error('attandance.js line 107 Error submitting attendance:', error);
-        alert('attendance.js line 122 Computation ok.  Error recording attendance. Please submit one more time to observe the change on the first acculated v hours field. debugging otw...');
+        alert('attendance.js line 122 Computation ok.  Error recording attendance. Please submit one more time to observe the change on the first accumulated v hours field. debugging otw...');
     });
 }
