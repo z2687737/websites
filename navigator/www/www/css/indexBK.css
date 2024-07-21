@@ -94,9 +94,9 @@ p {
     margin-left: 50px;
 }
 
-/* Targeting the <p> element */
+/* Targeting the <p1> element in registration.html password */
 p1 {
-    margin-left: 100px;
+    margin-left: 2px;
 }
 
 /* Portrait layout (default) */
