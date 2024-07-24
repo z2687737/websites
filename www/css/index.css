@@ -10,11 +10,11 @@
 /* Importing another CSS file */
 @import url("navigator.css");
 @import url("form.css");
+@import url("formLogin.css");
 @import url("header.css");
 @import url("table.css");
 
 /* styles.css */
-
 
 body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
@@ -33,6 +33,9 @@ body {
     width:100%;
 }
 
+#registrationForm{
+    background-color:beige;
+}
 
 section {
     padding: 20px;
@@ -43,17 +46,12 @@ section h2 {
     margin-top: 0;
 }
 
-/* dropdown END */
-
-
-
 /* Targeting the <main> element */
 main {
     margin-left: 20px;
     padding: 20px;
     padding-top: 20px; /* Ensure the content doesn't hide behind the fixed header */
 }
-
 
 h1, h2, h3 {
     color: black;
@@ -62,12 +60,12 @@ h1, h2, h3 {
 }
 
 h1 {
-    color: black;
-    font-size:24px;
-    font-weight:normal;
-    margin:0px;
+    color: brown;
+    font-size: 24px;
+    font-weight: 999;
+    margin: 10px;
     overflow:visible;
-    padding:0px;
+    padding: 10 px;
     text-align:center;
 }
 
@@ -82,12 +80,12 @@ h2 {
 }
 
 h3 {
-    font-size:16px;
+    font: size 20px;
     font-weight:normal;
     margin:0px;
     overflow:visible;
     padding:0px;
-    text-align:left;
+    text-align:center;
 }
 
 
@@ -96,6 +94,10 @@ p {
     margin-left: 50px;
 }
 
+/* Targeting the <p1> element in registration.html password */
+p1 {
+    margin-left: 2px;
+}
 
 /* Portrait layout (default) */
 .app {
@@ -110,6 +112,7 @@ p {
     margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
                                    /* offset horizontal: half of text area width */
 }
+
 
 /* Landscape layout (with min-width) */
 @media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
@@ -175,3 +178,141 @@ p {
 .checkbox-container input[type="checkbox"] {
     margin-right: 10px; /* Space between the checkbox and the label */
 }
+
+
+/* Ensure the images are displayed as block elements and have proper sizing */
+#qrCodeImage, #bibTrackImage {
+    display: block;
+    margin: 0 auto; /* Center the images */
+}
+
+
+/* Center the images within the container */
+.image-container {
+    text-align: center;
+}
+
+/* Make sure images are displayed as inline-block for centering */
+.image-container img {
+    display: inline-block;
+    margin-bottom: 20px; /* Adjust spacing between images if needed */
+}
+
+
+
+/* Pop Up Menu - Help Icon */
+
+ /* Help Icon */
+ .help-icon {
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    padding: 5px;
+    background-color: #f1f1f1;
+    color: #333;
+    font-size: 12px;
+    margin-left: 5px;
+    text-decoration: none;
+  }
+
+  /* Modal */
+  .help-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+
+  /* Modal Content */
+  .help-modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+  }
+
+  /* Close Button */
+  .help-close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .help-close:hover,
+  .help-close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+
+/* Pop Up Menu - Help Icon END */
+
+
+
+/* Popup container */
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+  }
+  
+  /* The actual popup (appears on top) */
+  .popup .popuptext {
+    visibility: hidden;
+    width: 160px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
+  }
+  
+  /* Popup arrow */
+  .popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+  }
+  
+  /* Toggle this class when clicking on the popup container (hide and show the popup) */
+  .popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s
+  }
+  
+  /* Add animation (fade in the popup) */
+  @-webkit-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+  
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+  }
+
+
+  /* popup script END  */

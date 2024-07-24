@@ -1,4 +1,4 @@
-//www/js/campsiteOptions.js
+console.log("www/js/campsiteOptions.js");
 
 // Function to show specific options based on the selected issue type
 function showCampsiteOptions() {

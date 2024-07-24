@@ -1,22 +1,16 @@
 <!DOCTYPE html>
-
-<!-- btf/www/html/contactUs.html-->
-
-<html>
-
+<html lang="en">
 <head>
     <meta charset="utf-8">
 
-    <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self' data: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
-    <meta name="format-detection" content="telephone=no">
+   <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
     <meta name="color-scheme" content="light dark">
 
     <link rel="stylesheet" type="text/css" href="../css/index.css">
-    <link rel="stylesheet" type="text/css" href="../css/navigator.css">
     <link rel="stylesheet" type="text/css" href="../css/form.css">
+    <link rel="stylesheet" type="text/css" href="../css/formLogin.css">
     <link rel="stylesheet" type="text/css" href="../css/header.css">
     <link rel="stylesheet" type="text/css" href="../css/table.css">
 
@@ -25,37 +19,12 @@
 </head>
 
 <body>
-
-    
-<header class="header-content">
-        <div class="logo">
-            <img src="../img/walkTheBibTrack.jpg" alt="Walk the Bibbulmun Track" />
-        </div>
-
-        <div class="text">
-            <h1>Welcome to the Bibbulmun Track Maintenance App </h1>
-        </div>
-
-        <div class="qrcode">
-            <img src="../img/BTFTrackAppQRCode.jpg" alt="BTFTrackAppQRCode" />
-        </div>
-
-<form id="login">
-        <div class="login">
-            <!-- User login and Registration -->
-            <h2 id="userLogin" style="color: black; font-weight: bold;">Volunteer Login</h2>
-            <label for="loginUserName">Login User Name</label>
-            <input placeholder="Login User Name" type="text" id="loginUserName" name="loginUserName"><br>
-            <label for="loginPassword">Login Password</label>
-            <input placeholder="Login Password" type="password" id="loginPassword" name="loginPassword"><br>
-            <button type="submit">Login</button>
-            <a href="../html/registration.html" target="_blank"> <button type="button">Register</button></a><br><br>
-        </div>
-</form>
-    </header>
+    <div id="headerPlaceholder"></div>
+    <br>   <a href="caseReport.html"><button type="button" style=float:right;>Login</button></a><br><br>   
+    <br>   <a href="../index.html"><button type="button" style=float:right;>logout</button></a>
 
 <section class="contact-us">
-    <form id="contactus">
+<form id="contactus" class="contactUs-form" action="/api/contactus" method="post">  
     
     <h2>Contact Us</h2>
 
@@ -69,18 +38,23 @@
     <input type="text" placeholder="Subject"  id="subject" name="subject" required>
 
     <label for="message">Message:</label>
-    <textarea  placeholder="Your message" id="message" name="message" rows="4" required></textarea><br>
+    <textarea  placeholder="Your message" id="message" name="message" rows="4" cols="30" required></textarea><br>
 
     <input type="submit" value="Submit">
 </form>
+<br><br><br><br><br>
 </section>
 
 <footer>
 <p>&copy; 2024 Bibbulmun Track Maintenance App</p>
 </footer>
 
+
+<script src="../js/headerBannerNavigator.js"></script> 
+
 <script src="../js/index.js"></script>
 <script src="../js/login.js"></script>
+<script src="../js/loginContainer.js" defer></script>  
 
 <script src="../js/contactUs.js"></script>
 

@@ -1,9 +1,8 @@
-console.log  ("  load btf/www/js/contactUs.js ");
+console.log  ("load btf/www/js/contactUs.js");
 
 document.addEventListener('DOMContentLoaded', function() {
-
-document.getElementById('contactus').addEventListener('submit', function (e) {
-    e.preventDefault();
+    document.getElementById('contactus').addEventListener('submit', function(e) {
+        e.preventDefault();
 
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;    
@@ -26,13 +25,15 @@ document.getElementById('contactus').addEventListener('submit', function (e) {
     .then(data => {
         if (data.success) {
             alert('Data submitted successfully!');
+              // Optionally reset the form after successful submission
+              document.getElementById('contactus').reset();
         } else {
             alert('Failed to submit data');
         }
     })
     .catch(error => {
         console.error('Error:', error);
-        alert('An error occurred');
+        alert('contactUs.js line 34:  An error occurred');
     });
 });
 });

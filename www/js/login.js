@@ -1,99 +1,107 @@
-//   btf/www/js/login.js
+console.log("websites/btf/www.login.js");
 
 document.addEventListener('DOMContentLoaded', function () {
-    const form = document.getElementById('login');
+    const loginForm = document.getElementById('loginForm');
 
-    form.addEventListener('submit', function (event) {
-        event.preventDefault();
+    if (loginForm) {
+        loginForm.addEventListener('submit', function (event) {
+            event.preventDefault();
 
-        const loginUserName = document.getElementById('loginUserName').value;
-        const loginPassword = document.getElementById('loginPassword').value;
+            const loginUserName = document.getElementById('loginUserName').value;
+            const loginPassword = document.getElementById('loginPassword').value;
 
-        if (!loginUserName || !loginPassword) {
-            alert('Please enter both username and password');
-            return;
-          }
-
-        if (loginUserName === testUserName && loginPassword === testPassword) {
-            const userData = {
-                userName: loginUserName,
-                IDregistration: 1 // Assuming ID 1 for Admin. Adjust accordingly.
-                aVolHours: 0 // Placeholder for testing
-                // Add other user data if needed
-            };
-
-// Temporary credentials for testing
-        const testUserName = 'Admin';
-        const testPassword = 'Asdf!234';
-
-            // Store user data in localStorage for later use
-            localStorage.setItem('userData', JSON.stringify(userData));
-            console.log('Stored userData:', userData); // Debug statement
-            // Display alert for successful login (optional)
-            alert('Login successful, click OK to go Login Landing page.');
-
-            // Redirect to the desired page after successful login
-            window.location.href = '../html/loginLanding.html';
-        } else {
-            // If credentials do not match, proceed with server-side login attempt
             const data = {
-                loginUserName,
+                loginUserName,      //line 14
                 loginPassword
             };
 
-            // Example fetch request to send data to server for authentication
-            fetch('/login', {
+            fetch('/api/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(data)
+// body: JSON.stringify({ loginUserName, loginPassword })
             })
+
             .then(response => {
                 if (!response.ok) {
-                    throw new Error('Login failed');
+                    throw new Error('Network response was not ok');
                 }
                 return response.json();
             })
-            .then(result => {
-                // Assuming result.user contains user information including name
-                const userName = result.user.name; // Adjust according to your server response structure
-                const IDregistration = result.user.IDregistration;
-                const aVolHours = result.user.aVolHours; // Adjust according to your server response structure
-                
-                // Store user data in localStorage for later use
-                const userData = {
-                    userName: userName,
-                    IDregistration: IDregistration
-                    aVolHours: aVolHours // Add the accumulated volunteer hours here
-                    // Add other user data if needed
-                };
-                localStorage.setItem('userData', JSON.stringify(userData));
-                console.log('Stored userData:', userData); // Debug statement
-                
-                // Display alert for successful login (optional)
-                alert('Login successful, click OK to go login landing page');
+            .then(data => {
+                console.log("login.js line 36 Sent from serverRouteLogin.js to login.js:", data);
+                if (data.success) {
 
-                // Redirect to the desired page after successful login
-                window.location.href = '../html/loginLanding.html';
+   // Perform login (e.g., send to server, validate, etc.)
+// login.js line 38 On successful login, set sessionStorage:
+console.log('login.js line 39 > Setting sessionStorage loginUserName');
+sessionStorage.setItem('loginUserName', loginUserName);
+console.log('Current sessionStorage loginUserName:', sessionStorage.getItem('loginUserName'));
+
+console.log('login.js: Redirecting to', data.redirect);
+         // Small delay to ensure sessionStorage has time to set
+         setTimeout(() => {
+            window.location.href = data.redirect; // Redirect to the provided URL
+        }, 100); // Adjust delay if necessary
+
+     //   window.location.href = '../html/attendance.html';
+
+          //       window.location.href = data.redirect; // Redirect to the provided URL
+                } else {
+                    alert('Login failed: ' + data.message);
+                }
             })
             .catch(error => {
                 console.error('Error:', error);
-                alert('Login failed! Please try again.');
+                document.getElementById('loginMessage').textContent = 'Login failed. Please try again.';
+            });
+
+/*
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    window.location.href = data.redirect; // Redirect to the provided URL
+                } else {
+                    alert('Login failed: ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+*/
+
+/* check if data really comes in from serverRouteLogin.js  */
+console.log("login.js line 36 Sent from serverRouteLogin.js to login.js:", result);
+
+ // Display login message
+ document.getElementById('loginMessage').textContent = result.message;
+
+ /*line 68 Use received data 
+ - error F12 login.js:68 Uncaught SyntaxError: 
+ Identifier 'loginUserName' has already been declared 
+ const { IDregistration, loginUserName, role, aVolHours } = result;  */
+
+ console.log("login.js line 45 Date transfer from serverRouteLogin.js : ", IDregistration, loginUserName, role, aVolHours);
+
+ // Set greeting message (ES6 module)
+ displayGreeting(loginUserName, role);
+
+/* Redirect based on user role   -- currently re-direct from serverRouteLogin.js line 64
+if (userRole === 'admin' || userRole === 'uc' || userRole === 'lec') {
+    window.location.href = '../html/loginLanding.html';
+    } else {
+        window.location.href = '../html/attendance.html';
+    }*/
+
+})
+    
+.catch(error => {
+console.error('Error:', error);
+document.getElementById('loginMessage').textContent = 'Login failed. Please try again.';
             });
         }
     });
-});
 
-function fetchAccumulatedHoursForUser(IDregistration) {
-    fetch(`/api/getAccumulatedHours/${IDregistration}`)
-    .then(response => response.json())
-    .then(data => {
-        console.log('Accumulated hours fetched:', data.aVolHoursMAXID);
-        // Update UI with fetched `aVolHours`
-        document.getElementById('aVolHours').textContent = data.aVolHoursMAXID;
-    })
-    .catch(error => {
-        console.error('Error fetching accumulated hours:', error);
-    });
-}
+

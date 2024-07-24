@@ -1,4 +1,4 @@
-console.log('serverRoute.js');
+console.log('load websites/btf/serverRoute.js');
 
 const express = require('express');
 const app = express();
@@ -31,14 +31,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'www')));
 
 //========== SET UP ROUTES =================
+//mount various API routes using app.use():
 
-console.log('Setting up routes...');
-
-const testGptRoutes = require('./routes/serverRouteTestGPT');
-app.use('/api/testgpt', testGptRoutes(db));
-
-const contactUsRoutes = require('./routes/serverRouteContactUs');
-app.use('/api/contactus', contactUsRoutes(db));
+console.log('serverRoute.js is setting up routes...');
 
 console.log('Loading registration routes');
 const registrationRoutes = require('./routes/serverRouteRegistration');
@@ -48,10 +43,30 @@ console.log('Loading login routes');
 const loginRoutes = require('./routes/serverRouteLogin');
 app.use('/api/login', loginRoutes(db));
 
+console.log('Loading attendance routes');
+const attendanceRoutes = require('./routes/serverRouteAttendance');
+app.use('/api/attendance', attendanceRoutes);
+
+const contactUsRoutes = require('./routes/serverRouteContactUs');
+app.use('/api/contactus', contactUsRoutes(db));
+
+console.log('Loading casereport routes');
+const casereportRoutes = require('./routes/serverRouteCaseReport');
+app.use('/api/casereport', casereportRoutes(db));
+
+console.log('Loading reports routes');
+const reportsRoutes = require('./routes/serverRouteReports');
+app.use('/api/reports', reportsRoutes(db));
+
+const testGptRoutes = require('./routes/serverRouteTestGPT');
+app.use('/api/testgpt', testGptRoutes(db));
+
+
+//========  500 error ===================
 
 app.use((err, req, res, next) => {
     console.error(err.stack);
-    res.status(500).send('line 38: Internal Server Error, something broke!');
+    res.status(500).send('line 61: Internal Server Error, something broke!');
 });
 
 

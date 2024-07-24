@@ -1,0 +1,39 @@
+<!-- websites/btf/www/html/login.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="../css/formLogin.css">
+</head>
+<body>
+
+    <!-- Login and Registration box -->
+    <div id="loginContainer">
+<br>
+        <form id="login" class="login-form" action="/api/login" method="post">
+            <div class="login">
+                <!-- User login and Registration -->
+                <h2 id="userLogin" style="color: black; font-weight: bold;">Volunteer Login</h2>
+                <div class="login-container">
+                    <div class="login-item">
+                       
+                        <input placeholder="Login User Name" type="text" id="loginUserName" name="loginUserName" required>
+                    </div>
+                    <div class="login-item">
+                      
+                        <input placeholder="Login Password" type="password" id="loginPassword" name="loginPassword" required>
+                    </div>
+                </div>
+                <button type="submit">Login</button>
+                <!-- Registration button linking to registration.html -->
+                <a href="../html/registration.html"><button type="button">Register</button></a>
+            </div>
+        </form>
+    </div>
+
+
+        <script src="../js/login.js"></script>
+    
+</body>
+</html>

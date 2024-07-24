@@ -1,8 +1,8 @@
-//websites/btf/www/loginlanding.html
+<!-- websites/btf/www/loginlanding.html -->
 
 <!DOCTYPE html>
 
-<html>
+<html lang = "en">
 
 <head>
     <meta charset="utf-8">
@@ -12,10 +12,7 @@
     <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
     <meta name="color-scheme" content="light dark">
 
-    <link rel="stylesheet" type="text/css" href="../css/index.css">
-    <link rel="stylesheet" type="text/css" href="../css/navigator.css">
-    <link rel="stylesheet" type="text/css" href="../css/form.css">
-    <link rel="stylesheet" type="text/css" href="../css/header.css">
+    <link rel="stylesheet" type="text/css" href="../css/navAttendance.css">
     <link rel="stylesheet" type="text/css" href="../css/table.css">
   
     <title>Login Landing Page</title>
@@ -23,45 +20,71 @@
 </head>
 
 <body>
+   
     <div id="headerPlaceholder"></div> 
         <!-- Include headerBannerNavigator.html -->
+        <a href="../html/attendance.html"><button type="button" style=float:right;>attendance</button></a><br><br>
+        <br>   <a href="../index.html"><button type="button" style=float:right;>logout</button></a>
 
-<br><br><br>
+        <p id="welcomeMessage"></p>
+
 <div class="table-container">
         <table class="centered-table">
             <tr>
                 <td colspan="2">
-<h1>Administration Function</h1>
-<div id="userHeader" style="text-align: left;">  </div>
-    <!-- This is where the user's name will appear -->
 
+                                <h1>Administration Function</h1>
+                                <h1><div id="hello"></div> </h1>        <!-- hello.js line 6 -->
+                                <h1><div id="userHeader" style="text-align: left;">  </div>   </h1>         <!-- loginLanding.js line 45 -->
+                                <h1><div id="helloDiv"></div>  </div></h1>
+                                <!-- This is where the "Hello loginUserName" will appear -->
                 </td>
             </tr>
             <tr>
                 <td id="nav">
-                    <ul>
-                        <li><a href="#" onclick="loadContent('volunteerProfile')"><h3>Volunteer Profile</h3></a></li><br>
-                        <li><a href="#" onclick="loadContent('attendanceInfo')"><h3>Attendance Information</h3></a></li><br>
-                        <li><a href="#" onclick="loadContent('maintenanceReport')"><h3>Track Maintenance Report</h3></a></li><br>
-                        <li><a href="#" onclick="loadContent('contactUs')"><h3>Contact Us</h3></a></li><br>
-                        <li><a href="../index.html"><h3>logout</h3></a></li><br>
-                    </ul>
+<div id="navAttendance" class="nav-attendance"> 
+                 <ul>
+                    <li><a href="#" onclick="loadContent('volunteerProfile')"><button type="button" style=float:left;>volunteers profile</button></a></li><br>
+                        <li><a href="#" onclick="loadContent('attendanceInfo')"><button type="button" style=float:left;>attendance information</button></a></li><br>
+                        <li><a href="#" id="trackMaintenanceReportLink" onclick="loadContent('maintenanceReport')"><button type="button" style=float:left;>track maintenance report</button></a></li><br>
+                        <li><a href="#" onclick="loadContent('contactUs')"><button type="button" style=float:left;>contact us</button></a></li><br><br><br> 
+                </ul>
+</div>  
                 </td>
                 <td id="content">
-                    <!-- Content will be loaded here -->
-                    <div id="displayArea">Welcome! Please select an option from the navigation menu.</div>
-                </td>
-            </tr>
+                    <h1><b></b>RETRIEVE FROM MySQL DATABASES<b></b></h1><br><br>
+<!-- Content will be loaded here a list of all case report by IDcasereport and created_at datetime, allow user selection -->
+                    <div id="displayArea">navigation menu.</div>
+
+<!-- Right side where reports will be displayed, depends on what the user select from the list above -->
+
+    <!-- This section will show details of selected report -->
+
+<div id="reports">          <!-- loginLanding.js line 89 -->
+    <h2>Display from databases</h2>
+    <ul id="reportList"></ul>       <!-- loginLanding.js line 93 -->
+    <div id="reportDetails"></div>  <!-- loginLanding.js line 100 -->
+</div>
+
+                </td>   
+            </tr>   
         </table>
+
  </div>
+
+
+
+ <br><br><br><br><br><br><br><br><br><br>
 <footer>
 <p>&copy; 2024 Bibbulmun Track Maintenance App</p>
 </footer>
 
-<script src="../js/headerBannerNavigator.js"></script>
-<script src="../js/index.js"></script>
-<script src="../js/login.js"></script>
-<script src="../js/loginLanding.js"></script>
+<script src="../js/headerBannerNavigator.js" defer></script>
+<script src="../js/index.js" defer></script>
+<script src="../js/login.js" defer></script>
+<script src="../js/loginLanding.js" defer></script>
+<script src="../js/loadLastRegistration.js" defer></script>
+
 
 </body>
 </html>

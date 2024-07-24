@@ -1,4 +1,4 @@
-//btf/www/routes/serverRouteTestGPT.js
+console.log('loaded websites/BTF/routes/serverRouteTestGPT.js ');
 
 const express = require('express');
 

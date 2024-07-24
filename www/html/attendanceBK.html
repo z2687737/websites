@@ -1,49 +1,54 @@
-<!-- btf/www/html/attendance.html -->
-
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self' data: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
-    <meta name="format-detection" content="telephone=no">
+
+   <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
     <meta name="color-scheme" content="light dark">
 
     <link rel="stylesheet" type="text/css" href="../css/index.css">
-    <link rel="stylesheet" type="text/css" href="../css/navigator.css">
     <link rel="stylesheet" type="text/css" href="../css/form.css">
+    <link rel="stylesheet" type="text/css" href="../css/formLogin.css">
     <link rel="stylesheet" type="text/css" href="../css/header.css">
     <link rel="stylesheet" type="text/css" href="../css/table.css">
 
+    <title>Attendance</title>
 
-    <script src="../js/index.js"></script>
-    <script src="../js/cameraTest.js"></script>
-    <title>Bibbulmun Track Maintenance App</title>
 </head>
 
 <body>
-    <div id="headerPlaceholder"></div> 
-    
-<main>
-    <form id="attendance">
+  <div id="headerPlaceholder"></div>    <!--paste in the entire header banner with navigatior -->
+  <a href="../html/loginLanding.html"><button type="button" style=float:right;>Administratin Function</button></a><br><br>
+  
+       <br>     <a href="../index.html"><button type="button" style=float:right;>logout</button></a>
+       <main>
+    <form id="attendanceForm">
         <!-- Your form inputs -->    
-    <div>
-        <br>    
+<div>   
 <h3>Attendance Date Time Stamp logging</h3>
 <br>
-<div id="userHeader" style="text-align: left;">  </div>
- <!-- Show accumulated volunteered hours -->
-
- <!-- This is where the user's name will appear -->
-
- <div id="aVolHoursMAXID">
- <label for="aVolHoursMAXID">Accumulated Volunteered Hours</label>
- <textarea placeholder="Display accVolHoursMAXID" id="aVolHoursMAXID" name="accVolHoursMAXID" rows="1" cols="21"></textarea>
+<!-- div id="hello"></div -->  
 </div>
+
+<!-- h1><div id="helloDiv"></div>  </div></h1  -->
+
+<!-- welcomeMessage -->
+<p id="welcomeMessage"></p>
+
+<h1><div id="userHeader" style="text-align: left;">  </div></h1>
+<!-- from loginLanding.js line 44:  This is where the user's name will appear -->
+
+<h1>attendance logging.</h1>
+
+<!-- Show aVolHoursPrevious on attendance.html first field-->
+  <div id="aVolHoursPreviousDiv">
+    <label for="aVolHoursPrevious">Accumulated Volunteered Hours</label>
+    <textarea placeholder="Display total hours: 8 " id="aVolHoursPrevious" name="aVolHoursPrevious" rows="1" cols="21"></textarea>
+</div>
+
    <!-- User input for check-in date time -->
  
             <label for="chkInDTS">Scan QR Code or click Check In Date Time Stamp</label>
@@ -53,9 +58,12 @@
             <label for="chkOutDTS">Scan QR Code or click Check Out Date Time Stamp</label>
             <input placeholder="Check Out Date Time" type="datetime-local" id="chkOutDTS" name="chkOutDTS"><br>
         
-              <!-- Submit button -->
-            <input type="submit" value="Submit">
-            
+              <!-- Compute button 
+            <input type="submit" value="compute"><br><br>   
+            <button type="submit" class="center-buttons"> value="compute" save to databases </button>   -->
+
+            <input type="submit" value="Submit"><br><br>   
+
             <!-- Display today's volunteered hours -->
             <label for="volHours">Today's Volunteered Hours</label>
             <textarea placeholder="Today's volunteered hours" id="volHours" name="volHours" rows="1" cols="21"></textarea>
@@ -63,15 +71,18 @@
               <!-- Display accumulated volunteered hours after submission -->
             <label for="aVolHours">Accumulated Volunteered Hours</label>
             <textarea placeholder="Accumulated Vol Hours" id="aVolHours" name="accumulatedVolunteeredHours" rows="1" cols="21"></textarea>
-        
-            <br> <br>
-        
+            
+     <!-- Save button            <button type="submit" class="center-buttons"> value="submit" save to databases </button>  -->
+
+            <br> 
         </div>
     </form>
-
-   
-
 </main>
+
+<h1>REMARK: For this testing purposes,</h1>
+<h1>Tentatively assumed previous accumulated volunteered hours is 8 hours.</h1>
+<h1>Click OK on the dropdown to observe the changes on the 1st and last field.</h1><br><br>
+
 
 <footer>
 <p>&copy; 2024 Bibbulmun Track Maintenance App</p>
@@ -79,6 +90,16 @@
 
 <script src="../js/headerBannerNavigator.js"></script>
 <script src="../js/attendance.js"></script> <!-- Link to your registration.js script -->
+
+<!-- (  helloDiv.textContent = `Hello, ${loginUserName}`) --> 
+<script src="../js/login.js"></script>
+<script src="../js/hello.js"></script>
+
+<!-- welcomeMessage script here-->
+<script src="../js/welcomeMessage.js"></script>
+
+
+
 
 </body>
 </html>

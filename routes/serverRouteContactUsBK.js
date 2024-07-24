@@ -1,12 +1,21 @@
-const express = require('express');
+console.log("websites/btf/routes/serverRouteContactUs.js");
 
-module.exports = (db) => {
-    const router = express.Router();
+
+const express = require('express');
+const router = express.Router();
+
+module.exports = (db) => {   
 
     router.post('/', (req, res) => {
         const { name, email, subject, message} = req.body;
 
-        const sql = `INSERT INTO contactus (name, email, subject, message, created_at) VALUES (?, ?, ?, ?, NOW())`;
+        const sql = `INSERT INTO contactus (
+        name, 
+        email, 
+        subject, 
+        message, 
+        created_at
+        ) VALUES (?, ?, ?, ?, NOW())`;
 
         db.query(sql, [
           name,

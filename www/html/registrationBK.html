@@ -22,33 +22,8 @@
 
 <body>
 
-   <header class="header-content">
-    <div class="logo">
-        <img src="../img/walkTheBibTrack.jpg" alt="Walk the Bibbulmun Track" />
-    </div>
-
-    <div class="text">
-        <h1>Welcome to the Bibbulmun Track Maintenance App </h1>
-    </div>
-
-    <div class="qrcode">
-        <img src="../img/BTFTrackAppQRCode.jpg" alt="BTFTrackAppQRCode" />
-    </div>
-
-<form id="login">
-    <div class="login">
-        <!-- User login and Registration -->
-        <h2 id="userLogin" style="color: black; font-weight: bold;">Volunteer Login</h2>
-        <label for="loginUserName">Login User Name</label>
-        <input placeholder="Login User Name" type="text" class="loginUserName" name="loginUserName"><br>
-        <label for="loginPassword">Login Password</label>
-        <input placeholder="Login Password" type="password" class="loginPassword" name="loginPassword"><br>
-<button type="submit">Login</button>
-        <a href="../html/registration.html" target="_blank"> <button type="button">Register</button></a><br><br>
-    </div>
-</form>
-</header>
-    
+    <div id="headerPlaceholder"></div>  
+    <br>   <a href="../index.html"><button type="button" style=float:right;>logout</button></a><br> 
     <main>
         <section>
 
@@ -68,7 +43,7 @@
             </label>
             
             <input placeholder="Login Password" type="password" id="loginPassword" name="loginPassword" ><br>
-            <p1 style="color: orange;"> 8 UpperLowerCase AlphaNumeric WildcardCharacters</p1><br>
+            <p1 style="color: orange; text-align: left;"> 8 UpperLowerCase AlphaNumeric WildcardCharacters</p1><br>
 
             <label for="repeatPassword">Repeat password</label>
             <input placeholder="Repeat Password" type="password" id="repeatPassword" name="repeatPassword" ><br>
@@ -84,7 +59,7 @@
             <input placeholder="Email Address" type="email" id="eMail" name="eMail" >
 
             <label for="hPhone">Hand Phone Number</label>
-            <input placeholder="Hand Phone Number" type="tel" id="hPhone" name="hPhone" >
+            <input placeholder="Hand Phone Number" type="text" id="hPhone" name="hPhone" >
 
             <label for="streetNumber">Street Number</label>
             <input type="text" id="streetNumber" name="streetNumber" >
@@ -292,7 +267,6 @@
                 <option value="lec">Lecturer (lec Asdf!001)</option>
             </select>
 
-           
             <label for="volCat">Volunteer Roles Support Categories:</label>
             <select id="volCat" name="VolunteerCategories" >
                 <option value=" ">VOLUNTEER ROLE</option>
@@ -361,12 +335,11 @@
                 <option value="lec">Lecturer</option>
             </select>
         -->
-            <label for="background">Background - tell use more about yourself      (optional)</label>
-               <textarea id="background" name="background" rows="4" cols="21"></textarea><br> 
+<br>        <label for="background">Background      (optional)</label>
+               <textarea id="background" name="background" placeholder="tell us more about yourself"  rows="5" cols="21"></textarea><br> 
             
                <button type="submit" id="registrationButton">Register</button>
-            
-            
+                       
             <br><br><br><br><br><br>
         </form>
     </section>
@@ -375,6 +348,12 @@
 <footer>
     <p>&copy; 2024 Bibbulmun Track Maintenance App</p>
 </footer>
+
+<script src="../js/headerBannerNavigator.js"></script> 
+
+<script src="../js/index.js"></script>
+<script src="../js/login.js"></script>
+<script src="../js/loginContainer.js" defer></script>  
 
   <!--  <link rel="stylesheet" href="../css/navigator.css">    -->
   <script src="../js/registration.js" defer></script> 

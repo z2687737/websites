@@ -1,4 +1,4 @@
-// www/js/clickVideo.js 
+console.log(' loaded websites/btf/www/js/clickVideo.js ');
 
 document.addEventListener("DOMContentLoaded", function() {
     // Get the button element by its ID
@@ -10,10 +10,25 @@ document.addEventListener("DOMContentLoaded", function() {
     clickVideoButton.addEventListener('click', recordVideo);
 });
 
+/*
+"navigator.mediaDevices.getUserMedia"
+ the "WebRTC API"
+is a standard set of APIs supported by modern 
+ web browsers on both desktop and mobile devices.
+ */
 function recordVideo() {
     console.log('recordVideo function called');
+ 
+/*ERROR
+clickVideo.js:78 clickVideo.js line 74 
+Error accessing the camera: OverconstrainedError
+  */
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-        navigator.mediaDevices.getUserMedia({ video: true }).then(function (stream) {
+        navigator.mediaDevices.getUserMedia({ 
+            video:  { facingMode: { exact: "environment" }  }  
+
+           /*    navigator.mediaDevices.getUserMedia({ video: true */})
+        .then(function (stream) {
             console.log('Access to camera granted');
             let video = document.createElement('video');
             video.style.display = 'none';
@@ -54,16 +69,16 @@ function recordVideo() {
                 uploadVideo(blob);
             };
 
-            // Start recording
+            // line 74 Start recording
             mediaRecorder.start();
             console.log('MediaRecorder started');
 
             setTimeout(function() {
-                console.log('Stopping MediaRecorder after 10 seconds');
+                console.log('clickVideo.js line 78 Stopping MediaRecorder after 10 seconds');
                 mediaRecorder.stop();
             }, 10000); // Stop recording after 10 seconds
         }).catch(function (error) {
-            console.error("Error accessing the camera: " + error);
+            console.error("clickVideo.js line 74 Error accessing the camera: " + error);
         });
     } else {
         alert("Camera not supported on this device.");

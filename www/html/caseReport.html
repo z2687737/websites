@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+    <meta name="color-scheme" content="light dark">
+
+    <link rel="stylesheet" type="text/css" href="../css/index.css">     
+    <link rel="stylesheet" type="text/css" href="../css/form.css">
+    <link rel="stylesheet" type="text/css" href="../css/formLogin.css">    
+    <link rel="stylesheet" type="text/css" href="../css/header.css">
+    <link rel="stylesheet" type="text/css" href="../css/table.css">
+
+    <!--for clickGPS -->
+    <link rel="stylesheet" type="text/css" href="../css/leaflet.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    <title>BTF Bibbulmun Track Maintenance App</title>
+
+</head>
+
+<body>
+    <div id="headerPlaceholder"></div>
+    <br>   <a href="caseReport.html"><button type="button" style=float:right;>Login</button></a><br><br>
+    <br>   <a href="../index.html"><button type="button" style=float:right;>logout</button></a><br>
+    <br>
+<main>
+ <!-- caseReport -->
+ <form id="caseReport" enctype="multipart/form-data" onsubmit="saveFormData(event)">
+            <br>
+             <h2 id="trackMaintenanceReport">TRACK MAINTENANCE REPORT</h2>
+             <br>
+             <h2>Reported BY</h2>
+<br>
+             <label for="reporterName">Name:</label>
+             <textarea placeholder="Enter your name" id="reporterName" name="reporterName" rows="1"
+                 cols="30" required></textarea>
+ 
+             <label for="reporterContact">Contact:</label>
+             <textarea placeholder="Enter your hp number" id="reporterContact" name="reporterContact" rows="1"
+                 cols="30" required></textarea>
+
+<label for="reporterEmailAddress">Email Address</label>
+                 <textarea placeholder="Enter your email Address" id="reporterEmailAddress" name="reporterEmailAddress" rows="1"
+                     cols="30" required></textarea><br><br><br>
+ 
+                 <h2>Inspection Date</h2>
+<br>            <label for="dateTimePicker">Inspection Date</label>
+            <input type="datetime-local" id="dateTimePicker" name="dateTimePicker"><br><br>
+            <!--here a field to capture / save from date time picker since it's off line -->
+
+
+
+  <br><br>
+
+<!-- Pop Up Help Icon Example -->
+<a href="../index.html#hlcampsites" class="help-icon" onclick="showHelp(event, '#hlcampsites')"  target="_blank" >pop-up help campsite selector</a>
+
+
+<!-- Modal Structure -->
+<div id="helpModal" class="help-modal">
+    <div class="help-modal-content">
+      <span class="help-close" onclick="closeHelp()">&times;</span>
+      <div id="helpContent"></div>
+    </div>
+  </div>
+
+
+
+            <h2>Campsite Report</h2>
+            <br>
+            <label for="decDist">DEC District</label>
+            <select id="decDist" name="decDist" onchange="showCampsiteOptions()">
+                <option value=" ">DEC DISTRICT</option>
+                <option value="albany">Albany</option>
+                <option value="blackwood">Blackwood</option>
+                <option value="dManjimup">Donnelly (Manjimup)</option>
+                <option value="dPemberton">Donnelly (Pemberton)</option>
+                <option value="frankland">Frankland</option>
+                <option value="perthHillsDwellingup">Perth Hills (Dwellingup)</option>
+                <option value="perthHillsMundaring">Perth Hills (Mundaring)</option>
+                <option value="wellington">Wellington</option>
+                <option value="campsites">All Campsites</option>
+            </select>
+            <!--decDist -->
+
+            <!-- Dynamic Campsite Options -->
+
+<!-- if decDist = "albany" -->
+            <div id="albanyCampsites" style="display:none;">
+                <label for="campsite">Albany</label>
+                <select id="campsite" name="campsite">
+                    <option value=" ">ALBANY CAMPSITES</option>
+                    <option value="muttonBird">Mutton Bird</option>
+                    <option value="sandPatch">Sand Patch</option>
+                    <option value="albany">Albany</option>
+                </select>
+            </div>
+
+<!-- if decDist = "blackwood" -->
+            <div id="blackwoodyCampsites" style="display:none;">
+                <label for="campsite">Blackwoods</label>
+                <select id="campsite" name="campsite">
+                    <option value=" ">BLACKWOOD CAMPSITES</option>
+                    <option value="possumSprings">Possum Springs</option>
+                    <option value="yourdamung">Yourdamung</option>
+                    <option value="harrisDam">Harris Dam</option>
+                    <option value="collie">Collie</option>
+                    <option value="yabberup">Yabberup</option>
+                    <option value="noggerup">Noggerup</option>
+                    <option value="grimwade">Grimwade</option>
+                    <option value="balingup">Balingup</option>
+                    <option value="blackwood">Blackwood</option>
+                    <option value="gregoryBrook">Gregory Brook</option>
+                    <option value="drv">DRV</option>
+                    <option value="tomRoad">Tom Road</option>
+                </select>
+            </div>
+
+<!-- if decDist = "donnelly (Manjimup)" -->
+            <div id="dManjimupCampsites" style="display:none;">
+                <label for="campsite">Donnelly Manjimup</label>
+                <select id="campsite" name="campsite">
+                    <option value=" ">DONNELLY MANJIMUP CAMPSITES</option>
+                    <option value="boardingHouse">Boarding House</option>
+                    <option value="beavis">Beavis</option>
+                    <option value="beedelup">Beedelup</option>
+                    <option value="pemberton">Pemberton</option>
+                    <option value="warren">Warren</option>
+                    <option value="schafer">Schafer</option>
+                    <option value="northcliffe">Northcliffe</option>
+                    <option value="gardner">Gardner</option>
+                    <option value="maringup">Maringup</option>
+                </select>
+            </div>
+
+<!-- if decDist = "donnelly (Pemberton)" -->
+            <div id="dPembertonCampsites" style="display:none;">
+                <label for="campsite">Donnelly Pemberton</label>
+                <select id="campsite" name="campsite">
+                    <option value=" ">DONNELLY PEMBERTON CAMPSITES</option>
+                    <option value="dogPool">Dog Pool</option>
+                    <option value="mtChance">Mt Chance</option>
+                    <option value="woolbales">Woolbales</option>
+                </select>
+            </div>
+
+<!-- if decDist = "frankland" -->
+            <div id="franklandCampsites" style="display:none;">
+                <label for="campsite">Frankland</label>
+                <select id="campsite" name="campsite">
+                    <option value=" ">FRANKLAND CAMPSITES</option>
+                    <option value="longPoint">Long Point</option>
+                    <option value="walpole">Walpole</option>
+                    <option value="frankland">Frankland</option>
+                    <option value="giants">Giants</option>
+                    <option value="rameHead">Rame Head</option>
+                    <option value="peacefulBay">Peaceful Bay</option>
+                    <option value="boatHarbour">Boat Harbour</option>
+                    <option value="williamBay">William Bay</option>
+                    <option value="denmark">Denmark</option>
+                    <option value="nullaki">Nullaki</option>
+                    <option value="westCapeHowe">West Cape Howe</option>
+                    <option value="torbay">Torbay</option>
+                </select>
+            </div>
+
+<!-- if decDist = "perth Hills (Dwellingup)" -->
+            <div id="perthHillsDwellingupCampsites" style="display:none;">
+                <label for="campsite">PerthHills Dwellingup</label>
+                <select id="campsite" name="campsite">
+                    <option value=" ">PERTH HILLS DWELLINGUP CAMPSITES</option>
+                    <option value="brookton">Brookton</option>
+                    <option value="monadnocks">Monadnocks</option>
+                    <option value="mtCooke">Mt Cooke</option>
+                    <option value="nerang">Nerang</option>
+                </select>
+            </div>
+
+<!-- if decDist = "perth Hills (Mundaring)" -->
+            <div id="perthHillsMundaringCampsites" style="display:none;">
+                <label for="campsite">Perth Hills Mundaring</label>
+                <select id="campsite" name="campsite">
+                    <option value=" ">PERTH HILLS MUNDARING CAMPSITES</option>
+                    <option value="hewettsHill">Hewett's Hill</option>
+                    <option value="helena">Helena</option>
+                    <option value="beraking">Beraking</option>
+                </select>
+            </div>
+
+<!-- if decDist = "wellington" -->
+            <div id="wellingtonCampsites" style="display:none;">
+                <label for="campsite">Wellington</label>
+                <select id="campsite" name="campsite">
+                    <option value=" ">Wellington CAMPSITES</option>
+                    <option value="gringerCreek">Gringer Creek</option>
+                    <option value="whiteHorseHills">White Horse Hills</option>
+                    <option value="mtWells">Mt Wells</option>
+                    <option value="chadoora">Chadoora</option>
+                    <option value="dwellingup">Dwellingup</option>
+                    <option value="swampOak">Swamp Oak</option>
+                    <option value="murray">Murray</option>
+                    <option value="dookanelly">Dookanelly</option>
+                </select>
+            </div>
+
+<!-- if decDist = "campsites" -->
+<div id="campsites" style="display:none;">
+            <label for="campsite">Bibbulmun Track Campsites</label>
+            <select id="campsite" name="campsite">
+                <option value=" ">BIBBULMUN TRACK CAMPSITES</option>
+                <option value="albany">Albany</option>
+                <option value="balingup">Balingup</option>
+                <option value="beavis">Beavis</option>
+                <option value="beedelup">Beedelup</option>
+                <option value="beraking">Beraking</option>
+                <option value="blackwood">Blackwood</option>
+                <option value="boardingHouse">Boarding House</option>
+                <option value="boatHarbour">Boat Harbour</option>
+                <option value="brookton">Brookton</option>
+                <option value="chadoora">Chadoora</option>
+                <option value="collie">Collie</option>
+                <option value="denmark">Denmark</option>
+                <option value="dogPool">Dog Pool</option>
+                <option value="dookanelly">Dookanelly</option>
+                <option value="drv">DRV</option>
+                <option value="dwellingup">Dwellingup</option>
+                <option value="frankland">Frankland</option>
+                <option value="gardner">Gardner</option>
+                <option value="giants">Giants</option>
+                <option value="gregoryBrook">Gregory Brook</option>
+                <option value="grimwade">Grimwade</option>
+                <option value="gringerCreek">Gringer Creek</option>
+                <option value="harrisDam">Harris Dam</option>
+                <option value="helena">Helena</option>
+                <option value="hewettsHill">Hewett's Hill</option>
+                <option value="longPoint">Long Point</option>
+                <option value="maringup">Maringup</option>
+                <option value="monadnocks">Monadnocks</option>
+                <option value="mtChance">Mt Chance</option>
+                <option value="mtCooke">Mt Cooke</option>
+                <option value="mtWells">Mt Wells</option>
+                <option value="murray">Murray</option>
+                <option value="muttonBird">Mutton Bird</option>
+                <option value="nerang">Nerang</option>
+                <option value="noggerup">Noggerup</option>
+                <option value="northcliffe">Northcliffe</option>
+                <option value="nullaki">Nullaki</option>
+                <option value="peacefulBay">Peaceful Bay</option>
+                <option value="pemberton">Pemberton</option>
+                <option value="possumSprings">Possum Springs</option>
+                <option value="rameHead">Rame Head</option>
+                <option value="sandPatch">Sand Patch</option>
+                <option value="schafer">Schafer</option>
+                <option value="swampOak">Swamp Oak</option>
+                <option value="tomRoad">Tom Road</option>
+                <option value="torbay">Torbay</option>
+                <option value="walpole">Walpole</option>
+                <option value="warren">Warren</option>
+                <option value="westCapeHowe">West Cape Howe</option>
+                <option value="whiteHorseHills">White Horse Hills</option>
+                <option value="williamBay">William Bay</option>
+                <option value="woolbales">Woolbales</option>
+                <option value="yabberup">Yabberup</option>
+                <option value="yourdamung">Yourdamung</option>
+            </select>
+        </div>
+
+            <!--Bibbulmun Track Campsites -->
+            <!-- Problem Description -->
+            <h2 id="issueReport">Report an Issue</h2>
+<br>
+            <label for="issueType">Issue Type:</label>
+            <select id="issueType" name="issueType" onchange="showIssueOptions()">
+                <option value=" ">ISSUE TYPE</option>
+                <option value="trackCondition">Track Condition</option>
+                <option value="trackMarking">Track Marking</option>
+                <option value="inappropriateUse">Inappropriate Use</option>
+                <option value="otherIssues">Other issues</option>
+            </select>
+
+            <br>
+
+            <!-- if issueType = "trackCondition" -->
+
+            <div id="trackConditionOptions" style="display:none;">
+                <label for="trackCondition">Track Condition:</label>
+                <select id="issuetypeoptions" name="trackCondition">
+                    <option value=" ">TRACK CONDITION</option>
+                    <option value="erosion">Dune Erosion</option>
+                    <option value="regrowth">Regrowth</option>
+                    <option value="weeds">Weeds</option>
+                    <option value="sandBarsCond">Sand Bars Condition</option>
+                    <option value="damageWaterBars">Damage to Water Bars</option>
+                    <option value="damageHardwareStructure">Damage to Hardware Structure</option>
+                    <option value="inundation">Inundation</option>
+                    <option value="litter">Litter</option>
+                    <option value="fallenTree">Fallen Tree</option>
+                    <option value="damagedShelter">Damaged Shelter</option>
+                    <option value="brokenBridge">Broken Bridge</option>
+                </select>
+            </div>
+
+            <!-- if issueType = "trackMarking" -->
+            <div id="trackMarkingOptions" style="display:none;">
+                <label for="trackMarking">Track Marking:</label>
+                <select id="issuetypeoptions" name="trackMarking">
+                    <option value=" ">TRACK MARKING</option>
+                    <option value="missingWaugals">Missing Waugals</option>
+                    <option value="fadedWaugals">Faded Waugals</option>
+                    <option value="damagedWaugals">Damaged Waugals</option>
+                    <option value="missingSignage">Missing signage</option>
+                    <option value="damagedSignage">DamagedSignage</option>
+                </select>
+            </div>
+
+            <!-- if issueType = "inappropriateUse" -->
+            <div id="inappropriateUseOptions" style="display:none;">
+                <label for="inappropriateUse">Inappropriate Use:</label>
+                <select id="issuetypeoptions" name="inappropriateUse">
+                    <option value=" ">INAPPROPRIATE USE</option>
+                    <option value="mountainBikes">Mountain bikes</option>
+                    <option value="trailBbikes">Trail bikes</option>
+                    <option value="horses">Horses</option>
+                    <option value="vehicles">Vehicles</option>
+                </select>
+            </div>
+
+
+            <!-- if issueType = "otherIssues" -->
+            <div id="otherIssuesOptions" style="display:none;">
+                <label for="otherIssues">Other Issues:</label>
+                <textarea placeholder="Describe the issue here" id="issuetypeoptions" name="otherIssues" rows="4"
+                    cols="30"></textarea>
+            </div>
+
+            <label for="problem">Problem</label>
+            <select id="problem" name="problem">
+                <option value=" ">PROBLEM</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label for="severity">severity</label>
+            <select id="severity" name="severity">
+                <option value=" ">SEVERITY</option>
+                <option value="serious">serious</option>
+                <option value="moderate">moderate</option>
+                <option value="minimal">minimal</option>
+            </select>
+
+            <label for="frequency">frequency</label>
+            <select id="frequency" name="frequency">
+                <option value=" ">FREQUENCY</option>
+                <option value="often">often</option>
+                <option value="moderate">moderate</option>
+                <option value="minimal">minimal</option>
+            </select>
+
+            <label for="emailDEC">emailDEC </label>
+            <select id="emailDEC" name="emailDEC">
+                <option value=" ">EMAILDEC</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+            <!-- if emailDEC = yes ,  the button at the bottom will generate and send email when online -->
+
+            <!-- "issueDescription" -->
+            <br>
+            <label for="issueDescription">Issue Description:</label>
+            <textarea placeholder="Descript issue in details" id="issueDescription" name="issueDescription" rows="4"
+                cols="30"></textarea><br>
+   
+            <div class="table-container">
+                <table>
+                    <tr>
+                        <td class="gps-cell">
+                            <!-- Place your Get GPS functionality here -->
+
+                            <button id="getGPS" type="button">Get offline GPS</button>
+
+                            <label for="latitude">Latitude:</label>
+                            <input type="text" id="latitude" readonly>
+
+                            <label for="longitude">Longitude:</label>
+                            <input type="text" id="longitude" readonly>
+
+                            <div id="map" style="height: 300px; width: 100%;"></div><br><br>
+
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <br>
+<!--The camera and video -->
+            <div class="table-container">
+                <table>
+                    <tr>
+                        <td class="camera-cell">
+                            <label for="clickCamera">Take Photo</label>
+<!-- Camera button--> <button id="clickCamera" type="button">Take Photo</button>
+
+                            <div id="imageContainer"></div>
+                            <img id="image" style="display:none;" src="#" alt="Image will appear here">
+                            <input type="file" name="photo" id="photoInput" style="display:none;">
+                       </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <tr>
+                        <td class="video-cell">
+                        <label for="clickVideo">Record Video</label>
+<!--Video button --> <button id="clickVideo" type="button">Record Video</button>
+                            <div id="videoContainer"></div>
+                            <input type="file" name="video" id="videoInput" style="display:none;">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <br>
+
+<!--The 2 buttons -->
+
+<div id="saveReport" class="center-buttons">
+    <button type="button">OFFLINE Save Case Report to device</button>
+</div>
+<br><br>
+
+<div id="syncData" class="center-buttons">
+    <button type="button">ONLINE Data Sync to Database Email DEC</button>
+</div>
+<br><br>
+        </form>   
+        
+
+    <!-- for testing purposes: Fetch messages from server 
+    <form id="saveForm"> 
+        <h2>( 3 )  API endpoint to handle /save form submission</h2>
+        <label for="save">Save</label>
+        <input name="save" placeholder="type save something" type="text" id="save">
+        <button type="submit">Submit</button>
+      </form>
+      -->
+    </main>
+<br><br><br><br>
+    <footer>
+        <p>&copy; 2024 Bibbulmun Track Maintenance App</p>
+    </footer>
+
+<!-- ( 1 ) login form)-->
+<script src="../js/headerBannerNavigator.js"></script> 
+
+<script src="../js/index.js"></script>
+<script src="../js/login.js"></script>
+<script src="../js/loginContainer.js" defer></script>  
+
+<script src="../js/caseReport.js"></script>
+    
+    <!--Javascript for Issue Type Selection-->
+    <!--  <script src="js/index.js"></script>  -->
+    <script src="../js/issueTypeOptions.js" defer></script>
+    <script src="../js/campsiteOptions.js" defer></script>
+
+    <!-- ( 4 ) for clickGPS (line 268)-->
+    <script src="../js/clickGPS.js" defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDzI4CfMoJ6ZgrjxEX1zaZDlKMu6pBEZHQ" defer></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <!-- ( 5 ) External JavaScript for takePicture (line 480)-->
+    <script src="../js/clickCamera.js"></script>
+    <script src="../js/clickVideo.js"></script>
+
+<!-- ( 6 ) Integration: -->
+<!-- ( 6.a ) Save LocalStorage offline -->
+<!-- ( 6.b.i ) Syncing Data Online -->
+<!-- ( 6.b.ii ) email DEC district Online -->
+
+    <!-- backend connection-->
+<!--    <script src="js/save.js" defer></script>
+    <script src="cordova.js"></script> 
+
+  <script src="js/indexedDB.js"></script>   -->
+
+</body>
+
+</html>

@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
@@ -10,19 +10,17 @@
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
     <meta name="color-scheme" content="light dark">
-
-    <link rel="stylesheet" type="text/css" href="css/index.css">
-    <link rel="stylesheet" type="text/css" href="css/navigator.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css"> 
+    <link rel="stylesheet" type="text/css" href="css/indexTable.css">     
     <link rel="stylesheet" type="text/css" href="css/form.css">
+    <link rel="stylesheet" type="text/css" href="css/formLogin.css">
+    <link rel="stylesheet" type="text/css" href="css/navigator.css">
     <link rel="stylesheet" type="text/css" href="css/header.css">
-    <link rel="stylesheet" type="text/css" href="css/table.css">
 
     <!--for clickGPS -->
     <link rel="stylesheet" type="text/css" href="css/leaflet.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-
-    <!-- for PWA metadata indexedDB installation on device-->
-    <link rel="manifest" href="/manifest.json">
 
     <title>BTF Bibbulmun Track Maintenance App</title>
 
@@ -31,48 +29,30 @@
 <body>
 
     <header class="header-content">
-        <div class="logo">
-            <img src="img/walkTheBibTrack.jpg" alt="Walk the Bibbulmun Track" />
-        </div>
 
-        <div class="text">
-            <h1>Welcome to the Bibbulmun Track Maintenance App </h1>
+        <div class="logo">
+            <img src="img/walkTheBibTrack.jpg" id="bibTrackImage" class = "blink" alt="Walk the Bibbulmun Track" />
+
+            <div class="text">
+                <h1>Track Maintenance App</h1>
+            </div>
         </div>
 
         <div class="qrcode">
-            <img src="img/BTFTrackAppQRCode.jpg" alt="BTFTrackAppQRCode" />
+            <img src="img/QRCode/QRCode20240719.jpg" id="qrCodeImage" alt="Mobile App" />
         </div>
-<form id="login">
-        <div class="login">
-            <!-- User login and Registration -->
-            <h2 id="userLogin" style="color: black; font-weight: bold;">Volunteer Login</h2>
-            <label for="loginUserName">Login User Name</label>
-            <input placeholder="Login User Name" type="text" id="loginUserName" name="loginUserName"><br>
-            <label for="loginPassword">Login Password</label>
-            <input placeholder="Login Password" type="password" id="loginPassword" name="loginPassword"><br>
-            <button type="submit">Login</button>
-            <a href="html/registration.html" target="_blank"> <button type="button">Register</button></a><br><br>
-        </div>
-</form>
+    <div>
+        <br>   <a href="./html/caseReport.html"><button type="button" style=float:right;>Login</button></a><br><br>
+    <br>   <a href="./html/registration.html"><button type="button" style=float:right;>Registration</button></a><br><br>
+</div>
     </header>
 
     <nav class="navbar">
         <ul>
-
-            <li class="dropdown">
-                <a href="javascript:void(0)" class="dropbtn">HOME</a>
-                <div class="dropdown-content">
-                    <a href="../index.html" target="_blank">HOME Login Register Report</a>
-                    <a href="../html/registration.html#volProfile">Register Volunteer Profile</a>
-                    <a href="../index.html#trackMaintenanceReport">HOME Maintenance Report</a>
-                    <a href="../html/clickGPS.html">Click GPS Map</a>
-                </div>
-            </li>
-
             <li class="dropdown">
                 <a href="javascript:void(0)" class="dropbtn">Bibbulmun</a>
                 <div class="dropdown-content">
-                    <a href="https://www.bibbulmuntrack.org.au/the-track/" target="_blank">Walk The Bibbulmun Track</a>
+                    <a href="https://www.bibbulmuntrack.org.au/the-track/">Walk The Bibbulmun Track</a>
                     <a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/">Volunteer
                         With Us</a>
                     <a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/training-recognition/">Training
@@ -82,12 +62,10 @@
                 </div>
             </li>
 
-
             <li class="dropdown">
                 <a href="javascript:void(0)" class="dropbtn">Project</a>
                 <div class="dropdown-content">
-                    <a href="https://docs.google.com/document/d/1ijmDKX9Eb4ph3X2y8SCljUWEqL9flKbr/edit?usp=sharing&ouid=102690957484764986431&rtpof=true&sd=true"
-                        target="_blank">Project paper</a>
+                    <a href="https://docs.google.com/document/d/1ijmDKX9Eb4ph3X2y8SCljUWEqL9flKbr/edit?usp=sharing&ouid=102690957484764986431&rtpof=true&sd=true">Project paper</a>
                     <a
                         href="https://docs.google.com/spreadsheets/d/1s2p3TSCYY5Vh6vhblPEi25_9b6n10qWl/edit?usp=sharing&ouid=102690957484764986431&rtpof=true&sd=true">TrackInspectionReportXLS</a>
                     <a
@@ -100,457 +78,558 @@
                 </div>
             </li>
 
-            <li><a href="./html/contactUs.html" target="_blank">Contact Us</a></li>
-            <li><a href="./html/attendance.html" target="_blank">Attendance</a></li>
-        
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">App</a>
+                <div class="dropdown-content">
+                    <a href="#hl1" >User Manual</a>
+                    <a href="./html/caseReport.html">Case Report</a>
+                    <a href="../html/registration.html#volProfile">Registration</a>
+
+                    <!--li class="dropdown">
+                        <a href="javascript:void(0)" class="dropbtn">login</a>
+                        <div class="dropdown-content">
+                            <a href="./html/attendance.html" >Attendance Logging</a>
+                            <a href="./html/loginLanding.html" >Login Admin</a>
+                     
+                        </div>
+                    </li-->
+
+                    <a href="./html/attendance.html" >Attendance Logging</a>
+                    <a href="./html/loginLanding.html" >Login Admin</a>
+                    <a href="./html/helpFAQ.html" >FAQs</a>
+                    <a href="./html/helpTroubleShooting.html" >Trouble Shooting</a>
+                    <a href="./html/contactUs.html" >Contact Us</a>
+                    <a href="./index.html" >Log out</a>
+                </div>
+            </li>
+
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">Contact Us</a>
+                <div class="dropdown-content">
+                    <a href="./html/contactUs.html" >Contact Us</a>
+                    <a href="./img/QRCode/QRCode20240719.jpg" >QRCodes</a>
+                    <a href="./img/QRCode/QRCode20240719.jpg"><img src="img/QRCode/QRCode20240719.jpg" alt="HTML tutorial" style="width:48px;height:48px;"></a>                    
+                    <a href="./img/QRCode/QRCodeBTF01Orange.jpeg"><img src="img/QRCode/QRCodeBTF01Orange.jpeg" alt="HTML tutorial" style="width:48px;height:48px;"></a>                    
+                    <a href="./img/QRCode/QRCodeBTF01Orange.jpeg"><img src="img/QRCode/QRCodeBTF01Orange.jpeg" alt="HTML tutorial" style="width:48px;height:48px;"></a>                    
+                    <a href="./img/QRCode/QRCodeBTF01Orange.jpeg"><img src="img/QRCode/QRCodeBTF01Orange.jpeg" alt="HTML tutorial" style="width:48px;height:48px;"></a>                    
+                
+                    <a href="./html/testForm.html" >testForm</a>
+                </div>
+            </li>
         </ul>
     </nav>
 
-    <main>
+<!-- starting of the table --><br>
+<div>
+    <div class="table-container-index">
+        <table class="centered-table-index">
+            <tr>
+                <td colspan="2"> 
+                  
+                                <h1>Walk the Bibbulmun Track</h1>
 
+<!-- Bibullmun Website Button -->
+<div class="dropDownContainer">
+    <div class="dropdownUserManual">
+                            <button class="dropbtnUserManual" id="button" type="button" style=float:left;>Walk the Bibbulmun</button>
+                            <div class="dropdown-contentUserManual">
+                                <a href="https://www.bibbulmuntrack.org.au/the-track/" target="_blank">Walk The Bibbulmun Track</a>
+                                <a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/">Volunteer
+                                    With Us</a>
+                                <a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/training-recognition/">Training
+                                    and Recognition</a>
+                                <a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/volunteering-faqs/">Volunteering
+                                    FAQs</a>
+                            </div>
+                        </div>
+                    </div>
+<!-- Home Button END-->
 
-    <!-- for testing purposes: Fetch messages from server 
-    <form id="saveForm"> 
-        <h2>( 3 )  API endpoint to handle /save form submission</h2>
-        <label for="save">Save</label>
-        <input name="save" placeholder="type save something" type="text" id="save">
-        <button type="submit">Submit</button>
-      </form>
-      -->
- <!-- caseReport -->
- <form id="caseReport" onsubmit="saveFormData(event)">
-            <br>
-             <h2 id="trackMaintenanceReport">TRACK MAINTENANCE REPORT</h2>
-             <br>
+<!-- App Button -->
+<div class="dropDownContainer">
+    <div class="dropdownUserManual">
+                            <button class="dropbtnUserManual" id="button" type="button" style=float:left;>Track Maintenance App</button>
+                            <div class="dropdown-contentUserManual">
+                                <a href="./html/login.html">Login</a>
+                                <a href="./html/registration.html">Registration</a>
+                                <a href="./html/caseReport.html">Case Report</a>
+                                <a href="./html/helpFAQ.html">FAQ</a>
+                                <a href="./html/helpTroubleShooting.html" >Trouble Shooting</a>
+                                <a href="./html/contactUs.html">Contact Us</a>
+                                <a href="./index.html">Logout</a>
+                            </div>
+                        </div>
+                    </div>
+<!-- Home Button END-->
 
+<!-- User Manual Button -->
+                  <div class="dropDownContainer">
+                    <div class="dropdownUserManual">
+                                            <button class="dropbtnUserManual" id="button"type="button" style=float:right;>User Manual</button>
+                                            <div class="dropdown-contentUserManual">
+                                                <a href="#hl1">Login Registration Volunteers Profile</a>
+                                                <a href="#hl2">System Admin Function</a>
+                                                <a href="#hl3">Volunteers Attendance Logging</a>
+                                                <a href="#hl4">Case Report Highlight</a>
+                                                <a href="#hl5">Save and Sync Buttons</a>
+                                            </div>
+                                        </div>
+                                    </div>
+<!-- User Manual Button END-->
 
-             <h2>Reported BY</h2>
-
-             <label for="reporterName">Name:</label>
-             <textarea placeholder="Enter your name here" id="reporterName" name="reporterName" rows="1"
-                 cols="20"></textarea>
- 
-             <label for="reporterContact">Contact:</label>
-             <textarea placeholder="Enter your contact here" id="reporterContact" name="reporterContact" rows="1"
-                 cols="20"></textarea><br><br>
- 
- 
-                 <h2>Inspection Date</h2>
-            <label for="dateTimePicker">Inspection Date</label>
-            <input type="datetime-local" id="dateTimePicker" name="dateTimePicker"><br>
-            <!--here a field to capture / save from date time picker since it's off line -->
-
-            <h2>Campsite Report</h2>
-            <br>
-            <label for="decDist">DEC District</label>
-            <select id="decDist" name="decDist" onchange="showCampsiteOptions()">
-                <option value=" ">DEC DISTRICT</option>
-                <option value="albany">Albany</option>
-                <option value="blackwood">Blackwood</option>
-                <option value="dManjimup">Donnelly (Manjimup)</option>
-                <option value="dPemberton">Donnelly (Pemberton)</option>
-                <option value="frankland">Frankland</option>
-                <option value="perthHillsDwellingup">Perth Hills (Dwellingup)</option>
-                <option value="perthHillsMundaring">Perth Hills (Mundaring)</option>
-                <option value="wellington">Wellington</option>
-                <option value="campsites">All Campsites</option>
-            </select>
-            <!--decDist -->
-
-            <!-- Dynamic Campsite Options -->
-
-<!-- if decDist = "albany" -->
-            <div id="albanyCampsites" style="display:none;">
-                <label for="albany">Albany</label>
-                <select id="albany" name="albany">
-                    <option value=" ">ALBANY CAMPSITES</option>
-                    <option value="muttonBird">Mutton Bird</option>
-                    <option value="sandPatch">Sand Patch</option>
-                    <option value="albany">Albany</option>
-                </select>
-            </div>
-
-<!-- if decDist = "blackwood" -->
-            <div id="blackwoodyCampsites" style="display:none;">
-                <label for="blackwood">Blackwoods</label>
-                <select id="blackwood" name="blackwood">
-                    <option value=" ">BLACKWOOD CAMPSITES</option>
-                    <option value="possumSprings">Possum Springs</option>
-                    <option value="yourdamung">Yourdamung</option>
-                    <option value="harrisDam">Harris Dam</option>
-                    <option value="collie">Collie</option>
-                    <option value="yabberup">Yabberup</option>
-                    <option value="noggerup">Noggerup</option>
-                    <option value="grimwade">Grimwade</option>
-                    <option value="balingup">Balingup</option>
-                    <option value="blackwood">Blackwood</option>
-                    <option value="gregoryBrook">Gregory Brook</option>
-                    <option value="drv">DRV</option>
-                    <option value="tomRoad">Tom Road</option>
-                </select>
-            </div>
-
-<!-- if decDist = "donnelly (Manjimup)" -->
-            <div id="dManjimupCampsites" style="display:none;">
-                <label for="dManjimup">Donnelly Manjimup</label>
-                <select id="dManjimup" name="dManjimup">
-                    <option value=" ">DONNELLY MANJIMUP CAMPSITES</option>
-                    <option value="boardingHouse">Boarding House</option>
-                    <option value="beavis">Beavis</option>
-                    <option value="beedelup">Beedelup</option>
-                    <option value="pemberton">Pemberton</option>
-                    <option value="warren">Warren</option>
-                    <option value="schafer">Schafer</option>
-                    <option value="northcliffe">Northcliffe</option>
-                    <option value="gardner">Gardner</option>
-                    <option value="maringup">Maringup</option>
-                </select>
-            </div>
-
-<!-- if decDist = "donnelly (Pemberton)" -->
-            <div id="dPembertonCampsites" style="display:none;">
-                <label for="dPemberton">Donnelly Pemberton</label>
-                <select id="dPemberton" name="dPemberton">
-                    <option value=" ">DONNELLY PEMBERTON CAMPSITES</option>
-                    <option value="dogPool">Dog Pool</option>
-                    <option value="mtChance">Mt Chance</option>
-                    <option value="woolbales">Woolbales</option>
-                </select>
-            </div>
-
-<!-- if decDist = "frankland" -->
-            <div id="franklandCampsites" style="display:none;">
-                <label for="frankland">Frankland</label>
-                <select id="frankland" name="frankland">
-                    <option value=" ">FRANKLAND CAMPSITES</option>
-                    <option value="longPoint">Long Point</option>
-                    <option value="walpole">Walpole</option>
-                    <option value="frankland">Frankland</option>
-                    <option value="giants">Giants</option>
-                    <option value="rameHead">Rame Head</option>
-                    <option value="peacefulBay">Peaceful Bay</option>
-                    <option value="boatHarbour">Boat Harbour</option>
-                    <option value="williamBay">William Bay</option>
-                    <option value="denmark">Denmark</option>
-                    <option value="nullaki">Nullaki</option>
-                    <option value="westCapeHowe">West Cape Howe</option>
-                    <option value="torbay">Torbay</option>
-                </select>
-            </div>
-
-<!-- if decDist = "perth Hills (Dwellingup)" -->
-            <div id="perthHillsDwellingupCampsites" style="display:none;">
-                <label for="perthHillsDwellingup">PerthHills Dwellingup</label>
-                <select id="perthHillsDwellingup" name="perthHillsDwellingup">
-                    <option value=" ">PERTH HILLS DWELLINGUP CAMPSITES</option>
-                    <option value="brookton">Brookton</option>
-                    <option value="monadnocks">Monadnocks</option>
-                    <option value="mtCooke">Mt Cooke</option>
-                    <option value="nerang">Nerang</option>
-                </select>
-            </div>
-
-<!-- if decDist = "perth Hills (Mundaring)" -->
-            <div id="perthHillsMundaringCampsites" style="display:none;">
-                <label for="perthHillsMundaring">Perth Hills Mundaring</label>
-                <select id="perthHillsMundaring" name="perthHillsMundaring">
-                    <option value=" ">PERTH HILLS MUNDARING CAMPSITES</option>
-                    <option value="hewettsHill">Hewett's Hill</option>
-                    <option value="helena">Helena</option>
-                    <option value="beraking">Beraking</option>
-                </select>
-            </div>
-
-<!-- if decDist = "wellington" -->
-            <div id="wellingtonCampsites" style="display:none;">
-                <label for="wellington">Wellington</label>
-                <select id="wellington" name="wellington">
-                    <option value=" ">Wellington CAMPSITES</option>
-                    <option value="gringerCreek">Gringer Creek</option>
-                    <option value="whiteHorseHills">White Horse Hills</option>
-                    <option value="mtWells">Mt Wells</option>
-                    <option value="chadoora">Chadoora</option>
-                    <option value="dwellingup">Dwellingup</option>
-                    <option value="swampOak">Swamp Oak</option>
-                    <option value="murray">Murray</option>
-                    <option value="dookanelly">Dookanelly</option>
-                </select>
-            </div>
-
-<!-- if decDist = "campsites" -->
-<div id="campsites" style="display:none;">
-            <label for="campsite">Bibbulmun Track Campsites</label>
-            <select id="campsite" name="campsite">
-                <option value=" ">BIBBULMUN TRACK CAMPSITES</option>
-                <option value="albany">Albany</option>
-                <option value="balingup">Balingup</option>
-                <option value="beavis">Beavis</option>
-                <option value="beedelup">Beedelup</option>
-                <option value="beraking">Beraking</option>
-                <option value="blackwood">Blackwood</option>
-                <option value="boardingHouse">Boarding House</option>
-                <option value="boatHarbour">Boat Harbour</option>
-                <option value="brookton">Brookton</option>
-                <option value="chadoora">Chadoora</option>
-                <option value="collie">Collie</option>
-                <option value="denmark">Denmark</option>
-                <option value="dogPool">Dog Pool</option>
-                <option value="dookanelly">Dookanelly</option>
-                <option value="drv">DRV</option>
-                <option value="dwellingup">Dwellingup</option>
-                <option value="frankland">Frankland</option>
-                <option value="gardner">Gardner</option>
-                <option value="giants">Giants</option>
-                <option value="gregoryBrook">Gregory Brook</option>
-                <option value="grimwade">Grimwade</option>
-                <option value="gringerCreek">Gringer Creek</option>
-                <option value="harrisDam">Harris Dam</option>
-                <option value="helena">Helena</option>
-                <option value="hewettsHill">Hewett's Hill</option>
-                <option value="longPoint">Long Point</option>
-                <option value="maringup">Maringup</option>
-                <option value="monadnocks">Monadnocks</option>
-                <option value="mtChance">Mt Chance</option>
-                <option value="mtCooke">Mt Cooke</option>
-                <option value="mtWells">Mt Wells</option>
-                <option value="murray">Murray</option>
-                <option value="muttonBird">Mutton Bird</option>
-                <option value="nerang">Nerang</option>
-                <option value="noggerup">Noggerup</option>
-                <option value="northcliffe">Northcliffe</option>
-                <option value="nullaki">Nullaki</option>
-                <option value="peacefulBay">Peaceful Bay</option>
-                <option value="pemberton">Pemberton</option>
-                <option value="possumSprings">Possum Springs</option>
-                <option value="rameHead">Rame Head</option>
-                <option value="sandPatch">Sand Patch</option>
-                <option value="schafer">Schafer</option>
-                <option value="swampOak">Swamp Oak</option>
-                <option value="tomRoad">Tom Road</option>
-                <option value="torbay">Torbay</option>
-                <option value="walpole">Walpole</option>
-                <option value="warren">Warren</option>
-                <option value="westCapeHowe">West Cape Howe</option>
-                <option value="whiteHorseHills">White Horse Hills</option>
-                <option value="williamBay">William Bay</option>
-                <option value="woolbales">Woolbales</option>
-                <option value="yabberup">Yabberup</option>
-                <option value="yourdamung">Yourdamung</option>
-            </select>
-        </div>
-
-            <!--Bibbulmun Track Campsites -->
-            <!-- Problem Description -->
-            <h2 id="issueReport">Report an Issue</h2>
-
-            <label for="issueType">Issue Type:</label>
-            <select id="issueType" name="issueType" onchange="showIssueOptions()">
-                <option value=" ">ISSUE TYPE</option>
-                <option value="trackCondition">Track Condition</option>
-                <option value="trackMarking">Track Marking</option>
-                <option value="inappropriateUse">Inappropriate Use</option>
-                <option value="otherIssues">Other issues</option>
-            </select>
-
-            <br>
-
-            <!-- if issueType = "trackCondition" -->
-
-            <div id="trackConditionOptions" style="display:none;">
-                <label for="trackCondition">Track Condition:</label>
-                <select id="trackCondition" name="trackCondition">
-                    <option value=" ">TRACK CONDITION</option>
-                    <option value="erosion">Dune Erosion</option>
-                    <option value="regrowth">Regrowth</option>
-                    <option value="weeds">Weeds</option>
-                    <option value="sandBarsCond">Sand Bars Condition</option>
-                    <option value="damageWaterBars">Damage to Water Bars</option>
-                    <option value="damageHardwareStructure">Damage to Hardware Structure</option>
-                    <option value="inundation">Inundation</option>
-                    <option value="litter">Litter</option>
-                    <option value="fallenTree">Fallen Tree</option>
-                    <option value="damagedShelter">Damaged Shelter</option>
-                    <option value="brokenBridge">Broken Bridge</option>
-                </select>
-            </div>
-
-            <!-- if issueType = "trackMarking" -->
-            <div id="trackMarkingOptions" style="display:none;">
-                <label for="trackMarking">Track Marking:</label>
-                <select id="trackMarking" name="trackMarking">
-                    <option value=" ">TRACK MARKING</option>
-                    <option value="missingWaugals">Missing Waugals</option>
-                    <option value="fadedWaugals">Faded Waugals</option>
-                    <option value="damagedWaugals">Damaged Waugals</option>
-                    <option value="missingSignage">Missing signage</option>
-                    <option value="damagedSignage">DamagedSignage</option>
-                </select>
-            </div>
-
-            <!-- if issueType = "inappropriateUse" -->
-            <div id="inappropriateUseOptions" style="display:none;">
-                <label for="inappropriateUse">Inappropriate Use:</label>
-                <select id="inappropriateUse" name="inappropriateUse">
-                    <option value=" ">INAPPROPRIATE USE</option>
-                    <option value="mountainBikes">Mountain bikes</option>
-                    <option value="trailBbikes">Trail bikes</option>
-                    <option value="horses">Horses</option>
-                    <option value="vehicles">Vehicles</option>
-                </select>
-            </div>
-
-
-            <!-- if issueType = "otherIssues" -->
-            <div id="otherIssuesOptions" style="display:none;">
-                <label for="otherIssues">Other Issues:</label>
-                <textarea placeholder="Describe the issue here" id="otherIssues" name="otherIssues" rows="4"
-                    cols="30"></textarea>
-            </div>
-
-            <label for="problem">Problem</label>
-            <select id="problem" name="problem">
-                <option value=" ">PROBLEM</option>
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
-            </select>
-
-            <label for="severity">severity</label>
-            <select id="severity" name="severity">
-                <option value=" ">SEVERITY</option>
-                <option value="serious">serious</option>
-                <option value="moderate">moderate</option>
-                <option value="minimal">minimal</option>
-            </select>
-
-            <label for="frequency">frequency</label>
-            <select id="frequency" name="frequency">
-                <option value=" ">FREQUENCY</option>
-                <option value="often">often</option>
-                <option value="moderate">moderate</option>
-                <option value="minimal">minimal</option>
-            </select>
-
-            <label for="emailDEC">emailDEC </label>
-            <select id="emailDEC" name="emailDEC">
-                <option value=" ">EMAILDEC</option>
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
-            </select>
-            <!-- if emailDEC = yes ,  the button at the bottom will generate and send email when online -->
-
-            <!-- "issueDescription" -->
-            <br>
-            <label for="issueDescription">Issue Description:</label>
-            <textarea placeholder="Descript issue in details" id="issueDescription" name="issueDescription" rows="4"
-                cols="30"></textarea><br>
-   
-            <div class="table-container">
-                <table>
-                    <tr>
-                        <td class="gps-cell">
-                            <!-- Place your Get GPS functionality here -->
-
-                            <button id="getGPS" type="button">Get offline GPS</button>
-
-                            <label for="latitude">Latitude:</label>
-                            <input type="text" id="latitude" readonly>
-
-                            <label for="longitude">Longitude:</label>
-                            <input type="text" id="longitude" readonly>
-
-                            <div id="map" style="height: 300px; width: 100%;"></div><br><br>
-
-
-                        </td>
-                    </tr>
-                </table>
-            </div>
-
-
-            <br>
-
-            <div class="table-container">
-                <table>
-                    <tr>
-                        <td class="camera-cell">
-                            <form id="photoUploadForm" enctype="multipart/form-data">
-                            <label for="clickCamera">Take Photo</label>
-                            <button id="clickCamera" type="button">Take Photo</button>
-                            <div id="imageContainer"></div>
-                            <img id="image" style="display:none;" src="#" alt="Image will appear here">
-                            <input type="file" name="photo" id="photoInput" style="display:none;">
-                    <button type="submit" style="display:none;">Upload Photo</button>
-                </form>        
+                                <div class="image-container">
+                                    <img src="./img/goldenValleyTreeParkGreenHills.jpg" id="BTFHomePage1" alt="BTFHomePage1" class="center"  /><br><br>
+                                    <img src="./img/mundaringWeirDamWall.jpg" id="BTFHomePage3" alt="BTFHomePage3" class="center"  /><br><br>
+                                    <img src="./img/collage01.jpg" id="BTFHomePage2" alt="BTFHomePage2" class="center"  /><br><br>
+                                    <img src="./img/darlingRange.jpg" id="BTFHomePage3" alt="BTFHomePage3" class="center"  /><br><br>
+                                    <img src="./img/trail02.jpg" id="BTFHomePage1" alt="BTFHomePage1" class="center"  /><br><br>
+                                    <img src="./img/BTFTrack01.jpg" id="BTFHomePage1" alt="BTFHomePage1" class="center"  /><br><br>
+                               
+                                    <img src="./img/featherFlowers.jpg" id="BTFHomePage2" alt="BTFHomePage2" class="center"  /><br><br>
+                                  
+                                    <img src="./img/goldenValleyTreePark.jpg" id="BTFHomePage3" alt="BTFHomePage3" class="center"  /><br><br>
+                                   </div>
                 </td>
-                    </tr>
-                </table>
-            </div>
+            </tr>
+            <div class="static">
+            <tr><td> <h1 id="userManual" class="center"><b>USER MANUAL<b></h1> <br>
+            </td></tr>
+                <td>
+                    <div id="button" class="button-container">
+              <a href="./#hl1"><button id="button" type="button" style=float:left;>Login Registration Volunteers Profile</button></a>
+                <a href="./#hl2"><button id="button" type="button" style=float:left;>System Admin Function</button></a>
+               <a href="./#hl3"><button id="button" type="button" style=float:left;>Volunteers Attendance Logging</button></a>
+            <a href="./#hl4"><button id="button" type="button" style=float:left;>Case Report Highlight</button></a>
+            <a href="./#hl5"><button id="button" type="button" style=float:left;>Save and Sync Buttons</button></a>
+        </div>        
+        </td>
+            </tr></div>
+<!-- track maintenance app highlight 1 - volunteers profile -->
+            <tr>
+                <td> <a href="./#userManual"><button type="button" style=float:right;>User Manual</button></a>
+                    <h1 id="hl1"><b></b>track maintenance app highlight 1 - volunteers profile<b></b></h1><br>
+
+<!-- Bibullmun Website Button -->
+<div class="dropDownContainer">
+    <div class="dropdownUserManual">
+                            <button class="dropbtnUserManual" id="button" type="button" style=float:left;>Walk the Bibbulmun</button>
+                            <div class="dropdown-contentUserManual">
+                                <a href="https://www.bibbulmuntrack.org.au/the-track/" target="_blank">Walk The Bibbulmun Track</a>
+                                <a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/">Volunteer
+                                    With Us</a>
+                                <a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/training-recognition/">Training
+                                    and Recognition</a>
+                                <a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/volunteering-faqs/">Volunteering
+                                    FAQs</a>
+                            </div>
+                        </div>
+                    </div>
+<!-- Home Button END-->
+
+<!-- App Button -->
+<div class="dropDownContainer">
+    <div class="dropdownUserManual">
+                            <button class="dropbtnUserManual" id="button" type="button" style=float:left;>Track Maintenance App</button>
+                            <div class="dropdown-contentUserManual">
+                                <a href="./html/caseReport.html">Login</a>
+                                <a href="./html/registration.html">Registration</a>
+                                <a href="./html/caseReport.html">Case Report</a>
+                                <a href="./html/contactUs.html">Contact Us</a>
+                                <a href="./index.html">Logout</a>
+                            </div>
+                        </div>
+                    </div>
+<!-- Home Button END-->
+
+<!-- User Manual Button -->
+                  <div class="dropDownContainer">
+                    <div class="dropdownUserManual">
+                                            <button class="dropbtnUserManual" id="button"type="button" style=float:right;>User Manual</button>
+                                            <div class="dropdown-contentUserManual">
+                                                <a href="#hl1">Login Registration Volunteers Profile</a>
+                                                <a href="#hl2">System Admin Function</a>
+                                                <a href="#hl3">Volunteers Attendance Logging</a>
+                                                <a href="#hl4">Case Report Highlight</a>
+                                                <a href="#hl5">Save and Sync Buttons</a>
+                                            </div>
+                                        </div>
+                                    </div>
+<!-- User Manual Button END-->          
+
+                    <h2><b></b>login registration volunteers profile<b></b></h2><br>
+                    
+<h3>all users can create an account by filling up the registration form successfully.  The form comes with "empty field" and password validation, as well as a volunteers profile selector for user to select "role", check "training and certificates" and to input "description".</h3><br>
+<div class="image-container">
+<img src="./img/forms/registration-01.jpg" id="BTFHomePage1" alt="BTFHomePage1" class="center">
+                    </div>
+
+                       <h2><b>address input highlight<b></b></h2><br>
+                       <h3>when user select City, Town, or Suburb,  the repsective name belonged to the particular selection emerge for further selection, and then, street names selection for that particular city, town or suburb appear.  This reduces chance of user's typo error input.<b></b></h3><br>
+                       <br>
+                       <div>
+                        <img src="./img/forms/registration-02Locality.jpg" id="BTFHomePage1" alt="BTFHomePage1" class="center"  /><br>
+                     </div>
+                       <h2><b>volunteer profile selection highlight</b></h2><br>
+                       <img src="./img/HomePage2Registration.jpg" id="BTFHomePage2" alt="BTFHomePage2" class="center"  /><br><br>
+
+                       <h3>When the user is going to "register as a volunteer", In the registration form lower portion, the is a "VOLUNTEER PROFILE" portion, whereby the user can select their preferred role and area that they are interested to volunteer with. it also capture their possible qualification and certificates with check box, with a box for them to describe their background.  This encourage the users to tell admin as much as they can.</h3><br>
+                       <img src="./img/forms/registration-01VolunteersProfile.jpg" id="BTFHomePage1" alt="BTFHomePage1" class="center"  /><br><br>
+                       <img src="./img/forms/registration-03Role.jpg" id="BTFHomePage1" alt="BTFHomePage1" class="center"  /><br>
+                       <br>
+
+                       <h3>When the user select their preferred role as "system administrator", they have the access to the page to read report from the "administratio function" page, or update report from the database.</h3><br>
+                       <img src="./img/forms/registration-03RoleSysAdmin.jpg" id="BTFHomePage1" alt="BTFHomePage1" class="center"  /><br>
+                       </td>
+                </td>
+            </tr>
+       
+<!-- track maintenance app highlight 2 - Administration Function -->
+            <tr>
+                <td id="content">
+                       <a href="./#userManual"><button type="button" style=float:right;>User Manual</button></a>
+                       
+<h1 id="hl2"><b>track maintenance app highlight 2</b></h1> 
+
+
+<!-- Bibullmun Website Button -->
+<div class="dropDownContainer">
+    <div class="dropdownUserManual">
+                            <button class="dropbtnUserManual" id="button" type="button" style=float:left;>Walk the Bibbulmun</button>
+                            <div class="dropdown-contentUserManual">
+                                <a href="https://www.bibbulmuntrack.org.au/the-track/" target="_blank">Walk The Bibbulmun Track</a>
+                                <a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/">Volunteer
+                                    With Us</a>
+                                <a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/training-recognition/">Training
+                                    and Recognition</a>
+                                <a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/volunteering-faqs/">Volunteering
+                                    FAQs</a>
+                            </div>
+                        </div>
+                    </div>
+<!-- Home Button END-->
+
+<!-- App Button -->
+<div class="dropDownContainer">
+    <div class="dropdownUserManual">
+                            <button class="dropbtnUserManual" id="button" type="button" style=float:left;>Track Maintenance App</button>
+                            <div class="dropdown-contentUserManual">
+                                <a href="./html/caseReport.html">Login</a>
+                                <a href="./html/registration.html">Registration</a>
+                                <a href="./html/caseReport.html">Case Report</a>
+                                <a href="./html/contactUs.html">Contact Us</a>
+                                <a href="./index.html">Logout</a>
+                            </div>
+                        </div>
+                    </div>
+<!-- Home Button END-->
+
+<!-- User Manual Button -->
+                  <div class="dropDownContainer">
+                    <div class="dropdownUserManual">
+                                            <button class="dropbtnUserManual" id="button"type="button" style=float:right;>User Manual</button>
+                                            <div class="dropdown-contentUserManual">
+                                                <a href="#hl1">Login Registration Volunteers Profile</a>
+                                                <a href="#hl2">System Admin Function</a>
+                                                <a href="#hl3">Volunteers Attendance Logging</a>
+                                                <a href="#hl4">Case Report Highlight</a>
+                                                <a href="#hl5">Save and Sync Buttons</a>
+                                            </div>
+                                        </div>
+                                    </div>
+<!-- User Manual Button END-->
+
+
+                    <h2><b>Administration Function to retrieve database records</b></h2><br>
+                    <div class="image-container">
+                        <img src="./img/HomePage3AdminAttendanceDatabase.jpg" id="BTFHomePage3" alt="BTFHomePage3" class="center"  /><br><br>
+                        
+                       </div>
+                       <h2><b></b>administration function<b></b></h2><br>
+                       <h3>After administrator login, they are re-directed to the administration page.  In this page, users can see their administration volunteer profile, attendance information, track maintenance reports, and who has sent in the "contact us form".</h3>
+                       <br>
+                       <br>
+                </td>            
+                   </tr>
+
+<!-- ttrack maintenance app highlight 3 - attendance profile -->
+                   <tr>
+
+                    
+                    <td id="content"> <a href="./#userManual"><button type="button" style=float:right;>User Manual</button></a>
+<h1 id="hl3"><b>track maintenance app highlight 3</b></h1><br>
+
+
+<!-- Bibullmun Website Button -->
+<div class="dropDownContainer">
+    <div class="dropdownUserManual">
+                            <button class="dropbtnUserManual" id="button" type="button" style=float:left;>Walk the Bibbulmun</button>
+                            <div class="dropdown-contentUserManual">
+                                <a href="https://www.bibbulmuntrack.org.au/the-track/" target="_blank">Walk The Bibbulmun Track</a>
+                                <a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/">Volunteer
+                                    With Us</a>
+                                <a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/training-recognition/">Training
+                                    and Recognition</a>
+                                <a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/volunteering-faqs/">Volunteering
+                                    FAQs</a>
+                            </div>
+                        </div>
+                    </div>
+<!-- Home Button END-->
+
+<!-- App Button -->
+<div class="dropDownContainer">
+    <div class="dropdownUserManual">
+                            <button class="dropbtnUserManual" id="button" type="button" style=float:left;>Track Maintenance App</button>
+                            <div class="dropdown-contentUserManual">
+                                <a href="./html/caseReport.html">Login</a>
+                                <a href="./html/registration.html">Registration</a>
+                                <a href="./html/caseReport.html">Case Report</a>
+                                <a href="./html/contactUs.html">Contact Us</a>
+                                <a href="./index.html">Logout</a>
+                            </div>
+                        </div>
+                    </div>
+<!-- Home Button END-->
+
+<!-- User Manual Button -->
+                  <div class="dropDownContainer">
+                    <div class="dropdownUserManual">
+                                            <button class="dropbtnUserManual" id="button"type="button" style=float:right;>User Manual</button>
+                                            <div class="dropdown-contentUserManual">
+                                                <a href="#hl1">Login Registration Volunteers Profile</a>
+                                                <a href="#hl2">System Admin Function</a>
+                                                <a href="#hl3">Volunteers Attendance Logging</a>
+                                                <a href="#hl4">Case Report Highlight</a>
+                                                <a href="#hl5">Save and Sync Buttons</a>
+                                            </div>
+                                        </div>
+                                    </div>
+<!-- User Manual Button END-->
+
+
+<h2><b>attendance logging</b></h2><br>
+<h3>After the user login, it comes to the "attendance" page, whereby the system allow the user to click in check in date time and check out date time, by which the system is able to compute number of hours the volunteer has worked.  it then retrieve from the previous record and add on to the "accumulation volunteered hours" and register this into the database Table Registration for individual, and Table attendance, which show a summary of this attendance logging.</h3></p>
+
+
+<div class="image-container">
+<img src="./img/forms/attendanceLogging.jpg" id="BTFHomePage3" alt="BTFHomePage3" class="center"  /><br><br>
+</div>
+<h2><b>computing and updating of the accumulated volunteered hours</b></h2><br>
+<p> <h3>The first field in the attendance loggin form, aVolHoursPrevious, 
+    will be extracted from the database registration table.
+<br><br>
+    Then user input with checkin checkout DTS
+     (or can be improved as a QR code checkInDTS checkOutDTS scan late if necessary), 
+ <br><br>
+    the attendance.js will compute the Volunteered Hours worked (i.e., volHours).
+    
+     new aVolHours = aVolHoursPrevious + volHours
+    
+    this new aVolHours will
+    (1) be displayed on the forth field (after submit button)
+   <br><br>
+    (2.i) update the table attendance.aVolHoursPrevious and
+     (2.ii) replace the first field on the aVolHoursPrevious = new aVolHours.
+   <br><br>
+     (3) update the table registration.aVolHours for this user</p>
+</h3>
+<h2><b>input validation</b></h2><br>
+<div class="image-container">
+    <img src="./img/forms/attendanceValidationDTS.jpg"   /><br><br>
+    </div>
+
+    <p> <h3>The app has a validation that the check out DTS cannot be earlier than the check in DTS, to assist user avoid error input.</p>
+    </h3>
+
+<br>
+                    </td>            
+                       </tr>
+                      
+    <!-- track maintenance app highlight 4 - case report form -->
+    <tr>
+        <td id="content">  <a href="./#userManual"><button type="button" style=float:right;>User Manual</button></a>
+            <h1 id="hl4"><b>track maintenance app highlight 4 - case report form</b></h1><br>
 
             
-            <div class="table-container">
-                <table>
-                    <tr>
-                        <td class="video-cell">
-                            <form id="videoUploadForm" enctype="multipart/form-data">
-                        <label for="clickVideo">Record Video</label>
-                           <button id="clickVideo" type="button">Record Video</button>
-                            <div id="videoContainer"></div>
-                            <input type="file" name="video" id="videoInput" style="display:none;">
-                    <button type="submit" style="display:none;">Upload Video</button>
-                </form>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-            <br>
+<!-- Bibullmun Website Button -->
+<div class="dropDownContainer">
+    <div class="dropdownUserManual">
+                            <button class="dropbtnUserManual" id="button" type="button" style=float:left;>Walk the Bibbulmun</button>
+                            <div class="dropdown-contentUserManual">
+                                <a href="https://www.bibbulmuntrack.org.au/the-track/" target="_blank">Walk The Bibbulmun Track</a>
+                                <a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/">Volunteer
+                                    With Us</a>
+                                <a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/training-recognition/">Training
+                                    and Recognition</a>
+                                <a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/volunteering-faqs/">Volunteering
+                                    FAQs</a>
+                            </div>
+                        </div>
+                    </div>
+<!-- Home Button END-->
 
-<!--The 2 buttons -->
+<!-- App Button -->
+<div class="dropDownContainer">
+    <div class="dropdownUserManual">
+                            <button class="dropbtnUserManual" id="button" type="button" style=float:left;>Track Maintenance App</button>
+                            <div class="dropdown-contentUserManual">
+                                <a href="./html/caseReport.html">Login</a>
+                                <a href="./html/registration.html">Registration</a>
+                                <a href="./html/caseReport.html">Case Report</a>
+                                <a href="./html/contactUs.html">Contact Us</a>
+                                <a href="./index.html">Logout</a>
+                            </div>
+                        </div>
+                    </div>
+<!-- Home Button END-->
 
-<div id="saveReport" class="center-buttons">
-    <button type="button">OFFLINE Save Report to device</button>
-</div>
-<br><br>
+<!-- User Manual Button -->
+                  <div class="dropDownContainer">
+                    <div class="dropdownUserManual">
+                                            <button class="dropbtnUserManual" id="button"type="button" style=float:right;>User Manual</button>
+                                            <div class="dropdown-contentUserManual">
+                                                <a href="#hl1">Login Registration Volunteers Profile</a>
+                                                <a href="#hl2">System Admin Function</a>
+                                                <a href="#hl3">Volunteers Attendance Logging</a>
+                                                <a href="#hl4">Case Report Highlight</a>
+                                                <a href="#hl5">Save and Sync Buttons</a>
+                                            </div>
+                                        </div>
+                                    </div>
+<!-- User Manual Button END-->
 
-<div id="syncData" class="center-buttons">
-    <button type="submit">ONLINE Data Sync to Database Email DEC</button>
-    <br>
-</div>
-<br><br>
+<h2><b>offline input accessible</b></h2><br>
+               <h3>This case report form facility is located "outside" the "login" page. This enables the public to input for reporting a case upon emergency without being a registered volunteer.  <br><br>The public can scan QR code at the entrance to the track and get this app on their smart phone. Alternatively, the QR code can be placed together with the Waugal Trail Marker whereby the internet connection is available.<br><br>Instead of only relying on registered volunteers, this mobilise the public initialtive to report whatever needed especially after a natural disaster .</h3>
+               <br>
 
-            <br><br><br><br><br><br>
-        </form>
+<h2><b>Offline GPS<b></b></h2>
+<p> <h3>GPS data can be captured using the Geolocation API and stored in localStorage (inside user's handphone).  </p>
+<p>GPS extract latitude and longitude directly from satellite and hence it does not need to interact with internect connection.</p>
 
-    </main>
+<h2><b>Camera Video<b></b></h2>
+<p><h3>Camera and video data can be captured using the MediaDevices API and stored as " base64 strings "  in localStorage.</p>
 
-    <footer>
-        <p>&copy; 2024 Bibbulmun Track Maintenance App</p>
-    </footer>
+<h2><b>Technology<b></b></h2>
+<p><h3>When the user performs actions like clickGPS, capturing images or recording Video, this app convert the data into a format suitable for localStorate (JSON).</p></h3>
 
-    <script src="js/save.js" defer></script>
-    
-    <script src="js/login.js"></script>
-    
-    <script src="js/attendance.js"></script>
-    
-    <!--Javascript for Issue Type Selection-->
-    <!--  <script src="js/index.js"></script>  -->
-    <script src="js/issueTypeOptions.js" defer></script>
-    <script src="js/campsiteOptions.js" defer></script>
+<p><h3>There are 2 buttons at the end of this page (<i>see bottom right corner of this scren shot</i>):</p>
+ 
+<div class="image-container">
+                <img src="./img/HomePage1.jpg" id="BTFHomePage1" alt="BTFHomePage1" class="center"/>
+               </div>
+               <p>(1)The first button click to store data on localStorage (handphone or tablet devices). </p>
+               <p>(2)The second button click to </p>
+             <p1>(2.i) synchronise and transfer all form data including GPS and camera video to databases when internet connection is available, <br></p1>
+               <p1>(2.ii)with the automation to clear (get ready for next saving) localStorage on the smart phone.</p1></h3><br>
+           
+<h2><b>date time picker highlight</b></h2><br>
+                <h3>the picker automatically bounce out with the current time.  This reduces chance of user's typo error input. (If necessary,) this feature can also be replaced by "current-date-time insertion" so user need not even specific date time.
+               <br>
+               <br>
+<h2  id="hlcampsites" ><b>ease of selection from the 55 campsites</b></h2><br>
+               <h3>There are 2 options to select the campsite indicator.
+<br><br><b>OPTION A:</b><br>
+<br>a.i.  When user select DEC district, the repsective campsites belonged to the particular selection DEC district authority will emerge for further selection, This reduces chance of user's typo error input.<br>
+<br>a.ii.  the selected DEC district comes with a pre-built email address of this officer in the DEC district office.  When the user select "Yes" for "email DEC?", the last button will send email of the entire report to the DEC district officer automatically when it synchronise the data to database with internet connection.
+<br><br><b>OPTION B:</b><br>
+<br>b.  the second option, on the last selection of the "DEC district" dropdown, is the "all campsites", where, a complete list of all bibbulmun track given by Terry's email was systematically organised in alphephatical order, eliminated the duplicates.</h3>
+<br>
+<h2><b>Offline GPS indicator of exact location</b></h2><br>
+                <h3>GPS extract latitude and longitude directly from satellite without internet connection.  This enable an accurate indication of the location for easy tracing or salvation if needed.  
+                    Additionally,  this GPS can be also be use as a good "SOS" location indicator if the "victims" are able reach some place with internet connection.
+                </h3>
+               <br>
+<h2><b>camera and video features<b></h2><br>
+                <h3>The app comes with the camera and video features to convenient the user in saving the images in their hand phone, and synchronise to database and send out email (if necessary) when reaching a point with internet connection.</h3>
+        </td>   
+        </tr>
+  
+<!-- track maintenance app highlight 5 - save input on local storage and synchronise -->
+<tr>
+    <td id="content">  
+        <a href="./#userManual"><button type="button" style=float:right;>User Manual</button></a>
 
-    <!-- ( 4 ) for clickGPS (line 268)-->
-    <script src="js/clickGPS.js" defer></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDzI4CfMoJ6ZgrjxEX1zaZDlKMu6pBEZHQ" defer></script>
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+        <h1 id="hl5"><b>track maintenance app highlight 5 - save input on local storage and synchronise</b></h1><br>
+                    
+<!-- Bibullmun Website Button -->
+<div class="dropDownContainer">
+    <div class="dropdownUserManual">
+                            <button class="dropbtnUserManual" id="button" type="button" style=float:left;>Walk the Bibbulmun</button>
+                            <div class="dropdown-contentUserManual">
+                                <a href="https://www.bibbulmuntrack.org.au/the-track/" target="_blank">Walk The Bibbulmun Track</a>
+                                <a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/">Volunteer
+                                    With Us</a>
+                                <a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/training-recognition/">Training
+                                    and Recognition</a>
+                                <a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/volunteering-faqs/">Volunteering
+                                    FAQs</a>
+                            </div>
+                        </div>
+                    </div>
+<!-- Home Button END-->
 
-    <!-- ( 5 ) External JavaScript for takePicture (line 298)-->
-    <script src="./js/clickCamera.js"></script>
-    <script src="js/clickVideo.js"></script>
+<!-- App Button -->
+<div class="dropDownContainer">
+    <div class="dropdownUserManual">
+                            <button class="dropbtnUserManual" id="button" type="button" style=float:left;>Track Maintenance App</button>
+                            <div class="dropdown-contentUserManual">
+                                <a href="./html/caseReport.html">Login</a>
+                                <a href="./html/registration.html">Registration</a>
+                                <a href="./html/caseReport.html">Case Report</a>
+                                <a href="./html/contactUs.html">Contact Us</a>
+                                <a href="./index.html">Logout</a>
+                            </div>
+                        </div>
+                    </div>
+<!-- Home Button END-->
 
-    <!-- backend connection-->
-<!--    <script src="cordova.js"></script>  -->
-    <script src="./js/app.js"></script>
-<!--  <script src="js/indexedDB.js"></script>   -->
+<!-- User Manual Button -->
+                  <div class="dropDownContainer">
+                    <div class="dropdownUserManual">
+                                            <button class="dropbtnUserManual" id="button"type="button" style=float:right;>User Manual</button>
+                                            <div class="dropdown-contentUserManual">
+                                                <a href="#hl1">Login Registration Volunteers Profile</a>
+                                                <a href="#hl2">System Admin Function</a>
+                                                <a href="#hl3">Volunteers Attendance Logging</a>
+                                                <a href="#hl4">Case Report Highlight</a>
+                                                <a href="#hl5">Save and Sync Buttons</a>
+                                            </div>
+                                        </div>
+                                    </div>
+<!-- User Manual Button END-->                 
+                       
+                    <h2><b>OFFFLINE Save Report to Device</b></h2><br>
+                    <h3>At the end of the report, if it is offline, without internet connection, the user click button "OFFLINE Save Report to device",  the report wil be saved on their handphone.</h3><br>
+                    <div class="image-container">
+                        <img src="./img/forms/SaveSync.jpg" id="SaveSync" alt="SaveSync" class="center"/>
+                       </div>
+
+<h2><b>ONLINE Data Sync to Database and Send Email to DEC district</b></h2><br>
+
+<h3>When the internet connection is available</h3>
+    <h3>(1) the user can click "ONLINE Data Sync to Database Email DEC" button, the report information will be transfer to databases, with an option to remove them from the handphone device temporary storage. </h3> 
+<h3>(2) At the same time, if the user select "Yes" for "email to DEC",  the report wil be email to the respective district officer automatically.</h3>
+ <br>   <img src="./img/forms/emailDEC.jpg" id="SaveSync" alt="SaveSync" class="center"/>
+
+ <br>   <a href="./index.html"><button type="button" style=float:right;>logout</button></a>
+
+                       <br>    <br><br><br><br><br><br>
+                </td>   
+                </tr>       
+        </table>
+
+        <br><br><br><br><br><br>
+        <br><br><br><br><br><br>
+        <br><br><br><br><br><br>
+ </div>
 
 </body>
 
+
+<footer>
+    <p>&copy; 2024 Bibbulmun Track Maintenance App</p>
+</footer>
+
+
 </html>
+

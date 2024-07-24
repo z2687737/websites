@@ -1,4 +1,4 @@
-// www/js/clickCamera.js 
+console.log('loaded websites/btf/www/js/clickCamera.js ');
 
 // Wait for the DOM content to be fully loaded
 document.addEventListener("DOMContentLoaded", function() {
@@ -9,12 +9,22 @@ document.addEventListener("DOMContentLoaded", function() {
     clickCameraButton.addEventListener('click', takePhoto);
 });
 
+/*
+"navigator.mediaDevices.getUserMedia"
+ the "WebRTC API"
+is a standard set of APIs supported by modern 
+ web browsers on both desktop and mobile devices.
+ */
+
 // Function to take a photo using the device's camera
 function takePhoto() {
+    console.log('takePhoto function called');
     // Check if the device supports camera access
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
         // Request access to the camera
-        navigator.mediaDevices.getUserMedia({ video: true }).then(function (stream) {
+        navigator.mediaDevices.getUserMedia({ 
+            video: { facingMode: { exact: "environment" }  } 
+        }).then(function (stream) {
             // Create a video element to capture the stream
             let video = document.createElement('video');
             video.style.display = 'none'; // Hide the video element

@@ -1,4 +1,4 @@
-//www/js/issueTypeOptions.js
+console.log(" www/js/issueTypeOptions.js ");
 
 // Function to show specific options based on the selected issue type
 function showIssueOptions() {
