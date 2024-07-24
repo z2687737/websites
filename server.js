@@ -5,7 +5,8 @@ const app = express();
 const bodyParser = require('body-parser');
 const path = require('path');
 const mysql = require('mysql2'); // Make sure this is mysql2
-const port = 3000;
+//const port = 3000;
+const PORT = process.env.PORT || 3000;
 
 //====== DATABASE CONNECTION ========
 
@@ -109,5 +110,6 @@ app.use((err, req, res, next) => {
 //========  START SERVER ===================
 
 app.listen(port, () => {
-    console.log(`Server is running on http://localhost:${port}`);
+    console.log(`Server is running on port ${PORT}`);
+   // console.log(`Server is running on http://localhost:${port}`);
 });
