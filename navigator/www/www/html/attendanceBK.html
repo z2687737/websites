@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+   <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+    <meta name="color-scheme" content="light dark">
+
+    <link rel="stylesheet" type="text/css" href="../css/index.css">
+    <link rel="stylesheet" type="text/css" href="../css/form.css">
+    <link rel="stylesheet" type="text/css" href="../css/formLogin.css">
+    <link rel="stylesheet" type="text/css" href="../css/header.css">
+    <link rel="stylesheet" type="text/css" href="../css/table.css">
+
+    <title>Attendance</title>
+
+</head>
+
+<body>
+  <div id="headerPlaceholder"></div>    <!--paste in the entire header banner with navigatior -->
+  <a href="../html/loginLanding.html"><button type="button" style=float:right;>Administratin Function</button></a><br><br>
+  
+       <br>     <a href="../index.html"><button type="button" style=float:right;>logout</button></a>
+      
+<br><br>
+  <main>
+
+    <form id="attendanceForm">
+        <!-- Your form inputs -->    
+<div>
+        <br>    
+<h3>Attendance Date Time Stamp logging</h3>
+<br>
+<div id="hello"></div>  
+</div>
+
+<h1><div id="helloDiv"></div>  </div></h1>
+
+<h1><div id="userHeader" style="text-align: left;">  </div></h1>
+<!-- This is where the user's name will appear -->
+
+<h1>Welcome to attendance logging.</h1>
+
+<!-- Show aVolHoursPrevious on attendance.html first field-->
+  <div id="aVolHoursPreviousDiv">
+    <label for="aVolHoursPrevious">Accumulated Volunteered Hours</label>
+    <textarea placeholder="Display total hours: 0 " id="aVolHoursPrevious" name="aVolHoursPrevious" rows="1" cols="21"></textarea>
+</div>
+
+   <!-- User input for check-in date time -->
+ 
+            <label for="chkInDTS">Scan QR Code or click Check In Date Time Stamp</label>
+            <input placeholder="Check In Date Time" type="datetime-local" id="chkInDTS" name="chkInDTS"><br>
+      
+            <!-- User input for check-out date time -->
+            <label for="chkOutDTS">Scan QR Code or click Check Out Date Time Stamp</label>
+            <input placeholder="Check Out Date Time" type="datetime-local" id="chkOutDTS" name="chkOutDTS"><br>
+        
+              <!-- Submit button -->
+            <input type="submit" value="Submit"><br><br>
+            
+            <!-- Display today's volunteered hours -->
+            <label for="volHours">Today's Volunteered Hours</label>
+            <textarea placeholder="Today's volunteered hours" id="volHours" name="volHours" rows="1" cols="21"></textarea>
+          
+              <!-- Display accumulated volunteered hours after submission -->
+            <label for="aVolHours">Accumulated Volunteered Hours</label>
+            <textarea placeholder="Accumulated Vol Hours" id="aVolHours" name="accumulatedVolunteeredHours" rows="1" cols="21"></textarea>
+        
+            <br> <br>
+            
+            
+            <br> <br>
+        </div>
+    </form>
+
+    <br><br><br><br><br><br><br><br><br><br>
+
+</main>
+
+<footer>
+<p>&copy; 2024 Bibbulmun Track Maintenance App</p>
+</footer>
+
+<script src="../js/headerBannerNavigator.js"></script>
+<script src="../js/attendance.js"></script> <!-- Link to your registration.js script -->
+
+<!-- (  helloDiv.textContent = `Hello, ${loginUserName}`) --> 
+<script src="../js/login.js"></script>
+<script src="../js/hello.js"></script>
+
+</body>
+</html>

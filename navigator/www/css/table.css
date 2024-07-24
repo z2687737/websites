@@ -1,0 +1,61 @@
+//table.css
+
+
+body, html {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin: 20;
+    padding: 20px;
+    background-color: white;
+  }
+
+  .table-container {
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    height: 100%;
+    width: 30%;
+    background-color: white; /* Optional background color */
+  }
+  
+/*
+  .centered-table {
+    width: 50%; /* Adjust width as needed */
+    max-width: 300px; /* Max width for responsiveness */
+    border-collapse: collapse;
+    text-align: center;
+  }
+
+  .centered-table th, .centered-table td {
+    border: 1px solid black;
+    padding: 10px;
+  }
+
+  */
+
+table {
+    border-collapse: collapse;
+    width: 50%;
+    max-width: 300px; /* Adjust width as needed */
+    text-align: center;
+  }
+
+  table, th, td {
+    border: 1px solid black;
+  }
+
+  th, td {
+    padding: 10px;
+  }
+
+  .gps-cell {
+    background-color: lightblue;
+    padding: 20px;
+  }
+
+  .photo-cell {
+    background-color: yellow;
+    padding: 20px;
+  }

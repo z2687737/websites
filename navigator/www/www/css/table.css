@@ -1,0 +1,80 @@
+// www/css/table.css
+
+body, html {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin: 10;
+    padding: 10px;
+    background-color: white;
+  }
+
+  .table-container {
+    display: flex;
+    margin: 10;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+    width: 100%;
+    background-color: white; /* Optional background color */
+  }
+  
+
+  .centered-table {
+    width: 80%; /* Adjust width as needed */
+    max-width: 800px; /* Max width for responsiveness */
+    border-collapse: collapse;
+    text-align: center;
+  }
+
+  .centered-table th, .centered-table td {
+    border: 1px solid black;
+    padding: 10px;
+  }
+
+
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 300px; /* Adjust width as needed */
+    text-align: center;
+  }
+
+  table, th, td {
+    border: 1px solid black;
+  }
+
+  th, td {
+    padding: 10px;
+  }
+
+  .gps-cell {
+    background-color: lightblue;
+    padding: 20px;
+  }
+
+  .camera-cell {
+    width: 100%;
+}
+.camera-cell img {
+    height: 300px;
+    width: 100%;
+    display: block;
+    margin: 10px 0; /* Add some space between images */
+}
+
+.video-cell {
+  width: 100%;
+  padding: 20px; /* Adjust padding as needed */
+}
+
+.video-cell video {
+  height: 300px; /* Set the height of the video element */
+  width: 100%; /* Set the width of the video element */
+  display: block;
+  margin: 10px 0; /* Add some space between videos */
+}
+

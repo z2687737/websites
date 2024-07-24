@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+
+<head>
+    <meta charset="utf-8">
+        <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
+    <!--
+        Customize this policy to fit your own app's needs. For more guidance, please refer to the docs:
+            https://cordova.apache.org/docs/en/latest/
+        Some notes:
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self' data: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+    <meta name="color-scheme" content="light dark">
+    
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/FormPerthAddress.css">
+<!-- <link rel="stylesheet" href="../css/navigator.css">    -->
+
+<script src="../js/index.js" defer></script>
+    <script src="../js/FormPerthAddress.js" defer></script>
+    <script src="../js/cameraTest.js" defer></script>
+<!-- defer here ensure the javascript are executed after HTML is parsed -->
+    
+    <title>Bibbulmun Track Maintenance App</title>
+
+    <style>
+        .header-content {
+            display: flex;
+            align-items: center;
+        }
+
+        .header-content img {
+            margin-right: 20px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header class="header-content">
+        <img src="../img/walkTheBibTrack.jpg" alt="Walk the Bibbulmun Track" />
+        <h1>Welcome to the Bibbulmun Track Maintenance App</h1>
+    </header>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="https://www.bibbulmuntrack.org.au/the-track/" target="_blank">Walk The Bibbulmun Track</a></li>
+            <li><a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/" target="_blank">Volunteer
+                    With Us</a></li>
+            <li><a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/training-recognition/"
+                    target="_blank">Training and Recognition</a></li>
+            <li><a href="https://www.bibbulmuntrack.org.au/get-involved/volunteer-with-us/volunteering-faqs/"
+                    target="_blank">Volunteering FAQs</a></li>
+            
+            <li><a href="https://docs.google.com/document/d/1ijmDKX9Eb4ph3X2y8SCljUWEqL9flKbr/edit?usp=sharing&ouid=102690957484764986431&rtpof=true&sd=true"
+                    target="_blank">{ Project Paper</a></li>            
+                <li><a href="https://docs.google.com/spreadsheets/d/1s2p3TSCYY5Vh6vhblPEi25_9b6n10qWl/edit?usp=sharing&ouid=102690957484764986431&rtpof=true&sd=true"
+                        target="_blank">TrackInspectionReportXLS</a></li>
+                <li><a href="https://drive.google.com/file/d/1NezoBfJuzdqkjP_9EmAmTb5IP1VBhF2I/view?usp=sharing"
+                        target="_blank">VolunteeringPDF</a></li>
+                <li><a href="https://drive.google.com/file/d/1yaRAgKrB8Kt_-z2ZKa9jPq5cuSN8uU3o/view?usp=sharing"
+                        target="_blank">CampsiteReportPNG</a></li>
+                <li><a href="https://docs.google.com/document/d/1ua7MqJL4XS2BaUwiyPjofkEDkKqgDN38/edit?usp=sharing&ouid=102690957484764986431&rtpof=true&sd=true"
+                        target="_blank">CampsiteReportWORDS }</a></li>
+            
+        </ul>
+    </nav>
+
+    <main>
+        <section>
+
+            <h2>Registration</h2>
+
+<div class="form-container">
+    <form action="/submit-perth-address" method="post">
+        
+            <label for="loginUserName">Login Username</label>
+            <input placeholder="Login User Name" type="text" id="loginUserName" name="loginUserName">
+
+            <label for="loginPassword">Login Password</label>
+            <input placeholder="Login Password" type="password" id="loginPassword" name="loginPassword"><br>
+            <p1 style="color: orange;"> 8 UpperLowerCase AlphaNumeric WildcardCharacters</p1><br>
+
+            <label for="repeatPassword">Repeat password</label>
+            <input placeholder="Repeat Password" type="password" id="repeatPassord" name="repeatPassord"><br>
+            <p1 style="color: orange;"> 8 UpperLowerCase AlphaNumeric WildcardCharacters</p1><br>
+
+            <label for="fName">First Name</label>
+            <input placeholder="First Name" type="text" id="fName" name="fName">
+
+            <label for="lname">Last Name</label>
+            <input placeholder="Last Name (SurName)" type="text" id="lname" name="lname"><br>
+
+            <label for="eMail">Email Address</label>
+            <input placeholder="Email Address" type="text" id="eMail" name="eMail">
+
+            <label for="hPhone">Hand Phone Number</label>
+            <input placeholder="Hand Phone Number" type="text" id="hPhone" name="hPhone">
+
+            <label for="rLocality">Residential Location</label>
+            <select>
+                <option value=" ">RESIDENTIAL LOCALITY</option>
+                <option value="suburb">Surburd</option>
+                <option value="Town">Town</option>
+            </select>
+            
+<br><p1 style="color: green;">( 1 ) This for FORM Perth Address </p1><br>
+
+        <div class="form-group">
+            <label for="street-number">Street Number</label>
+            <input type="text" id="street-number" name="street-number" required>
+        </div>
+                
+        <div class="form-group">
+            <label for="suburb">Suburb</label>
+            <select id="suburb" name="suburb" required>
+                <option value="">Select a suburb</option>
+                <option value="Subiaco">Subiaco</option>
+                <option value="Fremantle">Fremantle</option>
+                <option value="Cottesloe">Cottesloe</option>
+                <!-- Add more suburbs as needed -->
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="street">Street</label>
+            <select id="street" name="street" required>
+                <option value="">Select a street</option>
+                <!-- Streets will be populated based on the selected suburb -->
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="street-name">Street Name</label>
+            <input type="text" id="street-name" name="street-name" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="address1">Address Line 1</label>
+            <input type="text" id="address1" name="address1" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="address2">Address Line 2</label>
+            <input type="text" id="address2" name="address2">
+        </div>
+        
+        <div class="form-group">
+            <label for="city">City</label>
+            <input type="text" id="city" name="city" value="Perth" readonly>
+        </div>
+        
+        <div class="form-group">
+            <label for="state">State</label>
+            <input type="text" id="state" name="state" value="Western Australia" readonly>
+        </div>
+        
+        <div class="form-group">
+            <label for="zipcode">Zip/Postal Code</label>
+            <input type="text" id="zipcode" name="zipcode" required>
+        </div>
+        
+<br><p1 style="color: green;">( 2 ) This for preparation of Volunteer Profile</p1>
+
+            <h2>VOLUNTEER PROFILE</h2>
+            <label for="volCat">Volunteer Roles Support Categories:</label>
+            <select id="volCat" name="VolunteerCategories">
+                <option value=" ">VOLUNTEER ROLE</option>
+                <option value="maintenanceSectional">Maintenance Sectional</option>
+                <option value="maintenanceSupport">Maintenance Supports</option>
+                <option value="officeGeneral">Office General</option>
+                <option value="officeMaintenanceAdmin">Office Maintenance Admin</option>
+                <option value="officeMarketing">Office Marketing and Communications</option>
+                <option value="trackGuiding">Track Guiding</option>
+                <option value="researchDataEntry">Research Data Entry</option>
+                <option value="promotionCommunityEvents">Promotion Community Events</option>
+                <option value="promotionCalendarDistribution">Promotion Calendar Distribution</option>
+            </select>
+
+            <br><p1 style="color: green;">( 2 ) here maybe check box is more suitable? </p1><br>
+            <label for="tCert">Training Certificates possesed or Experiences</label>
+            <select id="tCert" name="trainingCert">
+                <option value=" ">CERTIFICATES</option>
+                <option value="tFirstAids">st John First Aids</option>
+                <option value="tC">Training in IT programming Database</option>
+                <option value="tMarketing">Training in Sales and Marketing Promotion Communication</option>
+                <option value="tOfficeAdministration">Office Administration</option>
+                <option value="officeMarketing">Office Marketing and Communications</option>
+                <option value="tGuiding">Track Guiding</option>
+                <br><p1 style="color: green;">( 2 ) here maybe check box is more suitable? </p1><br>
+            </select>  
+            <label for="background">Background - tell use more about yourself</label>
+               <textarea id="background" name="background" rows="4" cols="21"></textarea><br>
+               
+               <br><p1 style="color: green;">( 3 ) add more items here </p1><br>
+
+               <br><p1 style="color: green;">( 4 ) add more items here </p1><br>
+
+            <br><p1 style="color: green;">( 5 ) CLICK Register, the above information input goes to database </p1><br>
+          
+         
+
+       <div class="form-group">
+            <button type="submit">Register</button>
+        </div>
+           <br><br><br>
+    </form>
+</div>
+
+         <script src="../js/FormPerthAddress.js"></script>
+</body>
+<footer>
+    <p>&copy; 2024 Bibbulmun Track Maintenance App</p>
+</footer>
+</html>

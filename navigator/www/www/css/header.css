@@ -1,0 +1,83 @@
+/*css/header.css*/
+
+body {
+    margin: 0; /* Ensure no default body margin */
+    padding: 0; /* Ensure no default body padding */
+}
+
+header {
+    /*  position: fixed;*/ /*here fixed header, but navigator went behind on top*/
+      align-items: center;
+      background-color: #eba308; /* Adjust to match Bibbulmun Track website */
+      color: white;
+      padding: 5px;
+      text-align: center;
+     z-index: 1000;
+/* Ensures the header is on top of other elements
+The z-index property in CSS specifies the stack order of an element. 
+An element with a higher stack order is always 
+in front of an element with a lower stack order. 
+The value 1000 is a relatively high value 
+to ensure that the header stays on top of 
+most other elements on the page.
+     */  
+      display: flex;
+      justify-content: center;
+  }
+  
+  header img {
+    max-width: 100%; /* Ensure it doesn't exceed the container's width */
+    height: auto;   /* Maintain aspect ratio */
+/*    max-height: 10px;  Set a maximum height to ensure the header is not too tall */
+}
+  
+  .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;      /* space-between; */
+      background-color: #eba308;
+      color: white;
+      padding: 20px 20px; 
+       /* vertical, horizontal: Adjust the vertical padding to reduce height */
+  }
+  
+  .header-content img {
+      margin-right: 20px;
+  }
+  
+  .user-header {
+  /*  margin-left: auto;   */
+    padding-right: 20px;
+}
+
+.text {
+    flex-grow: 1; /* Grow to fill available space */
+    margin: 0 10px; /* Example margin */
+}
+
+  .logo img {
+    display: flex;
+    align-items: center;  
+    max-height: 200px; /* Example max height for images */
+  }
+
+  .qrcode {
+    display: flex;
+    align-items: center;
+    /* Customize QR code styles */
+    padding: 20px;
+}
+  .qrcode img {
+      max-height: 200px; /* Example max height for images */
+      padding-right: 50px;
+  }
+
+footer {
+    background-color: #eba308;
+    color: black;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
