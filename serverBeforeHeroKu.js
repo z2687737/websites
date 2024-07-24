@@ -2,14 +2,13 @@ console.log('load websites/btf/serverRoute.js');
 
 const express = require('express');
 const app = express();
-const { Pool } = require('pg');
 const bodyParser = require('body-parser');
 const path = require('path');
-
+const mysql = require('mysql2'); // Make sure this is mysql2
 //const port = 3000;
 const PORT = process.env.PORT || 3000;
 
-/* ====== DATABASE CONNECTION ========
+//====== DATABASE CONNECTION ========
 
 const db = mysql.createConnection({
     host: '127.0.0.1',
@@ -18,35 +17,6 @@ const db = mysql.createConnection({
     database: 'btf',
     port: 3306
 });
-*/
-
-//====== HEROKU DATABASE CONNECTION ========
-
-// Database connection setup with pg Pool
-const pool = new Pool({
-    connectionString: process.env.DATABASE_URL,
-    ssl: {
-        rejectUnauthorized: false
-    }
-});
-
-const dbConfig = {
-    host: process.env.DB_,
-    user: process.env.DB_root,
-    password: process.env.DB_Sq00700&,
-    database: process.env.DB_btf,
-    port: process.env.DB_PORT || 5432, 
-    // PostgreSQL default port is 5432
-    ssl: {
-        rejectUnauthorized: false
-    }
-};
-
-
-const mysql = require('mysql2'); 
-const db = mysql.createConnection(dbConfig);
-
-//====== HEROKU DATABASE CONNECTION ========END
 
 db.connect(err => {
     if (err) {
