@@ -31,7 +31,7 @@
     <header class="header-content">
 
         <div class="logo">
-            <img src="img/walkTheBibTrack.jpg" id="bibTrackImage" class = "blink" alt="Walk the Bibbulmun Track" />
+            <img src="img/logo/walkTheBibTrack.jpg" id="bibTrackImage" class = "blink" alt="Walk the Bibbulmun Track" />
 
             <div class="text">
                 <h1>Track Maintenance App</h1>
@@ -96,6 +96,8 @@
 
                     <a href="./html/attendance.html" >Attendance Logging</a>
                     <a href="./html/loginLanding.html" >Login Admin</a>
+                    <a href="./html/helpFAQ.html" >FAQs</a>
+                    <a href="./html/helpTroubleShooting.html" >Trouble Shooting</a>
                     <a href="./html/contactUs.html" >Contact Us</a>
                     <a href="./index.html" >Log out</a>
                 </div>
@@ -110,6 +112,8 @@
                     <a href="./img/QRCode/QRCodeBTF01Orange.jpeg"><img src="img/QRCode/QRCodeBTF01Orange.jpeg" alt="HTML tutorial" style="width:48px;height:48px;"></a>                    
                     <a href="./img/QRCode/QRCodeBTF01Orange.jpeg"><img src="img/QRCode/QRCodeBTF01Orange.jpeg" alt="HTML tutorial" style="width:48px;height:48px;"></a>                    
                     <a href="./img/QRCode/QRCodeBTF01Orange.jpeg"><img src="img/QRCode/QRCodeBTF01Orange.jpeg" alt="HTML tutorial" style="width:48px;height:48px;"></a>                    
+                
+                    <a href="./html/testForm.html" >testForm</a>
                 </div>
             </li>
         </ul>
@@ -149,6 +153,8 @@
                                 <a href="./html/login.html">Login</a>
                                 <a href="./html/registration.html">Registration</a>
                                 <a href="./html/caseReport.html">Case Report</a>
+                                <a href="./html/helpFAQ.html">FAQ</a>
+                                <a href="./html/helpTroubleShooting.html" >Trouble Shooting</a>
                                 <a href="./html/contactUs.html">Contact Us</a>
                                 <a href="./index.html">Logout</a>
                             </div>
@@ -172,16 +178,16 @@
 <!-- User Manual Button END-->
 
                                 <div class="image-container">
-                                    <img src="./img/goldenValleyTreeParkGreenHills.jpg" id="BTFHomePage1" alt="BTFHomePage1" class="center"  /><br><br>
-                                    <img src="./img/mundaringWeirDamWall.jpg" id="BTFHomePage3" alt="BTFHomePage3" class="center"  /><br><br>
-                                    <img src="./img/collage01.jpg" id="BTFHomePage2" alt="BTFHomePage2" class="center"  /><br><br>
-                                    <img src="./img/darlingRange.jpg" id="BTFHomePage3" alt="BTFHomePage3" class="center"  /><br><br>
-                                    <img src="./img/trail02.jpg" id="BTFHomePage1" alt="BTFHomePage1" class="center"  /><br><br>
-                                    <img src="./img/BTFTrack01.jpg" id="BTFHomePage1" alt="BTFHomePage1" class="center"  /><br><br>
+                                    <img src="./img/scenery/goldenValleyTreeParkGreenHills.jpg" id="BTFHomePage1" alt="BTFHomePage1" class="center"  /><br><br>
+                                    <img src="./img/scenery/mundaringWeirDamWall.jpg" id="BTFHomePage3" alt="BTFHomePage3" class="center"  /><br><br>
+                                    <img src="./img/scenery/collage01.jpg" id="BTFHomePage2" alt="BTFHomePage2" class="center"  /><br><br>
+                                    <img src="./img/scenery/darlingRange.jpg" id="BTFHomePage3" alt="BTFHomePage3" class="center"  /><br><br>
+                                    <img src="./img/scenery/trail02.jpg" id="BTFHomePage1" alt="BTFHomePage1" class="center"  /><br><br>
+                                    <img src="./img/scenery/BTFTrack01.jpg" id="BTFHomePage1" alt="BTFHomePage1" class="center"  /><br><br>
                                
-                                    <img src="./img/featherFlowers.jpg" id="BTFHomePage2" alt="BTFHomePage2" class="center"  /><br><br>
+                                    <img src="./img/scenery/featherFlowers.jpg" id="BTFHomePage2" alt="BTFHomePage2" class="center"  /><br><br>
                                   
-                                    <img src="./img/goldenValleyTreePark.jpg" id="BTFHomePage3" alt="BTFHomePage3" class="center"  /><br><br>
+                                    <img src="./img/scenery/goldenValleyTreePark.jpg" id="BTFHomePage3" alt="BTFHomePage3" class="center"  /><br><br>
                                    </div>
                 </td>
             </tr>
@@ -514,13 +520,13 @@
                <p>(1)The first button click to store data on localStorage (handphone or tablet devices). </p>
                <p>(2)The second button click to </p>
              <p1>(2.i) synchronise and transfer all form data including GPS and camera video to databases when internet connection is available, <br></p1>
-               <p1>(2.ii))with the automation to clear (get ready for next saving) localStorage on the smart phone.</p1></h3><br>
+               <p1>(2.ii)with the automation to clear (get ready for next saving) localStorage on the smart phone.</p1></h3><br>
            
 <h2><b>date time picker highlight</b></h2><br>
                 <h3>the picker automatically bounce out with the current time.  This reduces chance of user's typo error input. (If necessary,) this feature can also be replaced by "current-date-time insertion" so user need not even specific date time.
                <br>
-<br>
-<h2><b>ease of selection from the 55 campsites</b></h2><br>
+               <br>
+<h2  id="hlcampsites" ><b>ease of selection from the 55 campsites</b></h2><br>
                <h3>There are 2 options to select the campsite indicator.
 <br><br><b>OPTION A:</b><br>
 <br>a.i.  When user select DEC district, the repsective campsites belonged to the particular selection DEC district authority will emerge for further selection, This reduces chance of user's typo error input.<br>
@@ -604,18 +610,19 @@
     <h3>(1) the user can click "ONLINE Data Sync to Database Email DEC" button, the report information will be transfer to databases, with an option to remove them from the handphone device temporary storage. </h3> 
 <h3>(2) At the same time, if the user select "Yes" for "email to DEC",  the report wil be email to the respective district officer automatically.</h3>
  <br>   <img src="./img/forms/emailDEC.jpg" id="SaveSync" alt="SaveSync" class="center"/>
+
+ <br>   <a href="./index.html"><button type="button" style=float:right;>logout</button></a>
+
                        <br>    <br><br><br><br><br><br>
                 </td>   
-                </tr>
+                </tr>       
         </table>
+
         <br><br><br><br><br><br>
         <br><br><br><br><br><br>
         <br><br><br><br><br><br>
  </div>
 
- <p>
-    <h3>.</h3><br>
-  </p>
 </body>
 
 
